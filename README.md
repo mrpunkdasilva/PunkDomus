@@ -1,5 +1,7 @@
 # nuxt-punk-domus
 
+> para usar imagens: _nuxt/public/resources/blog-1.jpg 
+
 ## Build Setup
 
 ```bash
