@@ -1,71 +1,101 @@
-# nuxt-punk-domus
+# Punk Domus Blog
 
-> para usar imagens: _nuxt/public/resources/blog-1.jpg 
+A minimalist blog built with Nuxt.js and @nuxt/content, featuring a cyberpunk aesthetic theme.
 
-## Build Setup
+![Punk Domus Logo](/static/punk_domus.svg)
 
+## Features
+
+- Markdown-based blog posts
+- Cyberpunk-inspired design
+- Responsive layout
+- Static site generation
+- Image support for blog posts
+
+## Tech Stack
+
+- Nuxt.js 2.x
+- @nuxt/content
+- Vue.js 2.7
+- Custom CSS styling
+
+## Prerequisites
+
+- Node.js (v12 or higher)
+- npm or yarn
+
+## Installation
+
+1. Clone the repository:
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+git clone [your-repo-url]
+cd nuxt-punk-domus
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-## Special Directories
+3. Run development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+The application will be available at `http://localhost:3000`
 
-### `assets`
+## Project Structure
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+- `content/blog/` - Markdown files for blog posts
+- `components/` - Vue components (HeaderMain)
+- `layouts/` - Page layouts with global styling
+- `pages/` - Application routes and views
+- `public/resources/` - Blog post images
+- `static/` - Static assets (punk_domus.svg)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+## Creating Blog Posts
 
-### `components`
+1. Add a new markdown file in `content/blog/`
+2. Include the following frontmatter:
+```markdown
+---
+title: Your Post Title
+description: Post description
+slug: url-friendly-slug
+img: image-name.jpg
+---
+```
+3. Place corresponding images in `public/resources/`
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+## Building for Production
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+```bash
+# Generate static site
+npm run generate
+# or
+yarn generate
 
-### `layouts`
+# Serve production build
+npm run start
+# or
+yarn start
+```
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+## Customization
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+- Global styles can be modified in `layouts/default.vue`
+- Header styling in `components/HeaderMain.vue`
+- Blog post layout in `pages/_slug.vue`
+- Site configuration in `nuxt.config.js`
 
+## License
 
-### `pages`
+[LICENSE](LICENSE)
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+## Author
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+Mr Punk da Silva
