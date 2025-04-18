@@ -1,5 +1,28 @@
 <template>
   <main class="home-page">
+    <ParticleBackground />
+    <!-- Seção de destaque -->
+    <section class="featured-section">
+      <div class="featured-content">
+        <h1 class="featured-title">Welcome to PunkDomus</h1>
+        <p class="featured-description">
+          Explore the digital frontier through the lens of cyberpunk aesthetics.
+          Dive into software development, documentation, and innovative projects.
+        </p>
+        <div class="featured-topics">
+          <div class="topic-tag"># Development</div>
+          <div class="topic-tag"># Documentation</div>
+          <div class="topic-tag"># Cyberpunk</div>
+          <div class="topic-tag"># Innovation</div>
+        </div>
+      </div>
+      <div class="featured-decoration">
+        <CyberSkull />
+        <div class="cyber-lines"></div>
+      </div>
+    </section>
+
+    <!-- Seção existente de posts -->
     <header class="home-header">
       <h2 class="home-title">Latest Posts</h2>
       <div class="header-line"></div>
@@ -35,6 +58,10 @@
 
 <script>
 export default {
+  components: {
+    CyberSkull: () => import('~/components/CyberSkull.vue'),
+    ParticleBackground: () => import('~/components/ParticleBackground.vue')
+  },
   async asyncData({ $content, params }) {
     const articles = await $content('blog', params.slug)
       .only(['title', 'description', 'img', 'slug'])
@@ -65,6 +92,110 @@ export default {
   margin: 0 auto;
   position: relative;
   min-height: 100vh;
+  z-index: 1; /* Garante que o conteúdo fique acima das partículas */
+}
+
+/* Melhora a visibilidade do conteúdo sobre as partículas */
+.featured-section,
+.article-card {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.featured-section {
+  margin-bottom: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  border: 1px solid rgba(252, 93, 127, 0.3);
+  overflow: hidden;
+}
+
+.featured-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+
+.featured-title {
+  font-size: 4em;
+  color: #21DEEA;
+  margin-bottom: 20px;
+  font-family: 'Protest Guerrilla', sans-serif;
+  text-transform: uppercase;
+  line-height: 1.1;
+  text-shadow:
+    0 0 10px rgba(33, 222, 234, 0.5),
+    0 0 20px rgba(33, 222, 234, 0.3);
+}
+
+.featured-description {
+  font-size: 1.2em;
+  color: #afafaf;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-family: "Inria Sans", sans-serif;
+}
+
+.featured-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.topic-tag {
+  padding: 8px 16px;
+  background: rgba(252, 93, 127, 0.1);
+  border: 1px solid #FC5D7F;
+  border-radius: 20px;
+  color: #FC5D7F;
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.topic-tag:hover {
+  background: rgba(252, 93, 127, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(252, 93, 127, 0.2);
+}
+
+.featured-decoration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cyber-lines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background:
+    linear-gradient(90deg,
+      transparent 0%,
+      rgba(33, 222, 234, 0.1) 50%,
+      transparent 100%);
+  transform: skewX(-20deg);
+}
+
+@keyframes rotate {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 .home-header {
@@ -249,6 +380,26 @@ export default {
 
   .articles-grid {
     grid-template-columns: 1fr;
+  }
+
+  .featured-section {
+    padding: 30px;
+    flex-direction: column;
+  }
+
+  .featured-title {
+    font-size: 2.5em;
+  }
+
+  .featured-decoration {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+  }
+
+  .featured-content {
+    max-width: 100%;
   }
 }
 
