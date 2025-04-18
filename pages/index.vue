@@ -1,6 +1,5 @@
 <template>
   <main class="home-page">
-    <ParticleBackground />
     <!-- Seção de destaque -->
     <section class="featured-section">
       <div class="featured-content">
@@ -22,7 +21,7 @@
       </div>
     </section>
 
-    <!-- Seção existente de posts -->
+    <!-- Seção de posts -->
     <header class="home-header">
       <h2 class="home-title">Latest Posts</h2>
       <div class="header-line"></div>
@@ -53,6 +52,9 @@
         </nuxt-link>
       </article>
     </div>
+
+    <!-- Tech Grid no final -->
+    <TechGrid />
   </main>
 </template>
 
@@ -60,7 +62,8 @@
 export default {
   components: {
     CyberSkull: () => import('~/components/CyberSkull.vue'),
-    ParticleBackground: () => import('~/components/ParticleBackground.vue')
+    ParticleBackground: () => import('~/components/ParticleBackground.vue'),
+    TechGrid: () => import('~/components/TechGrid.vue')
   },
   async asyncData({ $content, params }) {
     const articles = await $content('blog', params.slug)

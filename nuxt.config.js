@@ -15,7 +15,11 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'svg', href: '/punk_domus.svg' }
+      { rel: 'icon', type: 'svg', href: '/punk_domus.svg' },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
+      }
     ]
   },
 
