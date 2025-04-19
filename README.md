@@ -2,7 +2,7 @@
 
 A minimalist blog built with Nuxt.js and @nuxt/content, featuring a cyberpunk aesthetic theme.
 
-![Punk Domus Logo](/static/punk_domus.svg)
+![Punk Domus Logo](static/punk_domus.svg)
 
 ## Features
 

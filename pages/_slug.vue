@@ -130,12 +130,7 @@ export default {
 }
 
 .tag {
-  padding: 4px 12px;
-  background: rgba(252, 93, 127, 0.1);
-  border: 1px solid #FC5D7F;
-  border-radius: 15px;
   color: #FC5D7F;
-  font-size: 0.8em;
 }
 
 .header-line {
@@ -156,6 +151,125 @@ export default {
 .nuxt-content {
   color: #efefef;
   line-height: 1.8;
+}
+
+/* Estilos específicos para blocos de código */
+.nuxt-content-highlight {
+  position: relative;
+  margin: 30px 0;
+}
+
+.nuxt-content pre {
+  background: #080E1A !important;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(33, 222, 234, 0.2);
+  overflow-x: auto;
+  margin: 0;
+  font-size: 0.9em;
+  line-height: 1.5;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.nuxt-content pre code {
+  background: transparent !important;
+  color: #efefef;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.95em;
+  line-height: 1.6;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  tab-size: 2;
+  hyphens: none;
+}
+
+/* Estilos para código inline */
+.nuxt-content p code,
+.nuxt-content li code,
+.nuxt-content table code {
+  background: rgba(33, 222, 234, 0.1);
+  color: #21DEEA;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9em;
+  border: 1px solid rgba(33, 222, 234, 0.2);
+}
+
+/* Barra de linguagem do código */
+.nuxt-content-highlight .filename {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #FC5D7F;
+  font-size: 0.8em;
+  font-family: 'Fira Code', monospace;
+  padding: 0.5em 1em;
+  background: rgba(252, 93, 127, 0.1);
+  border-radius: 0 8px 0 8px;
+  border-left: 1px solid rgba(252, 93, 127, 0.3);
+  border-bottom: 1px solid rgba(252, 93, 127, 0.3);
+}
+
+/* Ajuste para tokens de sintaxe */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6c7a89;
+  font-style: italic;
+}
+
+.token.function {
+  color: #21DEEA;
+}
+
+.token.keyword {
+  color: #FC5D7F;
+}
+
+.token.string {
+  color: #98FB98;
+}
+
+.token.number {
+  color: #FF8C00;
+}
+
+.token.boolean {
+  color: #FC5D7F;
+}
+
+.token.property {
+  color: #21DEEA;
+}
+
+.token.operator {
+  color: #FC5D7F;
+}
+
+/* Scrollbar personalizada para blocos de código */
+.nuxt-content pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.nuxt-content pre::-webkit-scrollbar-track {
+  background: rgba(33, 222, 234, 0.1);
+  border-radius: 4px;
+}
+
+.nuxt-content pre::-webkit-scrollbar-thumb {
+  background: rgba(252, 93, 127, 0.3);
+  border-radius: 4px;
+}
+
+.nuxt-content pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(252, 93, 127, 0.5);
 }
 
 .nuxt-content h1,
