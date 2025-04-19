@@ -2,9 +2,15 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  // Adicione a configuração de generate se necessário
+  generate: {
+    fallback: true
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Punk Domus |> Nuxt',
+    title: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk',
+    titleTemplate: '%s | PunkDomus',
     htmlAttrs: {
       lang: 'pt-br'
     },

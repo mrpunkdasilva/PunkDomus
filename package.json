@@ -25,5 +25,8 @@
     "vue-scrollto": "^2.20.0",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
+  },
+  "devDependencies": {
+    "@nuxtjs/vercel-builder": "^0.25.0"
   }
 }
