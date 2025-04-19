@@ -117,6 +117,54 @@
         </article>
       </div>
     </section>
+
+    <!-- Latest Updates -->
+    <section class="latest-updates">
+      <h2>Últimas Atualizações</h2>
+      <div class="updates-timeline">
+        <div v-for="update in latestUpdates" :key="update.id" class="update-item">
+          <div class="update-date">{{ update.date }}</div>
+          <div class="update-content">
+            <span class="update-tag" :class="update.type">{{ update.type }}</span>
+            <h3>{{ update.title }}</h3>
+            <p>{{ update.description }}</p>
+            <div class="update-meta">
+              <span class="author"><i class="fas fa-user"></i> {{ update.author }}</span>
+              <span class="category"><i class="fas fa-folder"></i> {{ update.category }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech Categories -->
+    <section class="tech-categories">
+      <h2>Categorias</h2>
+      <div class="categories-grid">
+        <div v-for="category in techCategories" :key="category.id" class="category-card">
+          <div class="category-icon">
+            <i :class="category.icon"></i>
+          </div>
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.count }} documentos</p>
+          <div class="category-tags">
+            <span v-for="tag in category.tags" :key="tag" class="tag">{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Access -->
+    <section class="quick-access">
+      <h2>Acesso Rápido</h2>
+      <div class="quick-links">
+        <a v-for="link in quickLinks" :key="link.id" :href="link.url" class="quick-link">
+          <i :class="link.icon"></i>
+          <span>{{ link.title }}</span>
+          <span class="link-description">{{ link.description }}</span>
+        </a>
+      </div>
+    </section>
   </main>
 </template>
 
@@ -150,6 +198,88 @@ export default {
           category: 'Patterns',
           icon: 'fas fa-code',
           date: '2024-02-05'
+        }
+      ],
+      latestUpdates: [
+        {
+          id: 1,
+          date: '2024-02-20',
+          type: 'new',
+          title: 'Guia de Deploy com Docker',
+          description: 'Nova documentação sobre práticas de deploy usando Docker e Docker Compose',
+          author: 'João Silva',
+          category: 'DevOps'
+        },
+        {
+          id: 2,
+          date: '2024-02-18',
+          type: 'update',
+          title: 'Atualização: Clean Architecture',
+          description: 'Adicionadas novas seções sobre casos de uso e adaptadores',
+          author: 'Maria Santos',
+          category: 'Arquitetura'
+        },
+        {
+          id: 3,
+          date: '2024-02-15',
+          type: 'fix',
+          title: 'Correção: Tutorial GraphQL',
+          description: 'Corrigidos exemplos de mutations e atualizadas as dependências',
+          author: 'Pedro Costa',
+          category: 'Backend'
+        }
+      ],
+      techCategories: [
+        {
+          id: 1,
+          name: 'Frontend',
+          icon: 'fas fa-laptop-code',
+          count: 25,
+          tags: ['React', 'Vue', 'Angular', 'CSS']
+        },
+        {
+          id: 2,
+          name: 'Backend',
+          icon: 'fas fa-server',
+          count: 30,
+          tags: ['Node.js', 'Python', 'Java', 'API']
+        },
+        {
+          id: 3,
+          name: 'DevOps',
+          icon: 'fas fa-network-wired',
+          count: 18,
+          tags: ['Docker', 'K8s', 'CI/CD', 'AWS']
+        },
+        {
+          id: 4,
+          name: 'Mobile',
+          icon: 'fas fa-mobile-alt',
+          count: 15,
+          tags: ['React Native', 'Flutter', 'iOS', 'Android']
+        }
+      ],
+      quickLinks: [
+        {
+          id: 1,
+          title: 'Guia de Contribuição',
+          description: 'Como contribuir com a documentação',
+          icon: 'fas fa-hands-helping',
+          url: '/contribute'
+        },
+        {
+          id: 2,
+          title: 'Templates',
+          description: 'Templates para novos documentos',
+          icon: 'fas fa-file-alt',
+          url: '/templates'
+        },
+        {
+          id: 3,
+          title: 'FAQ',
+          description: 'Perguntas frequentes',
+          icon: 'fas fa-question-circle',
+          url: '/faq'
         }
       ]
     }
@@ -504,6 +634,163 @@ export default {
   color: #080E1A;
 }
 
+.latest-updates {
+  margin-top: 60px;
+  padding: 30px;
+  background: rgba(8, 14, 26, 0.8);
+  border-radius: 15px;
+}
+
+.updates-timeline {
+  margin-top: 30px;
+}
+
+.update-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-left: 2px solid #21DEEA;
+  margin-bottom: 20px;
+  background: rgba(33, 222, 234, 0.05);
+  border-radius: 0 15px 15px 0;
+}
+
+.update-date {
+  color: #21DEEA;
+  font-size: 0.9em;
+  min-width: 100px;
+}
+
+.update-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.update-tag.new {
+  background: rgba(0, 255, 0, 0.2);
+  color: #4CAF50;
+}
+
+.update-tag.update {
+  background: rgba(33, 222, 234, 0.2);
+  color: #21DEEA;
+}
+
+.update-tag.fix {
+  background: rgba(255, 87, 34, 0.2);
+  color: #FF5722;
+}
+
+.update-content h3 {
+  color: #FC5D7F;
+  margin-bottom: 8px;
+}
+
+.update-meta {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+  color: #21DEEA;
+  font-size: 0.9em;
+}
+
+.tech-categories {
+  margin-top: 60px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.category-card {
+  background: rgba(8, 14, 26, 0.8);
+  border: 1px solid rgba(33, 222, 234, 0.2);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  border-color: #21DEEA;
+  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+}
+
+.category-icon {
+  font-size: 2em;
+  color: #21DEEA;
+  margin-bottom: 15px;
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+  justify-content: center;
+}
+
+.tag {
+  background: rgba(252, 93, 127, 0.1);
+  color: #FC5D7F;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+}
+
+.quick-access {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: rgba(8, 14, 26, 0.8);
+  border: 1px solid rgba(33, 222, 234, 0.2);
+  border-radius: 15px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.quick-link:hover {
+  transform: translateX(5px);
+  border-color: #21DEEA;
+  background: rgba(33, 222, 234, 0.1);
+}
+
+.quick-link i {
+  font-size: 1.5em;
+  color: #21DEEA;
+}
+
+.quick-link span {
+  display: block;
+}
+
+.link-description {
+  font-size: 0.9em;
+  color: #FC5D7F;
+  margin-top: 5px;
+}
+
 @media (max-width: 768px) {
   .tech-docs-page {
     padding: 60px 15px;
@@ -522,6 +809,19 @@ export default {
   }
 
   .docs-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .update-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .update-date {
+    min-width: auto;
+  }
+
+  .quick-links {
     grid-template-columns: 1fr;
   }
 }
