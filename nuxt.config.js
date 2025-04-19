@@ -100,5 +100,36 @@ export default {
         }
       }
     }
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push(
+        {
+          name: 'tech-docs',
+          path: '/tech-docs',
+          component: resolve(__dirname, 'pages/tech-docs/index.vue')
+        },
+        {
+          name: 'code-labs',
+          path: '/code-labs',
+          component: resolve(__dirname, 'pages/code-labs/index.vue')
+        },
+        {
+          name: 'cheat-sheets',
+          path: '/cheat-sheets',
+          component: resolve(__dirname, 'pages/cheat-sheets/index.vue')
+        },
+        {
+          name: 'hand-notes',
+          path: '/hand-notes',
+          component: resolve(__dirname, 'pages/hand-notes/index.vue')
+        },
+        {
+          name: 'videos',
+          path: '/videos',
+          component: resolve(__dirname, 'pages/videos/index.vue')
+        }
+      )
+    }
   }
 }
