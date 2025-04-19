@@ -10,7 +10,6 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk',
-    titleTemplate: '%s | PunkDomus',
     htmlAttrs: {
       lang: 'pt-br'
     },
@@ -31,7 +30,19 @@ export default {
       { name: 'twitter:creator', content: '@mrpunksama' }
     ],
     link: [
-      { rel: 'icon', type: 'svg', href: '/punk_domus.svg' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/svg+xml', href: '/punk_domus.svg' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Protest+Guerrilla&family=Fira+Code:wght@400;500;600&display=swap',
+        crossorigin: 'anonymous'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css',
+        integrity: 'sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==',
+        crossorigin: 'anonymous'
+      }
     ]
   },
 
@@ -54,13 +65,40 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    '@nuxtjs/google-fonts'
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
   content: {},
 
+  // Configuração do google-fonts (alternativa mais robusta)
+  googleFonts: {
+    families: {
+      'Inria+Sans': [300, 400, 700],
+      'Protest+Guerrilla': true,
+      'Fira+Code': [400, 500, 600]
+    },
+    display: 'swap',
+    prefetch: true,
+    preconnect: true,
+    preload: true
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    }
   }
 }
