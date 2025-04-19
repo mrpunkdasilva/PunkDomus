@@ -16,10 +16,12 @@
         </div>
       </div>
       <div class="featured-decoration">
-        <CyberSkull />
+        <CyberSkull/>
         <div class="cyber-lines"></div>
       </div>
     </section>
+
+    <Separator3D />
 
     <!-- Seção de posts -->
     <header class="home-header">
@@ -53,8 +55,15 @@
       </article>
     </div>
 
+    <Separator3D />
+
+    <!-- Nova seção de categorias -->
+    <FeaturedCategories/>
+
+    <Separator3D />
+
     <!-- Tech Grid no final -->
-    <TechGrid />
+    <TechGrid/>
   </main>
 </template>
 
@@ -63,15 +72,17 @@ export default {
   components: {
     CyberSkull: () => import('~/components/CyberSkull.vue'),
     ParticleBackground: () => import('~/components/ParticleBackground.vue'),
-    TechGrid: () => import('~/components/TechGrid.vue')
+    TechGrid: () => import('~/components/TechGrid.vue'),
+    FeaturedCategories: () => import('~/components/FeaturedCategories.vue'),
+    Separator3D: () => import('~/components/Separator3D.vue')
   },
-  async asyncData({ $content, params }) {
+  async asyncData({$content, params}) {
     const articles = await $content('blog', params.slug)
       .only(['title', 'description', 'img', 'slug'])
       .sortBy('createdAt', 'desc')
       .fetch()
 
-    return { articles }
+    return {articles}
   },
   head() {
     return {
@@ -131,9 +142,8 @@ export default {
   font-family: 'Protest Guerrilla', sans-serif;
   text-transform: uppercase;
   line-height: 1.1;
-  text-shadow:
-    0 0 10px rgba(33, 222, 234, 0.5),
-    0 0 20px rgba(33, 222, 234, 0.3);
+  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5),
+  0 0 20px rgba(33, 222, 234, 0.3);
 }
 
 .featured-description {
@@ -184,11 +194,10 @@ export default {
   right: 0;
   bottom: 0;
   width: 100%;
-  background:
-    linear-gradient(90deg,
-      transparent 0%,
-      rgba(33, 222, 234, 0.1) 50%,
-      transparent 100%);
+  background: linear-gradient(90deg,
+  transparent 0%,
+  rgba(33, 222, 234, 0.1) 50%,
+  transparent 100%);
   transform: skewX(-20deg);
 }
 
@@ -212,9 +221,8 @@ export default {
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 20px;
-  text-shadow:
-    0 0 10px rgba(252, 93, 127, 0.5),
-    0 0 20px rgba(252, 93, 127, 0.3);
+  text-shadow: 0 0 10px rgba(252, 93, 127, 0.5),
+  0 0 20px rgba(252, 93, 127, 0.3);
 }
 
 .header-line {
@@ -244,9 +252,8 @@ export default {
 .article-card:hover {
   transform: translateY(-5px);
   border-color: rgba(252, 93, 127, 0.4);
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(252, 93, 127, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4),
+  0 0 20px rgba(252, 93, 127, 0.2);
 }
 
 .article-card a {
