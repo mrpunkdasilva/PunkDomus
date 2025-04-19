@@ -102,11 +102,17 @@ export default {
 <style scoped>
 .home-page {
   padding: 80px 30px;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   position: relative;
   min-height: 100vh;
-  z-index: 1; /* Garante que o conteúdo fique acima das partículas */
+  z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(8, 14, 26, 0.9) 0%,
+    rgba(8, 14, 26, 0.95) 50%,
+    rgba(8, 14, 26, 0.9) 100%
+  );
+  overflow-x: hidden; /* Previne scroll horizontal */
 }
 
 /* Melhora a visibilidade do conteúdo sobre as partículas */
@@ -117,7 +123,7 @@ export default {
 }
 
 .featured-section {
-  margin-bottom: 100px;
+  margin-bottom: 120px;
   position: relative;
   display: flex;
   align-items: center;
@@ -127,6 +133,10 @@ export default {
   border-radius: 20px;
   border: 1px solid rgba(252, 93, 127, 0.3);
   overflow: hidden;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .featured-content {
@@ -136,18 +146,18 @@ export default {
 }
 
 .featured-title {
-  font-size: 4em;
+  font-size: clamp(2em, 5vw, 4em); /* Título responsivo */
   color: #21DEEA;
   margin-bottom: 20px;
   font-family: 'Protest Guerrilla', sans-serif;
   text-transform: uppercase;
   line-height: 1.1;
   text-shadow: 0 0 10px rgba(33, 222, 234, 0.5),
-  0 0 20px rgba(33, 222, 234, 0.3);
+               0 0 20px rgba(33, 222, 234, 0.3);
 }
 
 .featured-description {
-  font-size: 1.2em;
+  font-size: clamp(1em, 2vw, 1.2em); /* Texto responsivo */
   color: #afafaf;
   margin-bottom: 30px;
   line-height: 1.6;
@@ -211,18 +221,19 @@ export default {
 }
 
 .home-header {
+  margin-top: 120px; /* Novo espaçamento superior */
   margin-bottom: 60px;
   position: relative;
 }
 
 .home-title {
-  font-size: 3.5em;
+  font-size: clamp(2em, 4vw, 3.5em);
   color: #FC5D7F;
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 20px;
   text-shadow: 0 0 10px rgba(252, 93, 127, 0.5),
-  0 0 20px rgba(252, 93, 127, 0.3);
+               0 0 20px rgba(252, 93, 127, 0.3);
 }
 
 .header-line {
@@ -233,11 +244,16 @@ export default {
 }
 
 .articles-grid {
+  margin-bottom: 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(20px, 3vw, 40px);
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .article-card {
@@ -379,37 +395,80 @@ export default {
   transform: translateX(5px);
 }
 
+/* Breakpoints mais detalhados */
+@media (max-width: 1200px) {
+  .featured-section {
+    padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+
+  .articles-grid {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 968px) {
+  .featured-decoration {
+    width: 30%;
+  }
+}
+
 @media (max-width: 768px) {
   .home-page {
     padding: 40px 20px;
   }
 
-  .home-title {
-    font-size: 2.5em;
-  }
-
-  .articles-grid {
-    grid-template-columns: 1fr;
-  }
-
   .featured-section {
-    padding: 30px;
     flex-direction: column;
-  }
-
-  .featured-title {
-    font-size: 2.5em;
+    padding: 30px 20px;
+    margin-bottom: 80px;
   }
 
   .featured-decoration {
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 200px;
     margin-top: 30px;
   }
 
   .featured-content {
     max-width: 100%;
+  }
+
+  .topic-tag {
+    font-size: 0.8em;
+    padding: 6px 12px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page {
+    padding: 30px 15px;
+  }
+
+  .featured-section,
+  .articles-grid {
+    margin-left: 15px;
+    margin-right: 15px;
+    width: calc(100% - 30px);
+  }
+
+  .featured-decoration {
+    height: 150px;
+  }
+
+  .topic-tag {
+    font-size: 0.75em;
+    padding: 5px 10px;
   }
 }
 

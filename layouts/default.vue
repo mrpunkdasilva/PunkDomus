@@ -2,8 +2,18 @@
   <div>
     <HeaderMain/>
     <Nuxt/>
+    <FooterMain/>
   </div>
 </template>
+
+<script>
+export default {
+  components: {
+    HeaderMain: () => import('~/components/HeaderMain.vue'),
+    FooterMain: () => import('~/components/FooterMain.vue')
+  }
+}
+</script>
 
 <style>
 * {
@@ -14,10 +24,23 @@
   color: #efefef;
 }
 
+body {
+  overflow-x: hidden; /* Previne scroll horizontal */
+  width: 100%;
+  position: relative;
+}
+
+#__nuxt,
+#__layout {
+  overflow-x: hidden; /* Garante que o conteúdo não vaze */
+  width: 100%;
+  position: relative;
+}
+
 /* Estilo da seleção de texto */
 ::selection {
-  background: rgba(33, 222, 234, 0.3); /* Cor cyberpunk clara com transparência */
-  color: #FC5D7F; /* Rosa neon */
+  background: rgba(33, 222, 234, 0.3);
+  color: #FC5D7F;
   text-shadow: 0 0 8px rgba(252, 93, 127, 0.8);
 }
 
