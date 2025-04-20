@@ -13,7 +13,7 @@
         <nav>
           <NuxtLink to="/">Home</NuxtLink>
           <NuxtLink to="/about">About</NuxtLink>
-          <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/mrpunkdasilva" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </div>
 
@@ -23,10 +23,10 @@
           <a href="https://twitter.com/mrpunksama" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
             <i class="fab fa-twitter"></i>
           </a>
-          <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com/mrpunkdasilva" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/gustavo-henrique-de-jesus" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
@@ -36,8 +36,8 @@
     <div class="footer-bottom">
       <div class="cyber-line"></div>
       <p class="copyright">
-        &copy; {{ currentYear }} PunkDomus. Built with 
-        <span class="heart"><i class="fas fa-heart"></i></span> and 
+        &copy; {{ currentYear }} PunkDomus. Built with
+        <span class="heart"><i class="fas fa-heart"></i></span> and
         <span class="code"><i class="fas fa-code"></i></span>
       </p>
     </div>
@@ -70,7 +70,7 @@ export default {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, 
+  background: linear-gradient(90deg,
     transparent,
     #FC5D7F,
     #21DEEA,
