@@ -10,17 +10,17 @@
         <section class="contact-section">
           <h2 class="neon-text">Redes Sociais</h2>
           <div class="social-links">
-            <a href="https://github.com/yourusername" target="_blank" class="social-link">
+            <a href="https://github.com/mrpunkdasilva" target="_blank" class="social-link">
               <i class="fab fa-github"></i>
               GitHub
               <div class="link-hover-effect"></div>
             </a>
-            <a href="https://twitter.com/yourusername" target="_blank" class="social-link">
+            <a href="https://twitter.com/mrpunksama" target="_blank" class="social-link">
               <i class="fab fa-twitter"></i>
               Twitter
               <div class="link-hover-effect"></div>
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-link">
+            <a href="https://www.linkedin.com/in/gustavo-henrique-de-jesus" target="_blank" class="social-link">
               <i class="fab fa-linkedin"></i>
               LinkedIn
               <div class="link-hover-effect"></div>
