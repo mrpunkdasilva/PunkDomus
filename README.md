@@ -11,6 +11,7 @@ A minimalist blog built with Nuxt.js and @nuxt/content, featuring a cyberpunk ae
 - Responsive layout
 - Static site generation
 - Image support for blog posts
+- Docker support for easy deployment
 
 ## Tech Stack
 
@@ -18,13 +19,17 @@ A minimalist blog built with Nuxt.js and @nuxt/content, featuring a cyberpunk ae
 - @nuxt/content
 - Vue.js 2.7
 - Custom CSS styling
+- Docker & Docker Compose
 
 ## Prerequisites
 
-- Node.js (v12 or higher)
+- Node.js (v16 or higher)
 - npm or yarn
+- Docker & Docker Compose (for containerized deployment)
 
 ## Installation
+
+### Standard Installation
 
 1. Clone the repository:
 ```bash
@@ -48,10 +53,25 @@ yarn dev
 
 The application will be available at `http://localhost:3000`
 
+### Docker Installation
+
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+cd nuxt-punk-domus
+```
+
+2. Build and run with Docker Compose:
+```bash
+docker-compose up -d
+```
+
+The application will be available at `http://localhost:3000`
+
 ## Project Structure
 
 - `content/blog/` - Markdown files for blog posts
-- `components/` - Vue components (HeaderMain)
+- `components/` - Vue components (HeaderMain, FooterMain, etc.)
 - `layouts/` - Page layouts with global styling
 - `pages/` - Application routes and views
 - `public/resources/` - Blog post images
@@ -73,6 +93,8 @@ img: image-name.jpg
 
 ## Building for Production
 
+### Standard Build
+
 ```bash
 # Generate static site
 npm run generate
@@ -84,6 +106,29 @@ npm run start
 # or
 yarn start
 ```
+
+### Docker Production Deployment
+
+```bash
+# Build and run the Docker container
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+```
+
+## Docker Configuration
+
+The project includes Docker configuration for easy deployment:
+
+- `Dockerfile` - Defines the container build process
+- `docker-compose.yml` - Orchestrates the container setup
+- `.dockerignore` - Excludes unnecessary files from the build
+
+Docker volumes are configured to persist:
+- Blog content (`./content:/app/content`)
+- Public resources (`./public:/app/public`)
+- Static assets (`./static:/app/static`)
 
 ## Customization
 

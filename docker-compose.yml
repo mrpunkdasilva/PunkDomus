@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  nuxt-app:
+    build: .
+    container_name: punk-domus-blog
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./content:/app/content
+      - ./public:/app/public
+      - ./static:/app/static
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped

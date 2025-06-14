@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+.nuxt
+dist
+.git
+.github
+.vscode
+.idea
+*.md
+!README.md
+.env*
+.editorconfig
+.eslintrc.js
