@@ -65,7 +65,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .header-wrapper {
   position: sticky;
   top: 0;

@@ -26,7 +26,8 @@
           <a href="https://github.com/mrpunkdasilva" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <i class="fab fa-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/gustavo-henrique-de-jesus" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/in/gustavo-henrique-de-jesus" target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn">
             <i class="fab fa-linkedin"></i>
           </a>
         </div>
@@ -60,7 +61,7 @@ export default {
   background: rgba(8, 14, 26, 0.95);
   padding: 60px 30px 20px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .footer-container::before {
@@ -71,10 +72,10 @@ export default {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg,
-    transparent,
-    #FC5D7F,
-    #21DEEA,
-    transparent
+  transparent,
+  #FC5D7F,
+  #21DEEA,
+  transparent
   );
   box-shadow: 0 0 15px rgba(252, 93, 127, 0.5);
 }
@@ -173,9 +174,9 @@ export default {
 .cyber-line {
   height: 1px;
   background: linear-gradient(90deg,
-    transparent,
-    rgba(252, 93, 127, 0.5),
-    transparent
+  transparent,
+  rgba(252, 93, 127, 0.5),
+  transparent
   );
   margin-bottom: 20px;
 }
@@ -206,16 +207,30 @@ export default {
 
 @media (max-width: 768px) {
   .footer-content {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 30px;
   }
 
   .footer-container {
     padding: 40px 20px 20px;
+    overflow: visible;
+  }
+
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .links nav {
+    align-items: center;
   }
 
   .social-links {
-    justify-content: flex-start;
+    justify-content: center;
   }
 }
 </style>
