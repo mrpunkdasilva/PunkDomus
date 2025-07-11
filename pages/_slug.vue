@@ -89,7 +89,7 @@ export default {
 }
 
 .post-content {
-  max-width: 800px;
+  width: auto;
   margin: 0 auto;
   background: rgba(8, 14, 26, 0.8);
   padding: 40px;
@@ -131,17 +131,29 @@ export default {
 
 .tag {
   color: #FC5D7F;
+  background-color: rgba(252, 93, 127, 0.1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  border: 1px solid rgba(252, 93, 127, 0.3);
 }
 
 .header-line {
-  height: 2px;
-  background: linear-gradient(90deg, #FC5D7F, transparent);
+  height: 3px;
+  background: linear-gradient(90deg, #FC5D7F, #21DEEA);
   width: 100%;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(252, 93, 127, 0.5), 0 0 15px rgba(33, 222, 234, 0.5);
 }
 
+
 .post-image {
-  width: 100%;
-  height: auto;
+  min-width: 100%;
+  max-width: 100%;
+  height: 500px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 30px;
   border: 1px solid rgba(33, 222, 234, 0.3);
@@ -151,6 +163,13 @@ export default {
 .nuxt-content {
   color: #efefef;
   line-height: 1.8;
+}
+
+.nuxt-content hr {
+  border: none;
+  border-top: 3px dashed #FC5D7F;
+  margin: 40px 0;
+  opacity: 0.7;
 }
 
 /* Estilos específicos para blocos de código */
@@ -177,9 +196,7 @@ export default {
   padding: 0;
   margin: 0;
   border-radius: 0;
-  font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 0.95em;
-  line-height: 1.6;
+  
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
@@ -196,9 +213,8 @@ export default {
   color: #21DEEA;
   padding: 0.2em 0.4em;
   border-radius: 4px;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9em;
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  font-size: 1.1em;
+  line-height: 1.8;
 }
 
 /* Barra de linguagem do código */
@@ -221,7 +237,7 @@ export default {
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6c7a89;
+  color: #979797;
   font-style: italic;
 }
 
@@ -327,8 +343,8 @@ export default {
   color: #21DEEA;
   padding: 2px 6px;
   border-radius: 4px;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.9em;
+  font-size: 1.1em;
+  line-height: 1.8;
 }
 
 .nuxt-content pre {
@@ -354,15 +370,48 @@ export default {
   color: #afafaf;
 }
 
+/* Table Styles */
+.nuxt-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  overflow-x: auto; /* Enable horizontal scrolling for responsiveness */
+  display: block; /* Make table a block element for overflow to work */
+}
+
+.nuxt-content th,
+.nuxt-content td {
+  border: 1px solid rgba(33, 222, 234, 0.2);
+  padding: 12px 15px;
+  text-align: left;
+  color: #efefef;
+}
+
+.nuxt-content th {
+  background-color: rgba(33, 222, 234, 0.1);
+  font-weight: bold;
+  color: #21DEEA;
+}
+
+.nuxt-content tr:nth-child(even) {
+  background-color: rgba(8, 14, 26, 0.5);
+}
+
+.nuxt-content tr:hover {
+  background-color: rgba(8, 14, 26, 0.7);
+}
+
 /* Post Footer */
 .post-footer {
   margin-top: 60px;
 }
 
 .footer-line {
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #FC5D7F, transparent);
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #21DEEA, #FC5D7F, transparent);
   margin-bottom: 30px;
+  border: none;
+  box-shadow: 0 0 15px rgba(33, 222, 234, 0.5), 0 0 15px rgba(252, 93, 127, 0.5);
 }
 
 .post-nav {

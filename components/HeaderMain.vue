@@ -20,6 +20,7 @@
       <!-- Navigation Menu -->
       <nav :class="{ 'is-open': isMenuOpen }">
         <NuxtLink to="/" @click="closeMenu">Home</NuxtLink>
+        <NuxtLink to="/blog" @click="closeMenu">Blog</NuxtLink>
         <NuxtLink to="/tech-docs" @click="closeMenu">Tech Docs</NuxtLink>
         <NuxtLink to="/code-labs" @click="closeMenu">Code Labs</NuxtLink>
         <NuxtLink to="/cheat-sheets" @click="closeMenu">Cheat Sheets</NuxtLink>

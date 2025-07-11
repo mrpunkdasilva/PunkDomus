@@ -2,12 +2,12 @@
   <section class="categories-section">
     <h2 class="categories-title">Explore Knowledge</h2>
     <div class="categories-grid">
-      <div class="category-card" v-for="(category, index) in categories" :key="index">
+      <nuxt-link v-for="(category, index) in categories" :key="index" :to="category.path" class="category-card">
         <div class="category-icon" v-html="category.icon"></div>
         <h3 class="category-name">{{ category.name }}</h3>
         <p class="category-description">{{ category.description }}</p>
         <div class="category-decoration"></div>
-      </div>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -19,29 +19,40 @@ export default {
     return {
       categories: [
         {
+          icon: '<i class="fas fa-newspaper"></i>',
+          name: 'Blog',
+          description: 'Artigos, tutoriais e pensamentos sobre o universo da tecnologia.',
+          path: '/blog'
+        },
+        {
           icon: '<i class="fas fa-book-open"></i>',
           name: 'Tech Docs',
-          description: 'Documentações técnicas detalhadas sobre arquitetura, padrões e implementações'
+          description: 'Documentações técnicas detalhadas sobre arquitetura, padrões e implementações.',
+          path: '/tech-docs'
         },
         {
           icon: '<i class="fas fa-flask"></i>',
           name: 'Code Labs',
-          description: 'Experimentos práticos, POCs e testes com novas tecnologias'
+          description: 'Experimentos práticos, POCs e testes com novas tecnologias.',
+          path: '/code-labs'
         },
         {
           icon: '<i class="fas fa-file-code"></i>',
           name: 'Cheat Sheets',
-          description: 'Guias rápidos e referências para linguagens, frameworks e ferramentas'
+          description: 'Guias rápidos e referências para linguagens, frameworks e ferramentas.',
+          path: '/cheat-sheets'
         },
         {
           icon: '<i class="fas fa-pencil-alt"></i>',
           name: 'Hand Notes',
-          description: 'Anotações pessoais, insights e reflexões sobre desenvolvimento'
+          description: 'Anotações pessoais, insights e reflexões sobre desenvolvimento.',
+          path: '/hand-notes'
         },
         {
           icon: '<i class="fas fa-video"></i>',
           name: 'Videos',
-          description: 'Tutoriais, demonstrações e explicações em formato visual'
+          description: 'Tutoriais, demonstrações e explicações em formato visual.',
+          path: '/videos'
         }
       ]
     }
@@ -85,6 +96,7 @@ export default {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .category-card:hover {

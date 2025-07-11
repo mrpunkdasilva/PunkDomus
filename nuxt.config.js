@@ -48,6 +48,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    'prism-themes/themes/prism-dracula.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -70,7 +71,17 @@ export default {
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
+  content: {
+    markdown: {
+      toc: {
+        depth: 3
+      }
+    },
+    highlight: {
+      theme: 'dracula',
+      preload: ['java'],
+    }
+  },
 
   // Configuração do google-fonts (alternativa mais robusta)
   googleFonts: {
