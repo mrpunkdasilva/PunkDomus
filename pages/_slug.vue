@@ -83,7 +83,7 @@ export default {
     }
   },
   head() {
-    const imageUrl = `${this.baseUrl}/resources/${this.article.img}`;
+    const imageUrl = `${this.baseUrl}resources/${this.article.img}`;
 
     return {
       title: this.article.title,
