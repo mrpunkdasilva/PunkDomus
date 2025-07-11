@@ -9,10 +9,6 @@
     <button @click="copyLink" class="share-button copy" aria-label="Copy link">
       <i class="fas fa-link"></i>
     </button>
-    <!-- Placeholder for TabNews share button -->
-    <!-- <a href="#" class="share-button tabnews" aria-label="Share on TabNews">
-      <i class="fas fa-newspaper"></i>
-    </a> -->
   </div>
 </template>
 
@@ -55,8 +51,8 @@ export default {
   display: flex;
   gap: 15px;
   margin-bottom: 30px;
-  justify-content: flex-end; /* Alinha os botões à direita */
-  padding-right: 20px; /* Adiciona um pouco de padding para não colar na borda */
+  justify-content: flex-end;
+  padding-right: 20px;
 }
 
 .share-button {
@@ -111,7 +107,7 @@ export default {
 /* Responsividade */
 @media (max-width: 768px) {
   .share-buttons {
-    justify-content: center; /* Centraliza os botões em telas menores */
+    justify-content: center;
     padding-right: 0;
   }
 }
