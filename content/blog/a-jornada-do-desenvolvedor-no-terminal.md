@@ -688,10 +688,6 @@ graph TD
 ```
 
 
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1h60ztlg6ska65m64k9d.png)
-
-
-
 ---
 
 ## **Arco de Missão 4: Otimização e Manutenção – Aprimorando Seu Personagem**
