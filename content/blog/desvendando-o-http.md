@@ -610,7 +610,7 @@ public class SimpleHttpPostJson {
 
 > ***Nota:** Para o exemplo acima, é necessário adicionar a biblioteca **Jackson** (ou outra biblioteca JSON) ao seu projeto para `ObjectMapper`. Se estiver usando Maven, adicione:*
 
-```XML
+```xml
 <dependency>  
     <groupId>com.fasterxml.jackson.core</groupId>  
     <artifactId>jackson-databind</artifactId>  
