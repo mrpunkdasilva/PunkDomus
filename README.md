@@ -1,146 +1,102 @@
-# Punk Domus Blog
+<div align="center">
+  <img src="static/punk_domus.svg" alt="PunkDomus Logo" width="200"/>
+  <h1>PUNKDOMUS</h1>
+  <p>A digital nexus for cyberpunk-infused software development, documentation, and bleeding-edge projects.</p>
+  <p>
+    <img src="https://img.shields.io/badge/license-MIT-FC5D7F.svg" alt="License: MIT">
+    <img src="https://img.shields.io/badge/status-transmitting-21DEEA.svg" alt="Status: Transmitting">
+  </p>
+</div>
 
-A minimalist blog built with Nuxt.js and @nuxt/content, featuring a cyberpunk aesthetic theme.
+---
 
-![Punk Domus Logo](static/punk_domus.svg)
+## > Accessing the Grid...
 
-## Features
+**PunkDomus** is a content-focused platform built with Nuxt.js, designed to be a repository of knowledge at the intersection of code and cybernetics. This is a space to explore articles, technical documentation, and personal notes (HandNotes) through a retro-futuristic interface.
 
-- Markdown-based blog posts
-- Cyberpunk-inspired design
-- Responsive layout
-- Static site generation
-- Image support for blog posts
-- Docker support for easy deployment
+The project is structured to serve content from local Markdown files, providing a fast, static-generated experience, true to the Jamstack philosophy.
 
-## Tech Stack
+## > System Core: Tech Stack
 
-- Nuxt.js 2.x
-- @nuxt/content
-- Vue.js 2.7
-- Custom CSS styling
-- Docker & Docker Compose
+*   **[Nuxt.js](https://nuxtjs.org/)**: The Intuitive Web Framework, used for Server-Side Rendering (SSR) and Static Site Generation (SSG).
+*   **[Vue.js](https://vuejs.org/)**: The progressive JavaScript framework that powers the user interface.
+*   **[@nuxt/content](https://content.nuxtjs.org/)**: A git-based Headless CMS that fetches and processes Markdown files from the `content/` directory.
+*   **[Docker](https://www.docker.com/)**: For containerizing the application, ensuring a consistent development and production environment.
 
-## Prerequisites
+## > Powering Up: Getting Started
 
-- Node.js (v16 or higher)
-- npm or yarn
-- Docker & Docker Compose (for containerized deployment)
+To get a local instance of PunkDomus running, you'll need Node.js and npm installed.
 
-## Installation
+### 1. Clone the Repository
 
-### Standard Installation
-
-1. Clone the repository:
 ```bash
-git clone [your-repo-url]
-cd nuxt-punk-domus
+git clone https://github.com/mrpunkdasilva/PunkDomus.git
+cd PunkDomus
 ```
 
-2. Install dependencies:
+### 2. Install Dependencies
+
+Connect to the network and download the required packages.
+
 ```bash
 npm install
-# or
-yarn install
 ```
 
-3. Run development server:
+## > Engaging the Interface: Running the Project
+
+Once the dependencies are installed, you can run the project in different modes.
+
+### Development Mode
+
+To run the project with hot-reloading at `http://localhost:3000`:
+
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:3000`
+This is the recommended mode for development, as it reflects changes in real-time.
 
-### Docker Installation
+### Production Build
 
-1. Clone the repository:
-```bash
-git clone [your-repo-url]
-cd nuxt-punk-domus
-```
-
-2. Build and run with Docker Compose:
-```bash
-docker-compose up -d
-```
-
-The application will be available at `http://localhost:3000`
-
-## Project Structure
-
-- `content/blog/` - Markdown files for blog posts
-- `components/` - Vue components (HeaderMain, FooterMain, etc.)
-- `layouts/` - Page layouts with global styling
-- `pages/` - Application routes and views
-- `public/resources/` - Blog post images
-- `static/` - Static assets (punk_domus.svg)
-
-## Creating Blog Posts
-
-1. Add a new markdown file in `content/blog/`
-2. Include the following frontmatter:
-```markdown
----
-title: Your Post Title
-description: Post description
-slug: url-friendly-slug
-img: image-name.jpg
----
-```
-3. Place corresponding images in `public/resources/`
-
-## Building for Production
-
-### Standard Build
+To build the application for production:
 
 ```bash
-# Generate static site
-npm run generate
-# or
-yarn generate
+npm run build
+```
 
-# Serve production build
+To start the production server after building:
+
+```bash
 npm run start
-# or
-yarn start
 ```
 
-### Docker Production Deployment
+### Static Generation
+
+To generate a fully static version of the site:
 
 ```bash
-# Build and run the Docker container
-docker compose up -d
-
-# View logs
-docker compose logs -f
+npm run generate
 ```
 
-## Docker Configuration
+The static files will be placed in the `dist/` directory.
 
-The project includes Docker configuration for easy deployment:
+## > Network Protocols: Docker
 
-- `Dockerfile` - Defines the container build process
-- `docker-compose.yml` - Orchestrates the container setup
-- `.dockerignore` - Excludes unnecessary files from the build
+Alternatively, you can use Docker and Docker Compose to run the project in a containerized environment.
 
-Docker volumes are configured to persist:
-- Blog content (`./content:/app/content`)
-- Public resources (`./public:/app/public`)
-- Static assets (`./static:/app/static`)
+```bash
+# Build and start the containers in detached mode
+docker compose up --build -d
+```
 
-## Customization
+The application will be available at `http://localhost:3000`.
 
-- Global styles can be modified in `layouts/default.vue`
-- Header styling in `components/HeaderMain.vue`
-- Blog post layout in `pages/_slug.vue`
-- Site configuration in `nuxt.config.js`
+## > System License
 
-## License
+This project operates under the **MIT License**. See the [LICENSE](LICENSE) file for full details. Feel free to fork, modify, and distribute as you see fit.
 
-[LICENSE](LICENSE)
+---
 
-## Author
-
-Mr Punk da Silva
+<div align="center">
+  <p>End of Line.</p>
+</div>
