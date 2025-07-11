@@ -525,6 +525,75 @@ export default {
     color: #979797; /* Cinza para a versão do HTTP */
 }
 
+.token.entity,
+.token.url,
+.style .token.string,
+.language-css .token.string {
+    background: transparent;
+}
+
+/* Estilos para HTML */
+.language-html .token.tag {
+    color: #FC5D7F; /* Rosa para tags */
+}
+.language-html .token.attr-name {
+    color: #21DEEA; /* Ciano para nomes de atributos */
+}
+.language-html .token.attr-value {
+    color: #98FB98; /* Verde para valores de atributos */
+}
+.language-html .token.punctuation {
+    color: #21DEEA; /* Ciano para pontuação */
+}
+
+
+/* Estilos para CSS e SCSS */
+.language-css .token.selector,
+.language-scss .token.selector {
+    color: #98FB98; /* Verde para seletores */
+}
+.language-css .token.property,
+.language-scss .token.property {
+    color: #21DEEA; /* Ciano para propriedades */
+}
+.language-css .token.string,
+.language-scss .token.string {
+    color: #FFD700; /* Amarelo para strings */
+}
+.language-css .token.function,
+.language-scss .token.function {
+    color: #82aaff; /* Azul claro para funções */
+}
+.language-scss .token.variable {
+    color: #FC5D7F; /* Rosa para variáveis */
+}
+
+/* Estilos para JavaScript */
+.language-javascript .token.keyword,
+.language-js .token.keyword {
+    color: #FC5D7F;
+}
+.language-javascript .token.function,
+.language-js .token.function {
+    color: #21DEEA;
+}
+.language-javascript .token.class-name,
+.language-js .token.class-name {
+    color: #42e2b8;
+}
+.language-javascript .token.parameter,
+.language-js .token.parameter {
+    color: #FFD700;
+}
+.language-javascript .token.string,
+.language-js .token.string {
+    color: #98FB98;
+}
+.language-javascript .token.template-string .token.interpolation .token.punctuation,
+.language-js .token.template-string .token.interpolation .token.punctuation {
+    color: #FC5D7F;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .post-container {

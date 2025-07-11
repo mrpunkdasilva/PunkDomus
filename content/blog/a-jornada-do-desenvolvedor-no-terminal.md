@@ -665,7 +665,7 @@ Exemplo: chmod u+rwx,go-w arquivo.txt (Dá rwx ao owner, remove w de group e oth
   Exemplo: sudo chown usuario:grupo arquivo.txt.
 
 * **chgrp (Change Group):** Altera o grupo proprietário de um arquivo ou diretório.  
-  Exemplo: chgrp novo\_grupo arquivo.txt.
+  Exemplo: chgrp novo_grupo arquivo.txt.
 
 **Permissões Especiais (SUID, SGID, Sticky Bit):** Permissões avançadas que afetam como os executáveis são executados ou como arquivos são manipulados em diretórios compartilhados.
 
