@@ -1,6 +1,7 @@
 <template>
   <main class="post-container">
     <article class="post-content">
+      <ShareButtons :title="article.title" :url="postUrl" />
       <div class="post-header">
         <h1 class="post-title">{{ article.title }}</h1>
         <div class="post-meta">
@@ -45,7 +46,12 @@
 </template>
 
 <script>
+import ShareButtons from '~/components/ShareButtons.vue';
+
 export default {
+  components: {
+    ShareButtons
+  },
   async asyncData({$content, params}) {
     const article = await $content('blog', params.slug).fetch();
 
@@ -68,10 +74,16 @@ export default {
       next: next[0]
     };
   },
+  computed: {
+    baseUrl() {
+      return 'https://punkdomus.netlify.app/';
+    },
+    postUrl() {
+      return `${this.baseUrl}/blog/${this.article.slug}`;
+    }
+  },
   head() {
-    const baseUrl = 'https://blog-punkdomus.netlify.app/'; // Substitua pelo seu domínio
-    const postUrl = `${baseUrl}/blog/${this.article.slug}`;
-    const imageUrl = `${baseUrl}/resources/${this.article.img}`;
+    const imageUrl = `${this.baseUrl}/resources/${this.article.img}`;
 
     return {
       title: this.article.title,
@@ -81,7 +93,7 @@ export default {
         {hid: 'og:title', property: 'og:title', content: this.article.title},
         {hid: 'og:description', property: 'og:description', content: this.article.description},
         {hid: 'og:image', property: 'og:image', content: imageUrl},
-        {hid: 'og:url', property: 'og:url', content: postUrl},
+        {hid: 'og:url', property: 'og:url', content: this.postUrl},
         {hid: 'og:type', property: 'og:type', content: 'article'},
         // Twitter Card
         {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
