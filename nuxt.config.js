@@ -4,7 +4,13 @@ export default {
 
   // Adicione a configuração de generate se necessário
   generate: {
-    fallback: true
+    fallback: true,
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content('blog').fetch()
+
+      return files.map(file => `/${file.slug}`)
+    }
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
