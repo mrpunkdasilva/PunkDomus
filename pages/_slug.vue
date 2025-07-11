@@ -486,6 +486,29 @@ export default {
   color: #FC5D7F; /* Garante o rosa para palavras-chave */
 }
 
+/* Estilos específicos para HTTP */
+.language-http .token.property,
+.language-http .token.request-line .token.method {
+  color: #FC5D7F; /* Rosa para métodos GET, POST, etc. */
+  font-weight: bold;
+}
+
+.language-http .token.url {
+  color: #21DEEA; /* Ciano para a URL */
+}
+
+.language-http .token.number {
+  color: #FF8C00; /* Laranja para o código de status */
+}
+
+.language-http .token.keyword {
+  color: #98FB98; /* Verde para nomes de cabeçalho */
+}
+
+.language-http .token.http-version {
+    color: #979797; /* Cinza para a versão do HTTP */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .post-container {
