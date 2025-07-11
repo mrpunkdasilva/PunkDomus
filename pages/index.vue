@@ -28,6 +28,11 @@
 
     <Separator3D />
 
+    <!-- Seção de Posts Recentes -->
+    <RecentPosts v-if="recentPosts.length" :posts="recentPosts" />
+
+    <Separator3D />
+
     <!-- Tech Grid no final -->
     <TechGrid/>
   </main>
@@ -35,12 +40,21 @@
 
 <script>
 export default {
+  async asyncData({ $content }) {
+    const recentPosts = await $content('blog')
+      .sortBy('createdAt', 'desc')
+      .limit(3) // Limita aos 3 posts mais recentes
+      .fetch();
+
+    return { recentPosts };
+  },
   components: {
     CyberSkull: () => import('~/components/CyberSkull.vue'),
     ParticleBackground: () => import('~/components/ParticleBackground.vue'),
     TechGrid: () => import('~/components/TechGrid.vue'),
     FeaturedCategories: () => import('~/components/FeaturedCategories.vue'),
-    Separator3D: () => import('~/components/Separator3D.vue')
+    Separator3D: () => import('~/components/Separator3D.vue'),
+    RecentPosts: () => import('~/components/RecentPosts.vue') // Importa o novo componente
   },
   head() {
     return {
