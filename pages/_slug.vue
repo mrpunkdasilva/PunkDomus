@@ -468,6 +468,24 @@ export default {
   font-style: italic;
 }
 
+/* Estilos específicos para Java */
+.language-java .token.annotation {
+  color: #FFD700; /* Amarelo Dourado para anotações */
+  font-weight: bold;
+}
+
+.language-java .token.class-name {
+  color: #42e2b8; /* Verde-água para nomes de classes */
+}
+
+.language-java .token.method.function {
+  color: #82aaff; /* Azul claro para métodos */
+}
+
+.language-java .token.keyword {
+  color: #FC5D7F; /* Garante o rosa para palavras-chave */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .post-container {
