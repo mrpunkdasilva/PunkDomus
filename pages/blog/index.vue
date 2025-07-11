@@ -146,6 +146,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  .header-line {
+    margin-bottom: 2rem;
+    box-shadow: none;
+  }
 }
 
 .blog-title {
