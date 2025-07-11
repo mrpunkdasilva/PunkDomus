@@ -79,7 +79,7 @@ export default {
       return 'https://punkdomus.netlify.app/';
     },
     postUrl() {
-      return `${this.baseUrl}/blog/${this.article.slug}`;
+      return `${this.baseUrl}${this.article.slug}`;
     }
   },
   head() {
