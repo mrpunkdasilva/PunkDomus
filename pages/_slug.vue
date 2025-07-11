@@ -206,6 +206,10 @@ export default {
   border-radius: 4px;
   font-family: 'Fira Code', monospace;
   border: 1px solid rgba(33, 222, 234, 0.2);
+  /* Correção para quebra de linha */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 /* Barra de linguagem do código */
