@@ -1,7 +1,8 @@
 ---
-title:A Jornada do Desenvolvedor no Terminal - Desvendando o Poder da Linha de Comando
+title: A Jornada do Desenvolvedor no Terminal - Desvendando o Poder da Linha de Comando
 description: Um Guia Prático e Estratégico para Desenvolvedores Modernos, com Analogias de Jogos e Automação Inteligente
-tags: [java, http]
+tags: [terminal, beginners-practices, productivity, automation, linux, bash, zsh, cli, command-line-interface, terminal-basics]
+img: default-blog-image.svg
 slug: a-jornada-do-desenvolvedor-no-terminal
 createdAt: 2025-03-10
 ---
