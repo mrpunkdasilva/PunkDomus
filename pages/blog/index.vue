@@ -62,21 +62,7 @@
       </article>
     </div>
 
-    <!-- Tag Cloud -->
-    <section class="tag-cloud-section">
-        <h2 class="section-title">Tag Cloud</h2>
-        <div class="tag-cloud">
-            <span
-                v-for="(count, tag) in tagCounts"
-                :key="tag"
-                @click="selectedTag = tag"
-                :style="{ fontSize: (1 + count * 0.2) + 'em' }"
-                class="tag-cloud-item"
-            >
-                {{ tag }}
-            </span>
-        </div>
-    </section>
+
 
   </main>
 </template>
@@ -155,7 +141,6 @@ export default {
 }
 
 .blog-header {
-  margin-bottom: 40px;
   text-align: center;
   position: relative;
   display: flex;
@@ -184,7 +169,7 @@ export default {
   height: 2px;
   background: linear-gradient(90deg, transparent, #FC5D7F, transparent);
   width: 50%;
-  margin: 20px auto 0;
+  //margin: 20px auto 0;
 }
 
 .section-title {
@@ -372,31 +357,7 @@ export default {
   transform: translateX(5px);
 }
 
-.tag-cloud-section {
-    margin-bottom: 60px;
-}
 
-.tag-cloud {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 15px;
-}
-
-.tag-cloud-item {
-    color: #21DEEA;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.tag-cloud-item:hover {
-    color: #FC5D7F;
-    transform: scale(1.1);
-}
 
 @media (max-width: 768px) {
   .blog-page {

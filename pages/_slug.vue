@@ -179,7 +179,7 @@ export default {
   width: 100%;
   border: none;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   box-shadow: 0 0 15px rgba(252, 93, 127, 0.5), 0 0 15px rgba(33, 222, 234, 0.5);
 }
 
