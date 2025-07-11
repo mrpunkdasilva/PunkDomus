@@ -19,7 +19,7 @@
         class="post-image"
       />
 
-      <nuxt-content :document="article" class="nuxt-content" />
+      <nuxt-content :document="article" class="nuxt-content"/>
 
       <div class="post-footer">
         <div class="footer-line"></div>
@@ -46,17 +46,17 @@
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({$content, params}) {
     const article = await $content('blog', params.slug).fetch();
 
     const [prev, next] = await Promise.all([
       $content('blog')
-        .where({ slug: { $ne: params.slug } })
+        .where({slug: {$ne: params.slug}})
         .sortBy('createdAt', 'desc')
         .limit(1)
         .fetch(),
       $content('blog')
-        .where({ slug: { $ne: params.slug } })
+        .where({slug: {$ne: params.slug}})
         .sortBy('createdAt', 'asc')
         .limit(1)
         .fetch()
@@ -76,18 +76,18 @@ export default {
     return {
       title: this.article.title,
       meta: [
-        { hid: 'description', name: 'description', content: this.article.description },
+        {hid: 'description', name: 'description', content: this.article.description},
         // Open Graph
-        { hid: 'og:title', property: 'og:title', content: this.article.title },
-        { hid: 'og:description', property: 'og:description', content: this.article.description },
-        { hid: 'og:image', property: 'og:image', content: imageUrl },
-        { hid: 'og:url', property: 'og:url', content: postUrl },
-        { hid: 'og:type', property: 'og:type', content: 'article' },
+        {hid: 'og:title', property: 'og:title', content: this.article.title},
+        {hid: 'og:description', property: 'og:description', content: this.article.description},
+        {hid: 'og:image', property: 'og:image', content: imageUrl},
+        {hid: 'og:url', property: 'og:url', content: postUrl},
+        {hid: 'og:type', property: 'og:type', content: 'article'},
         // Twitter Card
-        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-        { hid: 'twitter:title', name: 'twitter:title', content: this.article.title },
-        { hid: 'twitter:description', name: 'twitter:description', content: this.article.description },
-        { hid: 'twitter:image', name: 'twitter:image', content: imageUrl }
+        {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
+        {hid: 'twitter:title', name: 'twitter:title', content: this.article.title},
+        {hid: 'twitter:description', name: 'twitter:description', content: this.article.description},
+        {hid: 'twitter:image', name: 'twitter:image', content: imageUrl}
       ]
     };
   },
@@ -130,9 +130,8 @@ export default {
   color: #21DEEA;
   margin-bottom: 20px;
   line-height: 1.2;
-  text-shadow:
-    0 0 10px rgba(33, 222, 234, 0.5),
-    0 0 20px rgba(33, 222, 234, 0.3);
+  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5),
+  0 0 20px rgba(33, 222, 234, 0.3);
 }
 
 .post-meta {
@@ -150,16 +149,17 @@ export default {
 .post-tags {
   display: flex;
   gap: 10px;
+
+  .tag {
+    color: #FC5D7F;
+    background-color: rgba(252, 93, 127, 0.1);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    border: 1px solid rgba(252, 93, 127, 0.3);
+  }
 }
 
-.tag {
-  color: #FC5D7F;
-  background-color: rgba(252, 93, 127, 0.1);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.8em;
-  border: 1px solid rgba(252, 93, 127, 0.3);
-}
 
 .header-line {
   height: 3px;
@@ -191,7 +191,7 @@ export default {
 .nuxt-content hr {
   border: none;
   border-top: 3px dashed #FC5D7F;
-  margin: 40px  0;
+  margin: 40px 0;
   opacity: 0.7;
 }
 
@@ -232,39 +232,47 @@ export default {
 
 /* Ajuste para tokens de sintaxe */
 .token {
-  font-family: "Fira Code", monospace!important;
+  font-family: "Fira Code", monospace !important;
+  background: transparent;
 }
+
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-
   color: #979797;
   font-style: italic;
+  background: transparent;
 }
 
 .token.function {
   color: #21DEEA;
+  background: transparent;
 }
 
 .token.keyword {
   color: #FC5D7F;
+  background: transparent;
 }
 
 .token.string {
   color: #98FB98;
+  background: transparent;
 }
 
 .token.number {
   color: #FF8C00;
+  background: transparent;
 }
 
 .token.boolean {
   color: #FC5D7F;
+  background: transparent;
 }
 
 .token.property {
   color: #21DEEA;
+  background: transparent;
 }
 
 .token.operator {
@@ -287,10 +295,7 @@ export default {
   border-radius: 4px;
 }
 
-.nuxt-content pre::-webkit-scrollbar-thumb:hover {
-  background: rgba(252, 93, 127, 0.5);
-}
-
+/* Estilos para cabeçalhos */
 .nuxt-content h1,
 .nuxt-content h2,
 .nuxt-content h3,
@@ -356,7 +361,7 @@ export default {
   border: 1px solid rgba(33, 222, 234, 0.2);
   margin: 20px 0;
   overflow-x: auto;
-  font-family: "Fira Code", monospace!important;
+  font-family: "Fira Code", monospace !important;
 }
 
 .nuxt-content pre code {
@@ -438,6 +443,29 @@ export default {
   border-color: #21DEEA;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(33, 222, 234, 0.2);
+}
+
+/* Estilos específicos para XML */
+.language-xml .token.tag {
+  color: #98FB98; /* Verde para tags */
+}
+
+.language-xml .token.attr-name {
+  color: #FC5D7F; /* Rosa para nomes de atributos */
+}
+
+.language-xml .token.attr-value {
+  color: #FFD700; /* Amarelo para valores de atributos */
+}
+
+.language-xml .token.punctuation {
+  color: #21DEEA; /* Ciano para pontuação como <, >, / */
+}
+
+.language-xml .token.prolog .token.punctuation,
+.language-xml .token.prolog {
+  color: #979797; /* Cinza para o prólogo, como <?xml ... ?> */
+  font-style: italic;
 }
 
 /* Responsividade */
