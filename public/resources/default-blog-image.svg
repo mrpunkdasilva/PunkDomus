@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="#1A202C"/>
+  <!-- Cat Head -->
+  <rect x="60" y="60" width="80" height="60" fill="#FFD700"/>
+  <!-- Left Ear -->
+  <rect x="50" y="40" width="20" height="30" fill="#FFD700"/>
+  <!-- Right Ear -->
+  <rect x="130" y="40" width="20" height="30" fill="#FFD700"/>
+  <!-- Eyes -->
+  <rect x="75" y="75" width="10" height="10" fill="#000000"/>
+  <rect x="115" y="75" width="10" height="10" fill="#000000"/>
+  <!-- Nose -->
+  <rect x="95" y="95" width="10" height="10" fill="#FF69B4"/>
+  <!-- Mouth -->
+  <rect x="85" y="105" width="30" height="5" fill="#000000"/>
+  <!-- Whiskers -->
+  <rect x="50" y="85" width="20" height="2" fill="#000000"/>
+  <rect x="50" y="95" width="20" height="2" fill="#000000"/>
+  <rect x="50" y="105" width="20" height="2" fill="#000000"/>
+  <rect x="130" y="85" width="20" height="2" fill="#000000"/>
+  <rect x="130" y="95" width="20" height="2" fill="#000000"/>
+  <rect x="130" y="105" width="20" height="2" fill="#000000"/>
+</svg>

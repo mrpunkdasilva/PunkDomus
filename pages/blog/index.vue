@@ -88,6 +88,10 @@ export default {
       .only(['title', 'description', 'img', 'slug', 'createdAt', 'tags', 'featured'])
       .sortBy('createdAt', 'desc')
       .fetch()
+      .then(articles => articles.map(article => ({
+        ...article,
+        img: article.img || 'default-blog-image.png' // Provide a default image if img is undefined
+      })));
 
     const featuredArticle = articles.find(a => a.featured);
     const regularArticles = articles.filter(a => !a.featured);
