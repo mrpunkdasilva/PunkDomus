@@ -168,42 +168,10 @@ export default {
 .nuxt-content hr {
   border: none;
   border-top: 3px dashed #FC5D7F;
-  margin: 40px 0;
+  margin: 40px  0;
   opacity: 0.7;
 }
 
-/* Estilos específicos para blocos de código */
-.nuxt-content-highlight {
-  position: relative;
-  margin: 30px 0;
-}
-
-.nuxt-content pre {
-  background: #080E1A !important;
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid rgba(33, 222, 234, 0.2);
-  overflow-x: auto;
-  margin: 0;
-  font-size: 0.9em;
-  line-height: 1.5;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-}
-
-.nuxt-content pre code {
-  background: transparent !important;
-  color: #efefef;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  tab-size: 2;
-  hyphens: none;
-}
 
 /* Estilos para código inline */
 .nuxt-content p code,
@@ -213,8 +181,8 @@ export default {
   color: #21DEEA;
   padding: 0.2em 0.4em;
   border-radius: 4px;
-  font-size: 1.1em;
-  line-height: 1.8;
+  font-family: 'Fira Code', monospace;
+  border: 1px solid rgba(33, 222, 234, 0.2);
 }
 
 /* Barra de linguagem do código */
@@ -232,11 +200,22 @@ export default {
   border-bottom: 1px solid rgba(252, 93, 127, 0.3);
 }
 
+/* Selection Styles for Code */
+.nuxt-content pre code::selection,
+.nuxt-content code::selection {
+  background: #080E1A; /* Dark background for selection */
+  color: #21DEEA; /* Primary color for selected text */
+}
+
 /* Ajuste para tokens de sintaxe */
+.token {
+  font-family: "Fira Code", monospace!important;
+}
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
+
   color: #979797;
   font-style: italic;
 }
@@ -267,6 +246,7 @@ export default {
 
 .token.operator {
   color: #FC5D7F;
+  background: transparent;
 }
 
 /* Scrollbar personalizada para blocos de código */
@@ -343,8 +323,7 @@ export default {
   color: #21DEEA;
   padding: 2px 6px;
   border-radius: 4px;
-  font-size: 1.1em;
-  line-height: 1.8;
+  font-family: 'Fira Code', monospace;
 }
 
 .nuxt-content pre {
@@ -354,6 +333,7 @@ export default {
   border: 1px solid rgba(33, 222, 234, 0.2);
   margin: 20px 0;
   overflow-x: auto;
+  font-family: "Fira Code", monospace!important;
 }
 
 .nuxt-content pre code {
