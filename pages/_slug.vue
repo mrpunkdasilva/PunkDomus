@@ -68,6 +68,29 @@ export default {
       next: next[0]
     };
   },
+  head() {
+    const baseUrl = 'https://blog-punkdomus.netlify.app/'; // Substitua pelo seu domínio
+    const postUrl = `${baseUrl}/blog/${this.article.slug}`;
+    const imageUrl = `${baseUrl}/resources/${this.article.img}`;
+
+    return {
+      title: this.article.title,
+      meta: [
+        { hid: 'description', name: 'description', content: this.article.description },
+        // Open Graph
+        { hid: 'og:title', property: 'og:title', content: this.article.title },
+        { hid: 'og:description', property: 'og:description', content: this.article.description },
+        { hid: 'og:image', property: 'og:image', content: imageUrl },
+        { hid: 'og:url', property: 'og:url', content: postUrl },
+        { hid: 'og:type', property: 'og:type', content: 'article' },
+        // Twitter Card
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { hid: 'twitter:title', name: 'twitter:title', content: this.article.title },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.article.description },
+        { hid: 'twitter:image', name: 'twitter:image', content: imageUrl }
+      ]
+    };
+  },
   methods: {
     formatDate(date) {
       return new Date(date).toLocaleDateString('pt-BR', {
