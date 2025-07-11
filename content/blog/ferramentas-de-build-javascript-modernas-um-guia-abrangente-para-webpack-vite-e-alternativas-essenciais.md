@@ -1,6 +1,6 @@
 ---
 title: Ferramentas de Build JavaScript Modernas - Um Guia Abrangente para Webpack, Vite e Alternativas Essenciais
-description: 
+description: Um guia abrangente sobre as ferramentas de build JavaScript modernas, incluindo Webpack, Vite, Rollup, Parcel, Esbuild, Snowpack, Turbopack e Rspack, explorando suas características, performance e casos de uso ideais. 
 tags: [javascript]
 slug: ferramentas-de-build-javascript-modernas-um-guia-abrangente-para-webpack-vite-e-alternativas-essenciais
 img: 
