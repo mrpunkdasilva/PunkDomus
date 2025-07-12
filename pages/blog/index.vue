@@ -174,7 +174,7 @@ export default {
   height: 2px;
   background: linear-gradient(90deg, transparent, #FC5D7F, transparent);
   width: 50%;
-  //margin: 20px auto 0;
+  margin: 20px auto 0;
 }
 
 .section-title {
@@ -278,7 +278,7 @@ export default {
 .articles-grid {
   margin-bottom: 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 2fr));
   gap: clamp(20px, 3vw, 40px);
   position: relative;
   z-index: 2;
