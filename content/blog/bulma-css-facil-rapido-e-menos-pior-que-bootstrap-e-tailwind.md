@@ -1,7 +1,7 @@
 ---
 title: Bulm - CSS Fácil, Rápido e menos pior que Bootstrap e Tailwind
-description: 
-tags: []
+description: Um guia prático sobre Bulma CSS, explorando suas funcionalidades, instalação, classes para tipografia, cores, espaçamento, containers, navbar, breadcrumbs, grid, responsividade, e componentes como message boxes, botões, cards e formulários. 
+tags: [css,web,bulma]
 slug: bulma-css-facil-rapido-e-menos-pior-que-bootstrap-e-tailwind
 img: bulma-css-facil-rapido-e-menos-pior-que-bootstrap-e-tailwind.png
 createdAt: 2024-07-04
