@@ -1,6 +1,6 @@
 ---
 title: O que é Threads? Não é o Twitter da Meta
-description: 
+description: Entenda o conceito de threads em sistemas operacionais, suas características, tipos (singlethread e multithread), usos em servidores web e RPC, e os benefícios de sua aplicação para responsividade, compartilhamento de recursos, economia e escalabilidade. 
 tags: [so]
 slug: o-que-e-threads-nao-e-o-twitter-da-meta  
 img: o-que-e-threads-nao-e-o-twitter-da-meta.png
