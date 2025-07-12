@@ -127,11 +127,12 @@ export default {
   name: 'TechDocs',
   async asyncData({ $content }) {
     const techDocsData = await $content('tech-docs').fetch();
-    const techUpdatesData = await $content('tech-updates').fetch();
+    const allContent = await $content().fetch();
+    const techUpdates = allContent.filter(item => item.slug === 'tech-updates');
     return { 
       allDocs: techDocsData.documents,
       allQuickLinks: techDocsData.quickLinks,
-      allUpdates: techUpdatesData
+      allUpdates: techUpdates
     };
   },
   data() {
@@ -167,7 +168,9 @@ export default {
     },
     latestUpdates() {
       // Ordena as atualizações pela data, do mais recente para o mais antigo
-      return [...this.allUpdates].sort((a, b) => new Date(b.date) - new Date(a.date));
+      const updates = [...this.allUpdates].sort((a, b) => new Date(b.date) - new Date(a.date));
+      console.log('latestUpdates computed property result:', updates);
+      return updates;
     },
     mainSectionsData() {
       return this.mainSectionsConfig.map(section => {
