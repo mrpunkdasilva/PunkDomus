@@ -26,75 +26,25 @@
     </header>
 
     <div class="tech-docs-grid">
-      <!-- Análises Técnicas -->
-      <section class="docs-section analysis" @mouseenter="activateGlow($event)" @mouseleave="deactivateGlow($event)">
+      <!-- Main Sections (Análises Técnicas, Arquitetura & Design, etc.) -->
+      <section
+        v-for="section in mainSectionsData"
+        :key="section.id"
+        :class="['docs-section', section.id]"
+        @mouseenter="activateGlow($event)"
+        @mouseleave="deactivateGlow($event)"
+      >
         <div class="section-icon">
-          <i class="fas fa-microscope"></i>
+          <i :class="section.icon"></i>
         </div>
-        <h2>Análises Técnicas</h2>
+        <h2>{{ section.title }}</h2>
         <ul>
-          <li>Decisões de Arquitetura</li>
-          <li>Soluções Complexas</li>
-          <li>Comparativos de Tecnologias</li>
-          <li>Performance e Otimizações</li>
+          <li v-for="(docTitle, index) in section.exampleDocs" :key="index">{{ docTitle }}</li>
+          <li v-if="section.exampleDocs.length === 0">Nenhum documento nesta categoria ainda.</li>
         </ul>
         <div class="section-footer">
-          <span class="doc-count">12 docs</span>
-          <button class="view-all">Ver todos <i class="fas fa-arrow-right"></i></button>
-        </div>
-      </section>
-
-      <!-- Arquitetura & Design -->
-      <section class="docs-section architecture" @mouseenter="activateGlow($event)" @mouseleave="deactivateGlow($event)">
-        <div class="section-icon">
-          <i class="fas fa-layer-group"></i>
-        </div>
-        <h2>Arquitetura & Design</h2>
-        <ul>
-          <li>Padrões Arquiteturais</li>
-          <li>Design Patterns</li>
-          <li>Microservices</li>
-          <li>APIs & Databases</li>
-        </ul>
-        <div class="section-footer">
-          <span class="doc-count">15 docs</span>
-          <button class="view-all">Ver todos <i class="fas fa-arrow-right"></i></button>
-        </div>
-      </section>
-
-      <!-- Code Analysis -->
-      <section class="docs-section code" @mouseenter="activateGlow($event)" @mouseleave="deactivateGlow($event)">
-        <div class="section-icon">
-          <i class="fas fa-code"></i>
-        </div>
-        <h2>Análise de Código</h2>
-        <ul>
-          <li>Refatorações</li>
-          <li>Clean Code</li>
-          <li>Boas Práticas</li>
-          <li>Code Reviews</li>
-        </ul>
-        <div class="section-footer">
-          <span class="doc-count">8 docs</span>
-          <button class="view-all">Ver todos <i class="fas fa-arrow-right"></i></button>
-        </div>
-      </section>
-
-      <!-- Engineering -->
-      <section class="docs-section engineering" @mouseenter="activateGlow($event)" @mouseleave="deactivateGlow($event)">
-        <div class="section-icon">
-          <i class="fas fa-cogs"></i>
-        </div>
-        <h2>Engenharia</h2>
-        <ul>
-          <li>Fundamentos Teóricos</li>
-          <li>Algoritmos</li>
-          <li>Estruturas de Dados</li>
-          <li>Otimização</li>
-        </ul>
-        <div class="section-footer">
-          <span class="doc-count">10 docs</span>
-          <button class="view-all">Ver todos <i class="fas fa-arrow-right"></i></button>
+          <span class="doc-count">{{ section.docCount }} docs</span>
+          <NuxtLink :to="section.viewAllLink" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></NuxtLink>
         </div>
       </section>
     </div>
@@ -105,16 +55,20 @@
       <div class="docs-cards">
         <article v-for="doc in featuredDocs" :key="doc.id" class="doc-card">
           <div class="card-header">
-            <i :class="doc.icon"></i>
+            <!-- Removed doc.icon as it's not in the JSON for documents -->
             <span class="category">{{ doc.category }}</span>
           </div>
-          <h3>{{ doc.title }}</h3>
+          <h3>{{ formatTitle(doc.title) }}</h3>
           <p>{{ doc.description }}</p>
+          <div class="tech-tags">
+            <span v-for="tech in doc.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
+          </div>
           <div class="card-footer">
             <span class="date">{{ doc.date }}</span>
-            <button class="read-more">Ler mais</button>
+            <a :href="doc.url" target="_blank" rel="noopener noreferrer" class="read-more">Ler mais</a>
           </div>
         </article>
+        <p v-if="featuredDocs.length === 0">Nenhuma documentação em destaque no momento.</p>
       </div>
     </section>
 
@@ -126,7 +80,7 @@
           <div class="update-date">{{ update.date }}</div>
           <div class="update-content">
             <span class="update-tag" :class="update.type">{{ update.type }}</span>
-            <h3>{{ update.title }}</h3>
+            <h3><a :href="update.url" target="_blank" rel="noopener noreferrer">{{ update.title }}</a></h3>
             <p>{{ update.description }}</p>
             <div class="update-meta">
               <span class="author"><i class="fas fa-user"></i> {{ update.author }}</span>
@@ -134,6 +88,7 @@
             </div>
           </div>
         </div>
+        <p v-if="latestUpdates.length === 0">Nenhuma atualização recente.</p>
       </div>
     </section>
 
@@ -141,7 +96,7 @@
     <section class="tech-categories">
       <h2>Categorias</h2>
       <div class="categories-grid">
-        <div v-for="category in techCategories" :key="category.id" class="category-card">
+        <div v-for="category in techCategories" :key="category.name" class="category-card">
           <div class="category-icon">
             <i :class="category.icon"></i>
           </div>
@@ -151,6 +106,7 @@
             <span v-for="tag in category.tags" :key="tag" class="tag">{{ tag }}</span>
           </div>
         </div>
+        <p v-if="techCategories.length === 0">Nenhuma categoria disponível.</p>
       </div>
     </section>
 
@@ -158,11 +114,12 @@
     <section class="quick-access">
       <h2>Acesso Rápido</h2>
       <div class="quick-links">
-        <a v-for="link in quickLinks" :key="link.id" :href="link.url" class="quick-link">
+        <a v-for="link in quickLinks" :key="link.id" :href="link.url" target="_blank" rel="noopener noreferrer" class="quick-link">
           <i :class="link.icon"></i>
           <span>{{ link.title }}</span>
           <span class="link-description">{{ link.description }}</span>
         </a>
+        <p v-if="quickLinks.length === 0">Nenhum link rápido disponível.</p>
       </div>
     </section>
   </main>
@@ -171,129 +128,103 @@
 <script>
 export default {
   name: 'TechDocs',
+  async asyncData({ $content }) {
+    const techDocsData = await $content('tech-docs').fetch();
+    const allContent = await $content().fetch();
+    const techUpdates = allContent.filter(item => item.slug === 'tech-updates');
+    return { 
+      allDocs: techDocsData.documents,
+      allQuickLinks: techDocsData.quickLinks,
+      allUpdates: techUpdates
+    };
+  },
   data() {
     return {
       searchQuery: '',
-      featuredDocs: [
-        {
-          id: 1,
-          title: 'Clean Architecture em Microserviços',
-          description: 'Implementando Clean Architecture em um ambiente de microserviços com Node.js',
-          category: 'Arquitetura',
-          icon: 'fas fa-layer-group',
-          date: '2024-02-15'
-        },
-        {
-          id: 2,
-          title: 'Otimização de Performance React',
-          description: 'Técnicas avançadas de otimização para aplicações React de larga escala',
-          category: 'Performance',
-          icon: 'fas fa-tachometer-alt',
-          date: '2024-02-10'
-        },
-        {
-          id: 3,
-          title: 'Design Patterns em TypeScript',
-          description: 'Implementação prática dos principais padrões de projeto usando TypeScript',
-          category: 'Patterns',
-          icon: 'fas fa-code',
-          date: '2024-02-05'
-        }
-      ],
-      latestUpdates: [
-        {
-          id: 1,
-          date: '2024-02-20',
-          type: 'new',
-          title: 'Guia de Deploy com Docker',
-          description: 'Nova documentação sobre práticas de deploy usando Docker e Docker Compose',
-          author: 'João Silva',
-          category: 'DevOps'
-        },
-        {
-          id: 2,
-          date: '2024-02-18',
-          type: 'update',
-          title: 'Atualização: Clean Architecture',
-          description: 'Adicionadas novas seções sobre casos de uso e adaptadores',
-          author: 'Maria Santos',
-          category: 'Arquitetura'
-        },
-        {
-          id: 3,
-          date: '2024-02-15',
-          type: 'fix',
-          title: 'Correção: Tutorial GraphQL',
-          description: 'Corrigidos exemplos de mutations e atualizadas as dependências',
-          author: 'Pedro Costa',
-          category: 'Backend'
-        }
-      ],
-      techCategories: [
-        {
-          id: 1,
-          name: 'Frontend',
-          icon: 'fas fa-laptop-code',
-          count: 25,
-          tags: ['React', 'Vue', 'Angular', 'CSS']
-        },
-        {
-          id: 2,
-          name: 'Backend',
-          icon: 'fas fa-server',
-          count: 30,
-          tags: ['Node.js', 'Python', 'Java', 'API']
-        },
-        {
-          id: 3,
-          name: 'DevOps',
-          icon: 'fas fa-network-wired',
-          count: 18,
-          tags: ['Docker', 'K8s', 'CI/CD', 'AWS']
-        },
-        {
-          id: 4,
-          name: 'Mobile',
-          icon: 'fas fa-mobile-alt',
-          count: 15,
-          tags: ['React Native', 'Flutter', 'iOS', 'Android']
-        }
-      ],
-      quickLinks: [
-        {
-          id: 1,
-          title: 'Guia de Contribuição',
-          description: 'Como contribuir com a documentação',
-          icon: 'fas fa-hands-helping',
-          url: '/contribute'
-        },
-        {
-          id: 2,
-          title: 'Templates',
-          description: 'Templates para novos documentos',
-          icon: 'fas fa-file-alt',
-          url: '/templates'
-        },
-        {
-          id: 3,
-          title: 'FAQ',
-          description: 'Perguntas frequentes',
-          icon: 'fas fa-question-circle',
-          url: '/faq'
-        }
+      filteredDocs: [], // Inicialmente vazia, será preenchida por computed ou filterDocs
+      mainSectionsConfig: [
+        { id: 'analysis', title: 'Análises Técnicas', icon: 'fas fa-microscope', categoryMatch: 'Análises Técnicas' },
+        { id: 'architecture', title: 'Arquitetura & Design', icon: 'fas fa-layer-group', categoryMatch: 'Arquitetura & Design' },
+        { id: 'code', title: 'Análise de Código', icon: 'fas fa-code', categoryMatch: 'Análise de Código' },
+        { id: 'engineering', title: 'Engenharia', icon: 'fas fa-cogs', categoryMatch: 'Engenharia' }
       ]
+    };
+  },
+  computed: {
+    // Documentos filtrados pela busca
+    currentDocs() {
+      if (!this.searchQuery) {
+        return this.allDocs;
+      }
+      const query = this.searchQuery.toLowerCase();
+      return this.allDocs.filter(doc => {
+        return (
+          doc.title.toLowerCase().includes(query) ||
+          doc.description.toLowerCase().includes(query) ||
+          doc.category.toLowerCase().includes(query) ||
+          (doc.technologies && doc.technologies.some(tech => tech.toLowerCase().includes(query)))
+        );
+      });
+    },
+    featuredDocs() {
+      return this.currentDocs.filter(doc => doc.status === 'featured');
+    },
+    latestUpdates() {
+      // Ordena as atualizações pela data, do mais recente para o mais antigo
+      const updates = [...this.allUpdates].sort((a, b) => new Date(b.date) - new Date(a.date));
+      console.log('latestUpdates computed property result:', updates);
+      return updates;
+    },
+    mainSectionsData() {
+      return this.mainSectionsConfig.map(section => {
+        const docsInSection = this.currentDocs.filter(doc => doc.category === section.categoryMatch);
+        return {
+          ...section,
+          docCount: docsInSection.length,
+          // Pega os 4 primeiros títulos como exemplos para a lista
+          exampleDocs: docsInSection.slice(0, 4).map(doc => doc.title),
+          viewAllLink: `/tech-docs/category/${section.categoryMatch.toLowerCase().replace(/\s+/g, '-')}`
+        };
+      });
+    },
+    techCategories() {
+      const categoriesMap = {};
+      this.allDocs.forEach(doc => {
+        if (!categoriesMap[doc.category]) {
+          categoriesMap[doc.category] = { 
+            name: doc.category, 
+            count: 0, 
+            tags: new Set(),
+            // Adiciona um ícone padrão ou mapeia para ícones específicos se necessário
+            icon: 'fas fa-folder'
+          };
+        }
+        categoriesMap[doc.category].count++;
+        if (doc.technologies) {
+          doc.technologies.forEach(tech => categoriesMap[doc.category].tags.add(tech));
+        }
+      });
+
+      // Converte o mapa de volta para um array e converte Sets para arrays
+      return Object.values(categoriesMap).map(cat => ({
+        ...cat,
+        tags: Array.from(cat.tags)
+      }));
+    },
+    quickLinks() {
+      return this.allQuickLinks;
     }
   },
   methods: {
     filterDocs() {
-      // Implementar lógica de busca
-      console.log('Filtering docs:', this.searchQuery)
+      // A filtragem agora é feita automaticamente pela computed property `currentDocs`
+      // Não precisamos de lógica aqui, apenas o v-model já atualiza searchQuery
     },
     activateGlow(event) {
-      event.currentTarget.classList.add('glow-active')
+      event.currentTarget.classList.add('glow-active');
     },
     deactivateGlow(event) {
-      event.currentTarget.classList.remove('glow-active')
+      event.currentTarget.classList.remove('glow-active');
     }
   },
   head() {
@@ -306,6 +237,26 @@ export default {
           content: 'Documentações técnicas detalhadas sobre arquitetura, padrões e implementações'
         }
       ]
+    };
+  },
+  methods: {
+    filterDocs() {
+      // A filtragem agora é feita automaticamente pela computed property `currentDocs`
+      // Não precisamos de lógica aqui, apenas o v-model já atualiza searchQuery
+    },
+    activateGlow(event) {
+      event.currentTarget.classList.add('glow-active');
+    },
+    deactivateGlow(event) {
+      event.currentTarget.classList.remove('glow-active');
+    },
+    formatTitle(title) {
+      // Capitaliza a primeira letra de cada palavra e substitui hífens por espaços
+      return title
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
     }
   }
 }
@@ -444,12 +395,13 @@ export default {
 
 .docs-section {
   padding: 30px;
-  background: rgba(8, 14, 26, 0.8);
+  background: rgba(8, 14, 26, 0.9);
   border-radius: 15px;
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  border: 1px solid rgba(33, 222, 234, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
 }
 
 .docs-section::before {
@@ -459,7 +411,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.05), transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -469,9 +421,9 @@ export default {
 }
 
 .docs-section:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #21DEEA;
-  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+  box-shadow: 0 0 25px rgba(33, 222, 234, 0.4);
 }
 
 .section-icon {
@@ -486,6 +438,7 @@ export default {
   font-size: 1.5em;
   margin-bottom: 20px;
   text-align: center;
+  text-shadow: 0 0 8px rgba(252, 93, 127, 0.6);
 }
 
 .docs-section ul {
@@ -564,17 +517,36 @@ export default {
 }
 
 .doc-card {
-  background: rgba(8, 14, 26, 0.8);
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  background: rgba(8, 14, 26, 0.9);
+  border: 1px solid rgba(33, 222, 234, 0.3);
   border-radius: 15px;
   padding: 25px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
+}
+
+.doc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.doc-card:hover::before {
+  transform: translateX(100%);
 }
 
 .doc-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #21DEEA;
-  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+  box-shadow: 0 0 25px rgba(33, 222, 234, 0.4);
 }
 
 .card-header {
@@ -596,15 +568,33 @@ export default {
 
 .doc-card h3 {
   color: #21DEEA;
-  font-size: 1.3em;
+  font-size: 1.4em;
   margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(33, 222, 234, 0.6);
 }
 
 .doc-card p {
   color: #fff;
   font-size: 0.95em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background: rgba(33, 222, 234, 0.1);
+  color: #21DEEA;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  border: 1px solid rgba(33, 222, 234, 0.3);
 }
 
 .card-footer {
@@ -612,6 +602,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(33, 222, 234, 0.1);
 }
 
 .date {
@@ -621,17 +613,23 @@ export default {
 
 .read-more {
   background: none;
-  border: 1px solid #21DEEA;
-  color: #21DEEA;
-  padding: 5px 15px;
-  border-radius: 20px;
+  border: 1px solid #FC5D7F;
+  color: #FC5D7F;
+  padding: 8px 20px;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 5px rgba(252, 93, 127, 0.3);
 }
 
 .read-more:hover {
-  background: #21DEEA;
+  background: #FC5D7F;
   color: #080E1A;
+  box-shadow: 0 0 15px rgba(252, 93, 127, 0.6);
+  transform: scale(1.05);
 }
 
 .latest-updates {
@@ -667,6 +665,7 @@ export default {
   border-radius: 12px;
   font-size: 0.8em;
   margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(33, 222, 234, 0.6);
 }
 
 .update-tag.new {
@@ -709,18 +708,37 @@ export default {
 }
 
 .category-card {
-  background: rgba(8, 14, 26, 0.8);
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  background: rgba(8, 14, 26, 0.9);
+  border: 1px solid rgba(33, 222, 234, 0.3);
   border-radius: 15px;
   padding: 20px;
   text-align: center;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover::before {
+  transform: translateX(100%);
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #21DEEA;
-  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+  box-shadow: 0 0 25px rgba(33, 222, 234, 0.4);
 }
 
 .category-icon {
@@ -740,9 +758,10 @@ export default {
 .tag {
   background: rgba(252, 93, 127, 0.1);
   color: #FC5D7F;
-  padding: 3px 8px;
-  border-radius: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
   font-size: 0.8em;
+  border: 1px solid rgba(252, 93, 127, 0.3);
 }
 
 .quick-access {

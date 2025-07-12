@@ -2,6 +2,43 @@
 
 ## Core Sections
 
+
+**tech updates**
+
+```json
+  {
+    "id": "upd-1",
+    "title": "Guia de Deploy com Docker",
+    "description": "Nova documentação sobre práticas de deploy usando Docker e Docker Compose.",
+    "date": "2024-02-20",
+    "type": "new",
+    "author": "João Silva",
+    "category": "DevOps",
+    "url": "https://link-externo.com/docker-guide"
+  },
+  {
+    "id": "upd-2",
+    "title": "Atualização: Clean Architecture",
+    "description": "Adicionadas novas seções sobre casos de uso e adaptadores.",
+    "date": "2024-02-18",
+    "type": "update",
+    "author": "Maria Santos",
+    "category": "Arquitetura",
+    "url": "https://link-externo.com/clean-architecture-update"
+  },
+  {
+    "id": "upd-3",
+    "title": "Correção: Tutorial GraphQL",
+    "description": "Corrigidos exemplos de mutations e atualizadas as dependências.",
+    "date": "2024-02-15",
+    "type": "fix",
+    "author": "Pedro Costa",
+    "category": "Backend",
+    "url": "https://link-externo.com/graphql-fix"
+  }
+```
+
+
 ### 1. Technical Deep Dives `/tech`
 - Análises técnicas aprofundadas
 - Decisões de arquitetura
