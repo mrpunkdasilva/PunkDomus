@@ -1,6 +1,6 @@
 ---
 title: A Jornada do Desenvolvedor no Terminal - Desvendando o Poder da Linha de Comando
-description: Um Guia Prático e Estratégico para Desenvolvedores Modernos, com Analogias de Jogos e Automação Inteligente
+description: Explore o universo do terminal com este guia completo para desenvolvedores. Aprenda desde os fundamentos de Shell, Terminal e CLI, passando por comandos essenciais, fluxo de dados, variáveis de ambiente e controle de jobs. Domine a automação com Shell Scripting, Expressões Regulares, Aliases e Funções, e aprimore suas habilidades com boas práticas e gerenciamento de Dotfiles. Descubra ferramentas avançadas como Tmux e Emuladores de Terminal, e aplique tudo em automação DevOps para conquistar o mundo do desenvolvimento.
 tags: [terminal, beginners-practices, productivity, automation, linux, bash, zsh, cli, command-line-interface, terminal-basics]
 img: a-jornada-do-desenvolvedor-no-terminal.png
 slug: a-jornada-do-desenvolvedor-no-terminal
