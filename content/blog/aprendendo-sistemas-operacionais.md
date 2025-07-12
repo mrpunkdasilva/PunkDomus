@@ -1,9 +1,9 @@
 ---
 title: Aprendendo - Sistemas Operacionais
-description: Um guia introdutório sobre sistemas operacionais, abordando conceitos fundamentais como processos, threads e escalonamento, e como eles interagem para gerenciar os recursos do computador. 
+description: Explore os fundamentos dos sistemas operacionais com este guia completo. Aprenda sobre hardware, software, visões do sistema, operações do computador, estrutura de armazenamento, entrada/saída, arquitetura de sistemas (monoprocessador, multiprocessador, clusters), estrutura e operações do SO, gerência de processos, memória e armazenamento, proteção e segurança, sistemas de uso específico e ambientes de computação. Inclui analogias com Minecraft para facilitar o aprendizado. 
 tags: []
 slug: aprendendo-sistemas-operacionais
-img: 
+img: aprendendo-sistemas-operacionais.png
 createdAt: 2025-07-10
 ---
 
