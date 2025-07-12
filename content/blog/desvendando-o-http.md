@@ -1,6 +1,6 @@
 ---
 title: Desvendando o HTTP - Um Guia Prático para Iniciantes com Exemplos em Java
-description: Desvende o HTTP: um guia prático para iniciantes com exemplos em Java. Explore o modelo cliente-servidor, a estrutura das mensagens, os métodos HTTP (GET, POST, PUT, PATCH, DELETE) e os códigos de status. Aprenda sobre HTTPS, cookies e caching, e veja como interagir com APIs web usando a API HttpClient do Java.
+description: Explore o modelo cliente-servidor, a estrutura das mensagens, os métodos HTTP (GET, POST, PUT, PATCH, DELETE) e os códigos de status. Aprenda sobre HTTPS, cookies e caching, e veja como interagir com APIs web usando a API HttpClient do Java.
 tags: [java, http]
 slug: desvendando-o-http
 img: desvendando-http.png

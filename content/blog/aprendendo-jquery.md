@@ -1,6 +1,6 @@
 ---
 title: Aprendendo JQuery
-description: 
+description: Um guia prático sobre JQuery, abordando desde a instalação e métodos de carregamento até seletores, eventos de mouse, teclado e formulário, e efeitos básicos, facilitando a manipulação do DOM e a interação com o usuário. 
 tags: [javascript,jquery]
 slug: aprendendo-jquery
 img:
