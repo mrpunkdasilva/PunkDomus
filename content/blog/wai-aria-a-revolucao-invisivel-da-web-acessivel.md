@@ -1,6 +1,6 @@
 ---
 title: Entendendo a acessibilidade web através do WAI-ARIA
-description: 
+description: Um guia completo sobre WAI-ARIA, explicando como ele revoluciona a acessibilidade web, seus conceitos, usos e a importância de tornar a web mais inclusiva. 
 tags: [wai-aria, acessibility, web]
 slug: wai-aria-a-revolucao-invisivel-da-web-acessivel
 img: wai_aria_a_revolucao_invisivel_da_web_acessivel.png
