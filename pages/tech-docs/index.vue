@@ -44,7 +44,7 @@
         </ul>
         <div class="section-footer">
           <span class="doc-count">{{ section.docCount }} docs</span>
-          <button class="view-all">Ver todos <i class="fas fa-arrow-right"></i></button>
+          <NuxtLink :to="section.viewAllLink" class="view-all">Ver todos <i class="fas fa-arrow-right"></i></NuxtLink>
         </div>
       </section>
     </div>
@@ -58,8 +58,11 @@
             <!-- Removed doc.icon as it's not in the JSON for documents -->
             <span class="category">{{ doc.category }}</span>
           </div>
-          <h3>{{ doc.title }}</h3>
+          <h3>{{ formatTitle(doc.title) }}</h3>
           <p>{{ doc.description }}</p>
+          <div class="tech-tags">
+            <span v-for="tech in doc.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
+          </div>
           <div class="card-footer">
             <span class="date">{{ doc.date }}</span>
             <a :href="doc.url" target="_blank" rel="noopener noreferrer" class="read-more">Ler mais</a>
@@ -179,7 +182,8 @@ export default {
           ...section,
           docCount: docsInSection.length,
           // Pega os 4 primeiros títulos como exemplos para a lista
-          exampleDocs: docsInSection.slice(0, 4).map(doc => doc.title)
+          exampleDocs: docsInSection.slice(0, 4).map(doc => doc.title),
+          viewAllLink: `/tech-docs/category/${section.categoryMatch.toLowerCase().replace(/\s+/g, '-')}`
         };
       });
     },
@@ -234,6 +238,26 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    filterDocs() {
+      // A filtragem agora é feita automaticamente pela computed property `currentDocs`
+      // Não precisamos de lógica aqui, apenas o v-model já atualiza searchQuery
+    },
+    activateGlow(event) {
+      event.currentTarget.classList.add('glow-active');
+    },
+    deactivateGlow(event) {
+      event.currentTarget.classList.remove('glow-active');
+    },
+    formatTitle(title) {
+      // Capitaliza a primeira letra de cada palavra e substitui hífens por espaços
+      return title
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
   }
 }
 </script>
@@ -371,12 +395,13 @@ export default {
 
 .docs-section {
   padding: 30px;
-  background: rgba(8, 14, 26, 0.8);
+  background: rgba(8, 14, 26, 0.9);
   border-radius: 15px;
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  border: 1px solid rgba(33, 222, 234, 0.3);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
 }
 
 .docs-section::before {
@@ -386,7 +411,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.05), transparent);
   transform: translateX(-100%);
   transition: transform 0.6s ease;
 }
@@ -396,9 +421,9 @@ export default {
 }
 
 .docs-section:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #21DEEA;
-  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+  box-shadow: 0 0 25px rgba(33, 222, 234, 0.4);
 }
 
 .section-icon {
@@ -413,6 +438,7 @@ export default {
   font-size: 1.5em;
   margin-bottom: 20px;
   text-align: center;
+  text-shadow: 0 0 8px rgba(252, 93, 127, 0.6);
 }
 
 .docs-section ul {
@@ -491,17 +517,36 @@ export default {
 }
 
 .doc-card {
-  background: rgba(8, 14, 26, 0.8);
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  background: rgba(8, 14, 26, 0.9);
+  border: 1px solid rgba(33, 222, 234, 0.3);
   border-radius: 15px;
   padding: 25px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
+}
+
+.doc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.doc-card:hover::before {
+  transform: translateX(100%);
 }
 
 .doc-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #21DEEA;
-  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+  box-shadow: 0 0 25px rgba(33, 222, 234, 0.4);
 }
 
 .card-header {
@@ -523,15 +568,33 @@ export default {
 
 .doc-card h3 {
   color: #21DEEA;
-  font-size: 1.3em;
+  font-size: 1.4em;
   margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(33, 222, 234, 0.6);
 }
 
 .doc-card p {
   color: #fff;
   font-size: 0.95em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   line-height: 1.5;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  background: rgba(33, 222, 234, 0.1);
+  color: #21DEEA;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  border: 1px solid rgba(33, 222, 234, 0.3);
 }
 
 .card-footer {
@@ -539,6 +602,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid rgba(33, 222, 234, 0.1);
 }
 
 .date {
@@ -548,17 +613,23 @@ export default {
 
 .read-more {
   background: none;
-  border: 1px solid #21DEEA;
-  color: #21DEEA;
-  padding: 5px 15px;
-  border-radius: 20px;
+  border: 1px solid #FC5D7F;
+  color: #FC5D7F;
+  padding: 8px 20px;
+  border-radius: 25px;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 0 5px rgba(252, 93, 127, 0.3);
 }
 
 .read-more:hover {
-  background: #21DEEA;
+  background: #FC5D7F;
   color: #080E1A;
+  box-shadow: 0 0 15px rgba(252, 93, 127, 0.6);
+  transform: scale(1.05);
 }
 
 .latest-updates {
@@ -594,6 +665,7 @@ export default {
   border-radius: 12px;
   font-size: 0.8em;
   margin-bottom: 10px;
+  text-shadow: 0 0 8px rgba(33, 222, 234, 0.6);
 }
 
 .update-tag.new {
@@ -636,18 +708,37 @@ export default {
 }
 
 .category-card {
-  background: rgba(8, 14, 26, 0.8);
-  border: 1px solid rgba(33, 222, 234, 0.2);
+  background: rgba(8, 14, 26, 0.9);
+  border: 1px solid rgba(33, 222, 234, 0.3);
   border-radius: 15px;
   padding: 20px;
   text-align: center;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
+}
+
+.category-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(33, 222, 234, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.category-card:hover::before {
+  transform: translateX(100%);
 }
 
 .category-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   border-color: #21DEEA;
-  box-shadow: 0 0 20px rgba(33, 222, 234, 0.2);
+  box-shadow: 0 0 25px rgba(33, 222, 234, 0.4);
 }
 
 .category-icon {
@@ -667,9 +758,10 @@ export default {
 .tag {
   background: rgba(252, 93, 127, 0.1);
   color: #FC5D7F;
-  padding: 3px 8px;
-  border-radius: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
   font-size: 0.8em;
+  border: 1px solid rgba(252, 93, 127, 0.3);
 }
 
 .quick-access {
