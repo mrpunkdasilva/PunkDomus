@@ -1,6 +1,6 @@
 ---
 title: Aprendendo - Sistemas Operacionais
-description: w
+description: Um guia introdutório sobre sistemas operacionais, abordando conceitos fundamentais como processos, threads e escalonamento, e como eles interagem para gerenciar os recursos do computador. 
 tags: []
 slug: aprendendo-sistemas-operacionais
 img: 
