@@ -1,8 +1,8 @@
 ---
 title: A Jornada do Desenvolvedor no Terminal - Desvendando o Poder da Linha de Comando
-description: Um Guia Prático e Estratégico para Desenvolvedores Modernos, com Analogias de Jogos e Automação Inteligente
+description: Explore o universo do terminal com este guia completo para desenvolvedores. Aprenda desde os fundamentos de Shell, Terminal e CLI, passando por comandos essenciais, fluxo de dados, variáveis de ambiente e controle de jobs. Descubra ferramentas avançadas como Tmux e Emuladores de Terminal, e aplique tudo em automação DevOps para conquistar o mundo do desenvolvimento.
 tags: [terminal, beginners-practices, productivity, automation, linux, bash, zsh, cli, command-line-interface, terminal-basics]
-img: default-blog-image.svg
+img: a-jornada-do-desenvolvedor-no-terminal.png
 slug: a-jornada-do-desenvolvedor-no-terminal
 createdAt: 2025-03-10
 ---
@@ -665,7 +665,7 @@ Exemplo: chmod u+rwx,go-w arquivo.txt (Dá rwx ao owner, remove w de group e oth
   Exemplo: sudo chown usuario:grupo arquivo.txt.
 
 * **chgrp (Change Group):** Altera o grupo proprietário de um arquivo ou diretório.  
-  Exemplo: chgrp novo\_grupo arquivo.txt.
+  Exemplo: chgrp novo_grupo arquivo.txt.
 
 **Permissões Especiais (SUID, SGID, Sticky Bit):** Permissões avançadas que afetam como os executáveis são executados ou como arquivos são manipulados em diretórios compartilhados.
 
@@ -686,10 +686,6 @@ graph TD
     I -- Não --> K[Pronto];  
     J --> K;
 ```
-
-
-![Image description](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/1h60ztlg6ska65m64k9d.png)
-
 
 
 ---
