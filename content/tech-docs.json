@@ -1,0 +1,63 @@
+{
+  "documents": [
+    {
+      "id": "doc-1",
+      "title": "Clean Architecture em Microserviços",
+      "url": "https://link-externo.com/clean-architecture",
+      "description": "Implementando Clean Architecture em um ambiente de microserviços com Node.js.",
+      "category": "Arquitetura & Design",
+      "technologies": ["Node.js", "Clean Architecture", "Microservices"],
+      "status": "featured"
+    },
+    {
+      "id": "doc-2",
+      "title": "Otimização de Performance React",
+      "url": "https://link-externo.com/react-performance",
+      "description": "Técnicas avançadas de otimização para aplicações React de larga escala.",
+      "category": "Análises Técnicas",
+      "technologies": ["React", "Performance", "JavaScript"],
+      "status": "published"
+    },
+    {
+      "id": "doc-3",
+      "title": "Refatorando Código Legado",
+      "url": "https://link-externo.com/refactoring-legacy",
+      "description": "Estratégias para lidar com código legado e aplicar boas práticas.",
+      "category": "Análise de Código",
+      "technologies": ["Refactoring", "Clean Code"],
+      "status": "published"
+    },
+    {
+      "id": "doc-4",
+      "title": "Fundamentos de Algoritmos e Estruturas de Dados",
+      "url": "https://link-externo.com/algoritmos-fundamentos",
+      "description": "Revisão dos conceitos essenciais de algoritmos e estruturas de dados.",
+      "category": "Engenharia",
+      "technologies": ["Algoritmos", "Estruturas de Dados"],
+      "status": "published"
+    }
+  ],
+  "quickLinks": [
+    {
+      "id": "ql-1",
+      "title": "Guia de Contribuição",
+      "description": "Como contribuir com a documentação",
+      "icon": "fas fa-hands-helping",
+      "url": "/contribute"
+    },
+    {
+      "id": "ql-2",
+      "title": "Templates",
+      "description": "Templates para novos documentos",
+      "icon": "fas fa-file-alt",
+      "url": "/templates"
+    },
+    {
+      "id": "ql-3",
+      "title": "FAQ",
+      "description": "Perguntas frequentes",
+      "icon": "fas fa-question-circle",
+      "url": "/faq"
+    }
+  ]
+}
