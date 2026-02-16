@@ -6,7 +6,7 @@
         <p class="section-description">
           Documentações técnicas detalhadas sobre arquitetura, padrões e implementações
         </p>
-        <!-- Barra de busca -->
+
         <div class="search-bar">
           <i class="fas fa-search"></i>
           <input
@@ -17,7 +17,7 @@
           >
         </div>
       </div>
-      <!-- Efeito decorativo cyberpunk -->
+
       <div class="cyber-lines">
         <div class="line"></div>
         <div class="line"></div>
@@ -26,7 +26,7 @@
     </header>
 
     <div class="tech-docs-grid">
-      <!-- Main Sections (Análises Técnicas, Arquitetura & Design, etc.) -->
+
       <section
         v-for="section in mainSectionsData"
         :key="section.id"
@@ -49,16 +49,16 @@
       </section>
     </div>
 
-    <!-- Featured Docs -->
+
     <section class="featured-docs">
       <h2>Documentações em Destaque</h2>
       <div class="docs-cards">
         <article v-for="doc in featuredDocs" :key="doc.id" class="doc-card">
           <div class="card-header">
-            <!-- Removed doc.icon as it's not in the JSON for documents -->
+
             <span class="category">{{ doc.category }}</span>
           </div>
-          <h3>{{ formatTitle(doc.title) }}</h3>
+          <h3>{{ formatTitle( doc.title ) }}</h3>
           <p>{{ doc.description }}</p>
           <div class="tech-tags">
             <span v-for="tech in doc.technologies" :key="tech" class="tech-tag">{{ tech }}</span>
@@ -72,7 +72,7 @@
       </div>
     </section>
 
-    <!-- Latest Updates -->
+
     <section class="latest-updates">
       <h2>Últimas Atualizações</h2>
       <div class="updates-timeline">
@@ -92,7 +92,7 @@
       </div>
     </section>
 
-    <!-- Tech Categories -->
+
     <section class="tech-categories">
       <h2>Categorias</h2>
       <div class="categories-grid">
@@ -110,11 +110,12 @@
       </div>
     </section>
 
-    <!-- Quick Access -->
+
     <section class="quick-access">
       <h2>Acesso Rápido</h2>
       <div class="quick-links">
-        <a v-for="link in quickLinks" :key="link.id" :href="link.url" target="_blank" rel="noopener noreferrer" class="quick-link">
+        <a v-for="link in quickLinks" :key="link.id" :href="link.url" target="_blank" rel="noopener noreferrer"
+           class="quick-link">
           <i :class="link.icon"></i>
           <span>{{ link.title }}</span>
           <span class="link-description">{{ link.description }}</span>
@@ -127,153 +128,166 @@
 
 <script>
 export default {
-  name: 'TechDocs',
-  async asyncData({ $content }) {
-    const techDocsData = await $content('tech-docs').fetch();
+  name : "TechDocs" ,
+  async asyncData ( { $content } ) {
+    const techDocsData = await $content( "tech-docs" ).fetch();
     const allContent = await $content().fetch();
-    const techUpdates = allContent.filter(item => item.slug === 'tech-updates');
-    return { 
-      allDocs: techDocsData.documents,
-      allQuickLinks: techDocsData.quickLinks,
-      allUpdates: techUpdates
-    };
-  },
-  data() {
+    const techUpdates = allContent.filter( item => item.slug === "tech-updates" );
     return {
-      searchQuery: '',
-      filteredDocs: [], // Inicialmente vazia, será preenchida por computed ou filterDocs
-      mainSectionsConfig: [
-        { id: 'analysis', title: 'Análises Técnicas', icon: 'fas fa-microscope', categoryMatch: 'Análises Técnicas' },
-        { id: 'architecture', title: 'Arquitetura & Design', icon: 'fas fa-layer-group', categoryMatch: 'Arquitetura & Design' },
-        { id: 'code', title: 'Análise de Código', icon: 'fas fa-code', categoryMatch: 'Análise de Código' },
-        { id: 'engineering', title: 'Engenharia', icon: 'fas fa-cogs', categoryMatch: 'Engenharia' }
+      allDocs : techDocsData.documents ,
+      allQuickLinks : techDocsData.quickLinks ,
+      allUpdates : techUpdates
+    };
+  } ,
+  data () {
+    return {
+      searchQuery : "" ,
+      filteredDocs : [] ,
+      mainSectionsConfig : [
+        {
+          id : "analysis" ,
+          title : "Análises Técnicas" ,
+          icon : "fas fa-microscope" ,
+          categoryMatch : "Análises Técnicas"
+        } ,
+        {
+          id : "architecture" ,
+          title : "Arquitetura & Design" ,
+          icon : "fas fa-layer-group" ,
+          categoryMatch : "Arquitetura & Design"
+        } ,
+        { id : "code" , title : "Análise de Código" , icon : "fas fa-code" , categoryMatch : "Análise de Código" } ,
+        { id : "engineering" , title : "Engenharia" , icon : "fas fa-cogs" , categoryMatch : "Engenharia" }
       ]
     };
-  },
-  computed: {
-    // Documentos filtrados pela busca
-    currentDocs() {
-      if (!this.searchQuery) {
+  } ,
+  computed : {
+
+    currentDocs () {
+      if ( ! this.searchQuery ) {
         return this.allDocs;
       }
       const query = this.searchQuery.toLowerCase();
-      return this.allDocs.filter(doc => {
+      return this.allDocs.filter( doc => {
         return (
-          doc.title.toLowerCase().includes(query) ||
-          doc.description.toLowerCase().includes(query) ||
-          doc.category.toLowerCase().includes(query) ||
-          (doc.technologies && doc.technologies.some(tech => tech.toLowerCase().includes(query)))
+          doc.title.toLowerCase().includes( query ) ||
+          doc.description.toLowerCase().includes( query ) ||
+          doc.category.toLowerCase().includes( query ) ||
+          (
+            doc.technologies && doc.technologies.some( tech => tech.toLowerCase().includes( query ) )
+          )
         );
-      });
-    },
-    featuredDocs() {
-      return this.currentDocs.filter(doc => doc.status === 'featured');
-    },
-    latestUpdates() {
-      // Ordena as atualizações pela data, do mais recente para o mais antigo
-      const updates = [...this.allUpdates].sort((a, b) => new Date(b.date) - new Date(a.date));
-      console.log('latestUpdates computed property result:', updates);
+      } );
+    } ,
+    featuredDocs () {
+      return this.currentDocs.filter( doc => doc.status === "featured" );
+    } ,
+    latestUpdates () {
+
+      const updates = [ ... this.allUpdates ].sort( ( a , b ) => new Date( b.date ) - new Date( a.date ) );
+      console.log( "latestUpdates computed property result:" , updates );
       return updates;
-    },
-    mainSectionsData() {
-      return this.mainSectionsConfig.map(section => {
-        const docsInSection = this.currentDocs.filter(doc => doc.category === section.categoryMatch);
+    } ,
+    mainSectionsData () {
+      return this.mainSectionsConfig.map( section => {
+        const docsInSection = this.currentDocs.filter( doc => doc.category === section.categoryMatch );
         return {
-          ...section,
-          docCount: docsInSection.length,
-          // Pega os 4 primeiros títulos como exemplos para a lista
-          exampleDocs: docsInSection.slice(0, 4).map(doc => doc.title),
-          viewAllLink: `/tech-docs/category/${section.categoryMatch.toLowerCase().replace(/\s+/g, '-')}`
+          ... section ,
+          docCount : docsInSection.length ,
+
+          exampleDocs : docsInSection.slice( 0 , 4 ).map( doc => doc.title ) ,
+          viewAllLink : `/tech-docs/category/${ section.categoryMatch.toLowerCase().replace( /\s+/g , "-" ) }`
         };
-      });
-    },
-    techCategories() {
+      } );
+    } ,
+    techCategories () {
       const categoriesMap = {};
-      this.allDocs.forEach(doc => {
-        if (!categoriesMap[doc.category]) {
-          categoriesMap[doc.category] = { 
-            name: doc.category, 
-            count: 0, 
-            tags: new Set(),
-            // Adiciona um ícone padrão ou mapeia para ícones específicos se necessário
-            icon: 'fas fa-folder'
+      this.allDocs.forEach( doc => {
+        if ( ! categoriesMap[ doc.category ] ) {
+          categoriesMap[ doc.category ] = {
+            name : doc.category ,
+            count : 0 ,
+            tags : new Set() ,
+
+            icon : "fas fa-folder"
           };
         }
-        categoriesMap[doc.category].count++;
-        if (doc.technologies) {
-          doc.technologies.forEach(tech => categoriesMap[doc.category].tags.add(tech));
+        categoriesMap[ doc.category ].count ++;
+        if ( doc.technologies ) {
+          doc.technologies.forEach( tech => categoriesMap[ doc.category ].tags.add( tech ) );
         }
-      });
+      } );
 
-      // Converte o mapa de volta para um array e converte Sets para arrays
-      return Object.values(categoriesMap).map(cat => ({
-        ...cat,
-        tags: Array.from(cat.tags)
-      }));
-    },
-    quickLinks() {
+
+      return Object.values( categoriesMap ).map( cat => (
+        {
+          ... cat ,
+          tags : Array.from( cat.tags )
+        }
+      ) );
+    } ,
+    quickLinks () {
       return this.allQuickLinks;
     }
-  },
-  methods: {
-    filterDocs() {
-      // A filtragem agora é feita automaticamente pela computed property `currentDocs`
-      // Não precisamos de lógica aqui, apenas o v-model já atualiza searchQuery
-    },
-    activateGlow(event) {
-      event.currentTarget.classList.add('glow-active');
-    },
-    deactivateGlow(event) {
-      event.currentTarget.classList.remove('glow-active');
+  } ,
+  methods : {
+    filterDocs () {
+
+
+    } ,
+    activateGlow ( event ) {
+      event.currentTarget.classList.add( "glow-active" );
+    } ,
+    deactivateGlow ( event ) {
+      event.currentTarget.classList.remove( "glow-active" );
     }
-  },
-  head() {
+  } ,
+  head () {
     return {
-      title: 'Tech Docs - PunkDomus',
-      meta: [
+      title : "Tech Docs - PunkDomus" ,
+      meta : [
         {
-          hid: 'description',
-          name: 'description',
-          content: 'Documentações técnicas detalhadas sobre arquitetura, padrões e implementações'
+          hid : "description" ,
+          name : "description" ,
+          content : "Documentações técnicas detalhadas sobre arquitetura, padrões e implementações"
         }
       ]
     };
-  },
-  methods: {
-    filterDocs() {
-      // A filtragem agora é feita automaticamente pela computed property `currentDocs`
-      // Não precisamos de lógica aqui, apenas o v-model já atualiza searchQuery
-    },
-    activateGlow(event) {
-      event.currentTarget.classList.add('glow-active');
-    },
-    deactivateGlow(event) {
-      event.currentTarget.classList.remove('glow-active');
-    },
-    formatTitle(title) {
-      // Capitaliza a primeira letra de cada palavra e substitui hífens por espaços
+  } ,
+  methods : {
+    filterDocs () {
+
+    } ,
+    activateGlow ( event ) {
+      event.currentTarget.classList.add( "glow-active" );
+    } ,
+    deactivateGlow ( event ) {
+      event.currentTarget.classList.remove( "glow-active" );
+    } ,
+    formatTitle ( title ) {
+
       return title
-        .replace(/-/g, ' ')
-        .split(' ')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
+        .replace( /-/g , " " )
+        .split( " " )
+        .map( word => word.charAt( 0 ).toUpperCase() + word.slice( 1 ) )
+        .join( " " );
     }
   }
-}
+};
 </script>
 
 <style scoped>
 .tech-docs-page {
-    min-height: 100vh;
-    height: 100%;
-    width: 100%;
-    background: linear-gradient(180deg,
-    rgba(8, 14, 26, 0.9) 0%,
-    rgba(8, 14, 26, 0.95) 50%,
-    rgba(8, 14, 26, 0.9) 100%
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(180deg,
+  rgba(8, 14, 26, 0.9) 0%,
+  rgba(8, 14, 26, 0.95) 50%,
+  rgba(8, 14, 26, 0.9) 100%
   );
-    padding: 5rem 3rem;
-    padding-bottom: 9rem;
+  padding: 5rem 3rem;
+  padding-bottom: 9rem;
 }
 
 .tech-docs-header {
@@ -332,8 +346,12 @@ export default {
 }
 
 @keyframes cyber-line {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .tech-docs-header h1 {
@@ -342,9 +360,8 @@ export default {
   text-transform: uppercase;
   margin-bottom: 20px;
   font-family: 'Protest Guerrilla', sans-serif;
-  text-shadow:
-    0 0 10px rgba(33, 222, 234, 0.5),
-    0 0 20px rgba(33, 222, 234, 0.3);
+  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5),
+  0 0 20px rgba(33, 222, 234, 0.3);
 }
 
 .search-bar {

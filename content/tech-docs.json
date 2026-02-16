@@ -4,7 +4,7 @@
       "id": "doc-5",
       "title": "Learn Computer Architecture",
       "url": "https://mrpunkdasilva.github.io/learn-computer-architeture/",
-      "description": "A comprehensive educational resource about computer architecture concepts, built with JetBrains Writerside. This project provides educational materials covering fundamental concepts of computer architecture, from numerical systems to processor organization. The content is structured in a logical progression, making it suitable for students, educators, and anyone interested in understanding how computers work at a fundamental level.",
+      "description": "An educational resource on computer architecture concepts, covering everything from number systems to processor organization. Ideal for students and enthusiasts in the field.",
       "category": "Arquitetura & Design",
       "technologies": ["Computer Architecture", "Writerside"],
       "status": "published"
@@ -13,115 +13,115 @@
       "id": "doc-6",
       "title": "NetRunner: Java Mastery Guide",
       "url": "https://mrpunkdasilva.github.io/learn-java/",
-      "description": "Bem-vindo ao submundo digital do Java. Este não é apenas mais um tutorial - é sua interface neural para mergulhar no universo da programação orientada a objetos em um ambiente cyberpunk. Aqui, bytes se transformam em realidade, e o código é sua arma para hackear o sistema.",
+      "description": "Welcome to the digital underworld of Java. This isn't just another tutorial—it's your neural interface to dive into the world of object-oriented programming in a cyberpunk environment.",
       "category": "Engenharia",
       "technologies": ["Java", "OOP"],
-      "status": "featured"
+      "status": "published"
     },
     {
       "id": "doc-7",
-      "title": "learn-js",
+      "title": "Learn JS",
       "url": "https://github.com/mrpunkdasilva/learn-js",
-      "description": "Learn JavaScript freeCodeCamp Beginners",
+      "description": "Learn the fundamentals of JavaScript with the freeCodeCamp beginner's course. Explore variables, data types, functions, and control flow to build your first interactive web applications.",
       "category": "Engenharia",
       "technologies": ["JavaScript"],
-      "status": "featured"
+      "status": "published"
     },
     {
       "id": "doc-8",
-      "title": "learn_fetch_api",
+      "title": "Learn Fetch API",
       "url": "https://github.com/mrpunkdasilva/learn_fetch_api",
-      "description": "Learn fetch API from gods 💜",
+      "description": "Learn to consume web APIs the modern way with the JavaScript Fetch API. This practical guide covers requests, response handling, and everyday use cases.",
       "category": "Engenharia",
       "technologies": ["JavaScript", "Fetch API"],
       "status": "published"
     },
     {
       "id": "doc-9",
-      "title": "learn-sass",
+      "title": "Learn Sass",
       "url": "https://github.com/mrpunkdasilva/learn-sass",
-      "description": "(No description available)",
+      "description": "Level up your CSS with Sass. Learn to use variables, mixins, nesting, and functions to write cleaner, more organized, and reusable stylesheets.",
       "category": "Engenharia",
       "technologies": ["Sass"],
       "status": "published"
     },
     {
       "id": "doc-10",
-      "title": "learn-php",
+      "title": "Learn PHP",
       "url": "https://github.com/mrpunkdasilva/learn-php",
-      "description": "Learning Objectives: Understand the basics of PHP programming language, Learn how to work with variables, arrays, and functions in PHP, Explore control structures such as if statements and loops, Gain knowledge of PHP superglobals and forms handling, Dive into object-oriented programming (OOP) in PHP, Build real-world PHP applications and projects",
+      "description": "Master PHP for back-end web development. This guide covers everything from the basics, like variables and loops, to advanced object-oriented programming concepts and form handling.",
       "category": "Engenharia",
       "technologies": ["PHP", "OOP"],
       "status": "published"
     },
     {
       "id": "doc-11",
-      "title": "learn-axios",
+      "title": "Learn Axios",
       "url": "https://github.com/mrpunkdasilva/learn-axios",
-      "description": "Projeto criado para implementar os conhecimentos aprendidos em Axios.",
+      "description": "Simplify your HTTP requests with Axios. This hands-on project demonstrates how to use this powerful library to interact with APIs efficiently and with less code.",
       "category": "Engenharia",
       "technologies": ["JavaScript", "Axios"],
       "status": "published"
     },
     {
       "id": "doc-12",
-      "title": "learn-vue",
+      "title": "Learn Vue",
       "url": "https://github.com/mrpunkdasilva/learn-vue",
-      "description": "Repositório dedicado ao aprendizado do framework Vue.js, com exemplos de código e projetos práticos para dominar seus conceitos fundamentais e avançados.",
+      "description": "Learn to build reactive and modern interfaces with Vue.js. This repository provides practical examples to master the framework's fundamental and advanced concepts.",
       "category": "Engenharia",
       "technologies": ["Vue.js"],
       "status": "published"
     },
     {
       "id": "doc-13",
-      "title": "learn-cypress",
+      "title": "Learn Cypress",
       "url": "https://github.com/mrpunkdasilva/learn-cypress",
-      "description": "Learn Cypresss",
+      "description": "Master end-to-end testing with Cypress. Learn to set up, write, run, and debug tests to ensure the quality and robustness of your web applications with this powerful tool.",
       "category": "Engenharia de Qualidade",
       "technologies": ["Cypress", "QA"],
-      "status": "featured"
+      "status": "published"
     },
     {
       "id": "doc-14",
-      "title": "learn-laravel",
+      "title": "Learn Laravel",
       "url": "https://github.com/mrpunkdasilva/learn-laravel",
-      "description": "Repositório para aprendizado do framework Laravel.",
+      "description": "Develop robust and elegant PHP applications with the Laravel framework. Explore the ecosystem and best practices to build scalable projects quickly and efficiently.",
       "category": "Engenharia",
       "technologies": ["Laravel", "PHP"],
       "status": "published"
     },
     {
       "id": "doc-15",
-      "title": "LEARN JDBC & HIBERNATE",
+      "title": "Learn JDBC & Hibernate",
       "url": "https://github.com/mrpunkdasilva/learn-jdbc-and-hibernate",
-      "description": "This project implements a library management system with functionalities for registering books and members, managing book loans and returns, viewing available books, and maintaining a loan history. Technically, it utilizes database views, stored procedures, and triggers to manage the system's operations.",
+      "description": "Connect your Java applications to databases with JDBC and Hibernate. Learn to persist data efficiently using the industry standard for relational data access.",
       "category": "Engenharia",
       "technologies": ["JDBC", "Hibernate", "Java", "Database"],
       "status": "published"
     },
     {
       "id": "doc-16",
-      "title": "learn-servlet-maven",
+      "title": "Learn Servlet & Maven",
       "url": "https://github.com/mrpunkdasilva/learn-servlet-maven",
-      "description": "Repositório para aprendizado de Servlets e Maven.",
+      "description": "Build Java web applications from scratch with Servlets and manage your dependencies and build process with Maven. Essential for understanding the foundation of the web in Java.",
       "category": "Engenharia",
       "technologies": ["Servlet", "Maven", "Java"],
       "status": "published"
     },
     {
       "id": "doc-17",
-      "title": "learn-docker",
+      "title": "Learn Docker",
       "url": "https://github.com/mrpunkdasilva/learn-docker",
-      "description": "Repositório para aprendizado de Docker.",
+      "description": "Containerize your applications with Docker. Learn to create, manage, and distribute your projects in containers to ensure consistency between development and production environments.",
       "category": "DevOps",
       "technologies": ["Docker"],
-      "status": "published"
+      "status": "featured"
     },
     {
       "id": "doc-18",
-      "title": "LEARN BASH 🚀",
+      "title": "Learn Bash",
       "url": "https://github.com/mrpunkdasilva/learn-bash",
-      "description": "Learn Bash é um curso completo de Bash scripting com uma abordagem cyberpunk, projetado para transformar iniciantes em mestres do terminal. O curso combina teoria com prática, oferecendo uma experiência de aprendizado imersiva e eficiente.",
+      "description": "Automate tasks and master the terminal with Bash scripting. This complete course, with a cyberpunk approach, turns beginners into command-line masters.",
       "category": "Engenharia",
       "technologies": ["Bash", "Scripting"],
       "status": "published"
@@ -130,118 +130,118 @@
       "id": "doc-19",
       "title": "Learn C++",
       "url": "https://github.com/mrpunkdasilva/learn-cpp",
-      "description": "Learn C++",
+      "description": "Explore the power and performance of C++. Learn everything from basic syntax to advanced topics like memory management and object-oriented programming for high-performance software.",
       "category": "Engenharia",
       "technologies": ["C++"],
       "status": "published"
     },
     {
       "id": "doc-20",
-      "title": "learn-angular",
+      "title": "Learn Angular",
       "url": "https://github.com/mrpunkdasilva/learn-angular",
-      "description": "LEARN ANGULAR",
+      "description": "Create complex and scalable single-page applications (SPAs) with Angular. Learn to use components, services, and the powerful data-binding system to build robust apps.",
       "category": "Engenharia",
       "technologies": ["Angular", "TypeScript"],
       "status": "published"
     },
     {
       "id": "doc-21",
-      "title": "learn-crud-java-mongodb-atlas",
+      "title": "Learn CRUD with Java & MongoDB Atlas",
       "url": "https://github.com/mrpunkdasilva/learn-crud-java-mongodb-atlas",
-      "description": "A detailed description of the project is not available in the provided content. The repository name suggests it is a project focused on learning CRUD (Create, Read, Update, Delete) operations using Java and MongoDB Atlas.",
+      "description": "Implement CRUD (Create, Read, Update, Delete) operations with Java and the NoSQL database MongoDB Atlas. A practical guide to connecting your application to a cloud database.",
       "category": "Engenharia",
       "technologies": ["Java", "MongoDB", "CRUD"],
       "status": "published"
     },
     {
       "id": "doc-22",
-      "title": "learn-crud-java-mongdb",
+      "title": "Learn CRUD with Java & MongoDB",
       "url": "https://github.com/mrpunkdasilva/learn-crud-java-mongdb",
-      "description": "Repositório para aprendizado de operações CRUD com Java e MongoDB.",
+      "description": "Learn to perform the four essential database operations (CRUD) using Java with MongoDB. Ideal for those starting to integrate applications with NoSQL databases.",
       "category": "Engenharia",
       "technologies": ["Java", "MongoDB", "CRUD"],
       "status": "published"
     },
     {
       "id": "doc-23",
-      "title": "LEARN WINDOWS TERMINALS 🖥️",
+      "title": "Learn Windows Terminals",
       "url": "https://github.com/mrpunkdasilva/Learn-Windows-Terminals",
-      "description": "Uma documentação completa sobre terminais Windows (CMD e PowerShell). Learn Windows Terminals é uma documentação abrangente focada em fornecer um guia completo sobre os terminais do Windows. O projeto cobre desde conceitos básicos até técnicas avançadas de automação e integração com ferramentas modernas de desenvolvimento.",
+      "description": "Unlock the secrets of Windows terminals (CMD and PowerShell). Master the command line for task automation, system management, and integration with dev tools.",
       "category": "DevOps",
       "technologies": ["Windows", "CMD", "PowerShell", "Terminal"],
       "status": "published"
     },
     {
       "id": "doc-24",
-      "title": "LEARN OPERATING SYSTEM",
+      "title": "Learn Operating Systems",
       "url": "https://github.com/mrpunkdasilva/learn-operating-system",
-      "description": "Um guia abrangente sobre Sistemas Operacionais, apresentado de forma acessível e prática, com analogias ao Minecraft para facilitar o entendimento de conceitos complexos. Este projeto é um material educacional que combina teoria e prática no ensino de Sistemas Operacionais. Ele utiliza analogias com o jogo Minecraft para tornar conceitos complexos mais acessíveis e interessantes, além de incluir exercícios práticos e mindmaps para reforçar o aprendizado.",
+      "description": "Explore Operating System concepts in a practical and accessible way. This guide uses Minecraft analogies to demystify processes, threads, memory, and more, making learning fun.",
       "category": "Engenharia",
       "technologies": ["Operating Systems"],
       "status": "featured"
     },
     {
       "id": "doc-25",
-      "title": "LEARN JAVAFX",
+      "title": "Learn JavaFX",
       "url": "https://github.com/mrpunkdasilva/learn-javafx",
-      "description": "Um projeto prático para aprender JavaFX, demonstrando as melhores práticas e conceitos fundamentais do desenvolvimento de interfaces gráficas com Java. Este projeto serve como um guia prático para desenvolvedores que desejam aprender JavaFX, apresentando conceitos de forma progressiva através de exemplos reais. Utilizamos um sistema bancário simples (Prime Bank) como caso de estudo.",
+      "description": "Create desktop applications with rich and modern graphical interfaces using JavaFX. Learn to build visual applications with the successor to Swing, through a banking system project.",
       "category": "Engenharia",
       "technologies": ["Java", "JavaFX", "GUI"],
       "status": "published"
     },
     {
       "id": "doc-26",
-      "title": "learn-design-patterns",
+      "title": "Learn Design Patterns",
       "url": "https://github.com/mrpunkdasilva/learn-design-patterns",
-      "description": "Repositório dedicado ao estudo e implementação de padrões de projeto de software.",
+      "description": "Write cleaner, reusable, and maintainable code with Design Patterns. This guide explores the most common solutions to recurring problems in software development.",
       "category": "Arquitetura & Design",
       "technologies": ["Design Patterns"],
       "status": "published"
     },
     {
       "id": "doc-27",
-      "title": "learn-version-control-system",
+      "title": "Learn Version Control Systems",
       "url": "https://github.com/mrpunkdasilva/learn-version-control-system",
-      "description": "Uma documentação abrangente sobre Git e práticas de versionamento de código. Git Pie é um guia completo em português sobre controle de versão com Git, desde conceitos básicos até práticas avançadas de DevOps e colaboração em equipe.",
+      "description": "Master Git and version control. Essential for any developer, this comprehensive guide covers everything from basic commands to advanced collaboration and DevOps practices.",
       "category": "DevOps",
       "technologies": ["Git", "Version Control"],
-      "status": "published"
+      "status": "featured"
     },
     {
       "id": "doc-28",
-      "title": "learn-dbms",
+      "title": "Learn DBMS",
       "url": "https://github.com/mrpunkdasilva/learn-dbms",
-      "description": "Um guia completo e imersivo sobre Sistemas de Gerenciamento de Banco de Dados (DBMS), apresentado em um estilo único que combina rigor técnico com uma narrativa cyberpunk envolvente.",
+      "description": "Dive into the world of Database Management Systems (DBMS). A guide that combines technical rigor with a cyberpunk narrative to teach the fundamentals of databases.",
       "category": "Banco de Dados",
       "technologies": ["DBMS", "Database"],
       "status": "published"
     },
     {
       "id": "doc-29",
-      "title": "learn-csharp",
+      "title": "Learn C#",
       "url": "https://github.com/mrpunkdasilva/learn-csharp",
-      "description": "Repositório para aprendizado da linguagem C#.",
+      "description": "Learn C#, Microsoft's versatile language for game, web, and desktop development. This guide covers the fundamentals to get you started creating your own projects.",
       "category": "Engenharia",
       "technologies": ["C#"],
       "status": "published"
     },
     {
       "id": "doc-30",
-      "title": "learn-sorting-algorithms",
+      "title": "Learn Sorting Algorithms",
       "url": "https://github.com/mrpunkdasilva/learn-sorting-algorithms",
-      "description": "A comprehensive educational project for learning and understanding different sorting algorithms through practical C++ implementations and visual documentation",
+      "description": "Understand how the main sorting algorithms work. This educational project uses C++ implementations and visual documentation to explain the most famous methods.",
       "category": "Engenharia",
       "technologies": ["Algorithms", "Sorting", "C++"],
       "status": "published"
     },
     {
       "id": "doc-31",
-      "title": "learn-data-structures",
+      "title": "Learn Data Structures",
       "url": "https://github.com/mrpunkdasilva/learn-data-structures",
-      "description": "Repositório para aprendizado e implementação de diversas estruturas de dados.",
+      "description": "Master the essential data structures for programming. Learn to implement and use lists, queues, stacks, trees, and graphs to solve problems more efficiently.",
       "category": "Engenharia",
       "technologies": ["Data Structures"],
-      "status": "published"
+      "status": "featured"
     }
   ],
   "quickLinks": [

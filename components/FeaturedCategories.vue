@@ -21,37 +21,37 @@ export default {
         {
           icon: '<i class="fas fa-newspaper"></i>',
           name: 'Blog',
-          description: 'Artigos, tutoriais e pensamentos sobre o universo da tecnologia.',
+          description: 'Artigos, tutoriais e pensamentos sobre o universo da tecnologia e desenvolvimento web.',
           path: '/blog'
         },
         {
           icon: '<i class="fas fa-book-open"></i>',
           name: 'Tech Docs',
-          description: 'Documentações técnicas detalhadas sobre arquitetura, padrões e implementações.',
+          description: 'Documentações técnicas detalhadas sobre arquitetura, padrões e implementações de apps.',
           path: '/tech-docs'
         },
         {
           icon: '<i class="fas fa-flask"></i>',
           name: 'Code Labs',
-          description: 'Experimentos práticos, POCs e testes com novas tecnologias.',
+          description: 'Experimentos práticos, POCs e testes com novas tecnologias, frameworks e bibliotecas.',
           path: '/code-labs'
         },
         {
           icon: '<i class="fas fa-file-code"></i>',
           name: 'Cheat Sheets',
-          description: 'Guias rápidos e referências para linguagens, frameworks e ferramentas.',
+          description: 'Guias rápidos e referências para linguagens, frameworks e ferramentas do dia a dia.',
           path: '/cheat-sheets'
         },
         {
           icon: '<i class="fas fa-pencil-alt"></i>',
           name: 'Hand Notes',
-          description: 'Anotações pessoais, insights e reflexões sobre desenvolvimento.',
+          description: 'Anotações pessoais, insights e reflexões sobre desenvolvimento de software e carreira.',
           path: '/hand-notes'
         },
         {
           icon: '<i class="fas fa-video"></i>',
           name: 'Videos',
-          description: 'Tutoriais, demonstrações e explicações em formato visual.',
+          description: 'Tutoriais, demonstrações e explicações em formato de vídeo para aprendizado visual.',
           path: '/videos'
         }
       ]
