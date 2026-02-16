@@ -1,2 +1,32 @@
 [
+  {
+    "id": "update-1",
+    "date": "2026-02-16",
+    "type": "new",
+    "title": "Novos Documentos Fundamentais em Destaque",
+    "url": "/tech-docs",
+    "description": "Atualizamos os documentos em destaque para focar em conceitos base da engenharia de software, incluindo Sistemas Operacionais, Estruturas de Dados, Controle de Versão e Docker.",
+    "author": "mr punk da silva",
+    "category": "Documentação"
+  },
+  {
+    "id": "update-2",
+    "date": "2026-02-15",
+    "type": "update",
+    "title": "Padronização de Conteúdo e Traduções",
+    "url": "/tech-docs",
+    "description": "Para manter um padrão consistente, todos os títulos de documentação foram capitalizados e as descrições foram traduzidas para o inglês.",
+    "author": "Mave",
+    "category": "Manutenção"
+  },
+  {
+    "id": "update-3",
+    "date": "2026-02-14",
+    "type": "new",
+    "title": "Criação das Páginas de Acesso Rápido",
+    "url": "/faq",
+    "description": "Foram criadas as páginas de Guia de Contribuição, Templates e FAQ para facilitar a colaboração e o uso do projeto.",
+    "author": "Mave",
+    "category": "Website"
+  }
 ]
