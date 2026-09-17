@@ -75,10 +75,7 @@ export default {
   },
   data() {
     return {
-      article: null,
-      prev: null,
-      next: null,
-      loading: true
+      loading: false
     }
   },
   async asyncData({ $content, params }) {

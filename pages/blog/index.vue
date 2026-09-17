@@ -57,10 +57,7 @@ export default {
   },
   data() {
     return {
-      articles: [],
-      featuredArticle: null,
-      allTags: [],
-      loading: true,
+      loading: false,
       searchQuery: '',
       selectedTag: null
     }
@@ -76,9 +73,6 @@ export default {
     const allTags = [...new Set(articles.flatMap(a => a.tags || []))]
 
     return { articles: regularArticles, featuredArticle, allTags }
-  },
-  mounted() {
-    this.loading = false
   },
   computed: {
     filteredArticles() {
