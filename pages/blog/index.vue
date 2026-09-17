@@ -112,10 +112,18 @@ export default {
           name: 'description',
           content: 'All articles and posts from the PunkDomus blog.'
         },
+        { hid: 'og:type', property: 'og:type', content: 'website' },
         { hid: 'og:title', property: 'og:title', content: 'Blog | PunkDomus' },
         { hid: 'og:description', property: 'og:description', content: 'All articles and posts from the PunkDomus blog.' },
         { hid: 'og:image', property: 'og:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' },
+        { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
+        { hid: 'og:image:height', property: 'og:image:height', content: '630' },
         { hid: 'og:url', property: 'og:url', content: 'https://punk-domus.vercel.app/blog' },
+        { hid: 'og:site_name', property: 'og:site_name', content: 'PunkDomus' },
+        { hid: 'og:locale', property: 'og:locale', content: 'pt_BR' },
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { hid: 'twitter:site', name: 'twitter:site', content: '@mrpunksama' },
+        { hid: 'twitter:creator', name: 'twitter:creator', content: '@mrpunksama' },
         { hid: 'twitter:title', name: 'twitter:title', content: 'Blog | PunkDomus' },
         { hid: 'twitter:description', name: 'twitter:description', content: 'All articles and posts from the PunkDomus blog.' },
         { hid: 'twitter:image', name: 'twitter:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' }

@@ -26,25 +26,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'theme-color', content: '#1E1E1E' },
       { name: 'author', content: 'Mr Punk da Silva' },
-      { name: 'keywords', content: 'desenvolvimento de software, programação, cyberpunk, tech blog, documentação técnica, engenharia de software' },
-      { name: 'robots', content: 'index, follow' },
-      // Open Graph
-      { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:title', property: 'og:title', content: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk' },
-      { hid: 'og:description', property: 'og:description', content: 'Blog técnico sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.' },
-      { hid: 'og:image', property: 'og:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' },
-      { hid: 'og:image:width', property: 'og:image:width', content: '1200' },
-      { hid: 'og:image:height', property: 'og:image:height', content: '630' },
-      { hid: 'og:url', property: 'og:url', content: 'https://punk-domus.vercel.app' },
-      { hid: 'og:site_name', property: 'og:site_name', content: 'PunkDomus' },
-      { hid: 'og:locale', property: 'og:locale', content: 'pt_BR' },
-      // Twitter Card
-      { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:site', name: 'twitter:site', content: '@mrpunksama' },
-      { hid: 'twitter:creator', name: 'twitter:creator', content: '@mrpunksama' },
-      { hid: 'twitter:title', name: 'twitter:title', content: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk' },
-      { hid: 'twitter:description', name: 'twitter:description', content: 'Blog técnico sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.' },
-      { hid: 'twitter:image', name: 'twitter:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' }
+      { name: 'robots', content: 'index, follow' }
     ],
     link: [
       { rel: 'icon', type: 'image/svg+xml', href: '/punk_domus.svg' },

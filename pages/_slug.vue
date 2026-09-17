@@ -158,8 +158,9 @@ export default {
         {hid: 'twitter:creator', name: 'twitter:creator', content: '@mrpunksama'},
         {hid: 'twitter:title', name: 'twitter:title', content: title},
         {hid: 'twitter:description', name: 'twitter:description', content: description},
-        {hid: 'twitter:image', name: 'twitter:image', content: image},
-        // Canonical
+        {hid: 'twitter:image', name: 'twitter:image', content: image}
+      ],
+      link: [
         {hid: 'canonical', rel: 'canonical', href: this.postUrl}
       ],
       script: [
@@ -700,6 +701,13 @@ export default {
     width: 100%;
     margin-left: 0;
     position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .post-sidebar > * {
+    flex: 1;
+    min-width: 280px;
   }
 }
 
@@ -713,13 +721,36 @@ export default {
   }
 
   .post-title {
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   .post-meta {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+
+  .post-image {
+    height: 250px;
+  }
+
+  .nuxt-content {
+    font-size: 1em;
+  }
+
+  .nuxt-content h2 {
+    font-size: 1.4em;
+  }
+
+  .nuxt-content h3 {
+    font-size: 1.2em;
+  }
+
+  .nuxt-content pre {
+    padding: 15px;
+    font-size: 0.85em;
+    border-radius: 8px;
+    overflow-x: auto;
   }
 
   .post-nav {
@@ -729,6 +760,54 @@ export default {
 
   .nav-link {
     text-align: center;
+  }
+
+  .post-sidebar {
+    flex-direction: column;
+  }
+
+  .post-sidebar > * {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .post-container {
+    padding: 40px 10px;
+  }
+
+  .post-content {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+
+  .post-title {
+    font-size: 1.5em;
+  }
+
+  .post-image {
+    height: 180px;
+    border-radius: 8px;
+  }
+
+  .nuxt-content pre {
+    padding: 12px;
+    font-size: 0.8em;
+    margin: 15px -5px;
+    border-radius: 6px;
+  }
+
+  .nuxt-content p {
+    font-size: 1em;
+  }
+
+  .nuxt-content table {
+    font-size: 0.85em;
+  }
+
+  .nuxt-content th,
+  .nuxt-content td {
+    padding: 8px 10px;
   }
 }
 </style>
