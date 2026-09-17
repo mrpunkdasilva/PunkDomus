@@ -1,56 +1,62 @@
 <template>
   <main class="post-container">
-    <article class="post-content">
-      <ShareButtons :title="article.title" :url="postUrl" />
-      <div class="post-header">
-        <h1 class="post-title">{{ article.title }}</h1>
-        <div class="post-meta">
-          <span class="post-date">{{ formatDate(article.createdAt) }}</span>
-          <div class="post-tags" v-if="article.tags">
-            <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
+    <div class="post-layout">
+      <article class="post-content">
+        <ShareButtons :title="article.title" :url="postUrl" />
+        <div class="post-header">
+          <h1 class="post-title">{{ article.title }}</h1>
+          <div class="post-meta">
+            <span class="post-date">{{ formatDate(article.createdAt) }}</span>
+            <div class="post-tags" v-if="article.tags">
+              <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
+            </div>
+          </div>
+          <div class="header-line"></div>
+        </div>
+
+        <img
+          v-if="article.img"
+          :src="require(`~/public/resources/${article.img}`)"
+          :alt="article.title"
+          class="post-image"
+        />
+
+        <nuxt-content :document="article" class="nuxt-content"/>
+
+        <div class="post-footer">
+          <div class="footer-line"></div>
+          <div class="post-nav">
+            <nuxt-link
+              v-if="prev"
+              :to="{ name: 'slug', params: { slug: prev.slug } }"
+              class="nav-link prev"
+            >
+              ← {{ prev.title }}
+            </nuxt-link>
+            <nuxt-link
+              v-if="next"
+              :to="{ name: 'slug', params: { slug: next.slug } }"
+              class="nav-link next"
+            >
+              {{ next.title }} →
+            </nuxt-link>
           </div>
         </div>
-        <div class="header-line"></div>
-      </div>
+      </article>
 
-      <img
-        v-if="article.img"
-        :src="require(`~/public/resources/${article.img}`)"
-        :alt="article.title"
-        class="post-image"
-      />
-
-      <nuxt-content :document="article" class="nuxt-content"/>
-
-      <div class="post-footer">
-        <div class="footer-line"></div>
-        <div class="post-nav">
-          <nuxt-link
-            v-if="prev"
-            :to="{ name: 'slug', params: { slug: prev.slug } }"
-            class="nav-link prev"
-          >
-            ← {{ prev.title }}
-          </nuxt-link>
-          <nuxt-link
-            v-if="next"
-            :to="{ name: 'slug', params: { slug: next.slug } }"
-            class="nav-link next"
-          >
-            {{ next.title }} →
-          </nuxt-link>
-        </div>
-      </div>
-    </article>
+      <TableOfContents v-if="article.toc && article.toc.length" :toc="article.toc" />
+    </div>
   </main>
 </template>
 
 <script>
 import ShareButtons from '~/components/ShareButtons.vue';
+import TableOfContents from '~/components/TableOfContents.vue';
 
 export default {
   components: {
-    ShareButtons
+    ShareButtons,
+    TableOfContents
   },
   async asyncData({$content, params}) {
     const article = await $content('blog', params.slug).fetch();
@@ -179,10 +185,16 @@ export default {
   position: relative;
 }
 
-.post-content {
-  max-width: 2024px;
-  width: auto;
+.post-layout {
+  display: flex;
+  max-width: 1400px;
   margin: 0 auto;
+  align-items: flex-start;
+}
+
+.post-content {
+  flex: 1;
+  min-width: 0;
   background: rgba(8, 14, 26, 0.8);
   padding: 40px 60px;
   border-radius: 15px;
@@ -652,6 +664,12 @@ export default {
 }
 
 /* Responsividade */
+@media (max-width: 1200px) {
+  .post-layout {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 768px) {
   .post-container {
     padding: 60px 15px;
