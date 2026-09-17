@@ -28,14 +28,14 @@
           <div class="post-nav">
             <nuxt-link
               v-if="prev"
-              :to="{ name: 'slug', params: { slug: prev.slug } }"
+              :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
               class="nav-link prev"
             >
               ← {{ prev.title }}
             </nuxt-link>
             <nuxt-link
               v-if="next"
-              :to="{ name: 'slug', params: { slug: next.slug } }"
+              :to="{ name: 'blog-slug', params: { slug: next.slug } }"
               class="nav-link next"
             >
               {{ next.title }} →
@@ -90,7 +90,7 @@ export default {
       return 'https://punk-domus.vercel.app';
     },
     postUrl() {
-      return `${this.baseUrl}/${this.article.slug}`;
+      return `${this.baseUrl}/blog/${this.article.slug}`;
     },
     ogImageUrl() {
       if (this.article.img) {

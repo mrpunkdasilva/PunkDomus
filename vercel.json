@@ -1,4 +1,7 @@
 {
   "buildCommand": "nuxt generate",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/:slug", "destination": "/blog/:slug", "permanent": true }
+  ]
 }

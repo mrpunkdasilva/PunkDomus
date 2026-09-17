@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="{ name: 'slug', params: { slug: post.slug } }" class="blog-card-link">
+  <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }" class="blog-card-link">
     <article class="blog-card">
       <div class="card-image" :style="imageStyle">
         <img v-if="post.img" :src="require(`~/public/resources/${post.img}`)" :alt="post.title" class="card-image-img"/>

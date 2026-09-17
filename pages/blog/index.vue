@@ -9,7 +9,7 @@
     <!-- Featured Post -->
     <section class="featured-post-section" v-if="featuredArticle">
       <h2 class="section-title">Featured Post</h2>
-      <nuxt-link :to="{ name: 'slug', params: { slug: featuredArticle.slug } }" class="featured-article-card">
+      <nuxt-link :to="{ name: 'blog-slug', params: { slug: featuredArticle.slug } }" class="featured-article-card">
         <img :src="require(`~/public/resources/${featuredArticle.img}`)" :alt="featuredArticle.title" class="featured-article-image"/>
         <div class="featured-article-content">
           <h3 class="featured-article-title">{{ featuredArticle.title }}</h3>

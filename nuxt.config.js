@@ -9,7 +9,7 @@ export default {
       const { $content } = require('@nuxt/content')
       const files = await $content('blog').fetch()
 
-      return files.map(file => `/${file.slug}`)
+      return files.map(file => `/blog/${file.slug}`)
     }
   },
 
