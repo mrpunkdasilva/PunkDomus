@@ -128,6 +128,7 @@ export default {
   border-radius: 6px;
   border-left: 2px solid transparent;
   transition: all 0.2s ease;
+  font-family: 'Inria Sans', sans-serif;
 }
 
 .toc-item a:hover {

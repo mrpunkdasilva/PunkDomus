@@ -392,6 +392,16 @@ export default {
   text-shadow: 0 0 10px rgba(33, 222, 234, 0.3);
 }
 
+.nuxt-content h1 strong,
+.nuxt-content h2 strong,
+.nuxt-content h3 strong,
+.nuxt-content h4 strong,
+.nuxt-content h5 strong,
+.nuxt-content h6 strong {
+  color: inherit;
+  font-weight: inherit;
+}
+
 .nuxt-content h2 {
   font-size: 1.8em;
   border-bottom: 2px solid rgba(33, 222, 234, 0.2);
