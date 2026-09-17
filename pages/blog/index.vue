@@ -44,22 +44,11 @@
 
     <!-- Articles Grid -->
     <div class="articles-grid">
-      <article
+      <BlogCard
         v-for="article of filteredArticles"
         :key="article.slug"
-        class="article-card"
-      >
-        <nuxt-link :to="{ name: 'slug', params: { slug: article.slug } }">
-          <div class="article-image">
-            <img :src="require(`~/public/resources/${article.img}`)" :alt="article.title"/>
-          </div>
-          <div class="article-content">
-            <h3 class="article-title">{{ article.title }}</h3>
-            <p class="article-description">{{ article.description }}</p>
-            <span class="read-more">Read More <span class="arrow">→</span></span>
-          </div>
-        </nuxt-link>
-      </article>
+        :post="article"
+      />
     </div>
 
 
@@ -68,16 +57,17 @@
 </template>
 
 <script>
+import BlogCard from '~/components/BlogCard.vue';
+
 export default {
+  components: {
+    BlogCard
+  },
   async asyncData({$content, params}) {
     const articles = await $content('blog')
       .only(['title', 'description', 'img', 'slug', 'createdAt', 'tags', 'featured'])
       .sortBy('createdAt', 'desc')
-      .fetch()
-      .then(articles => articles.map(article => ({
-        ...article,
-        img: article.img || 'default-blog-image.svg' 
-      })));
+      .fetch();
 
     const featuredArticle = articles.find(a => a.featured);
     const regularArticles = articles.filter(a => !a.featured);
@@ -121,7 +111,14 @@ export default {
           hid: 'description',
           name: 'description',
           content: 'All articles and posts from the PunkDomus blog.'
-        }
+        },
+        { hid: 'og:title', property: 'og:title', content: 'Blog | PunkDomus' },
+        { hid: 'og:description', property: 'og:description', content: 'All articles and posts from the PunkDomus blog.' },
+        { hid: 'og:image', property: 'og:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' },
+        { hid: 'og:url', property: 'og:url', content: 'https://punk-domus.vercel.app/blog' },
+        { hid: 'twitter:title', name: 'twitter:title', content: 'Blog | PunkDomus' },
+        { hid: 'twitter:description', name: 'twitter:description', content: 'All articles and posts from the PunkDomus blog.' },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' }
       ]
     }
   }
@@ -278,7 +275,7 @@ export default {
 .articles-grid {
   margin-bottom: 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
   gap: clamp(20px, 3vw, 40px);
   position: relative;
   z-index: 2;
@@ -288,79 +285,7 @@ export default {
   margin-right: auto;
 }
 
-.article-card {
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 15px;
-  overflow: hidden;
-  border: 1px solid rgba(252, 93, 127, 0.2);
-  transition: all 0.3s ease;
-  position: relative;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
 
-.article-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(252, 93, 127, 0.4);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(252, 93, 127, 0.2);
-}
-
-.article-card a {
-  text-decoration: none;
-}
-
-.article-image {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-}
-
-.article-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.article-card:hover .article-image img {
-  transform: scale(1.05);
-}
-
-.article-content {
-  padding: 25px;
-}
-
-.article-title {
-  font-size: 1.5em;
-  color: #efefef;
-  margin-bottom: 15px;
-  line-height: 1.4;
-}
-
-.article-description {
-  color: #afafaf;
-  font-size: 1em;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.read-more {
-  color: #FC5D7F;
-  font-size: 0.9em;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.arrow {
-  transition: transform 0.3s ease;
-}
-
-.article-card:hover .arrow {
-  transform: translateX(5px);
-}
 
 
 

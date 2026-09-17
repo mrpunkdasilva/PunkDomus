@@ -58,12 +58,36 @@ export default {
   },
   head() {
     return {
-      title: 'PunkDomus |> Blog',
+      title: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk',
       meta: [
         {
           hid: 'description',
           name: 'description',
           content: 'Explore artigos sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.'
+        },
+        { hid: 'og:title', property: 'og:title', content: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk' },
+        { hid: 'og:description', property: 'og:description', content: 'Explore artigos sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.' },
+        { hid: 'og:image', property: 'og:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' },
+        { hid: 'og:url', property: 'og:url', content: 'https://punk-domus.vercel.app' },
+        { hid: 'twitter:title', name: 'twitter:title', content: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk' },
+        { hid: 'twitter:description', name: 'twitter:description', content: 'Explore artigos sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.' },
+        { hid: 'twitter:image', name: 'twitter:image', content: 'https://punk-domus.vercel.app/punk_domus_og.png' }
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          json: {
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'PunkDomus',
+            url: 'https://punk-domus.vercel.app',
+            description: 'Blog técnico sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.',
+            author: {
+              '@type': 'Person',
+              name: 'Mr Punk da Silva'
+            },
+            inLanguage: 'pt-BR'
+          }
         }
       ]
     }

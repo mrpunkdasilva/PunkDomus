@@ -1,7 +1,12 @@
 <template>
   <nuxt-link :to="{ name: 'slug', params: { slug: post.slug } }" class="blog-card-link">
     <article class="blog-card">
-      <img v-if="post.img" :src="require(`~/public/resources/${post.img}`)" :alt="post.title" class="card-image"/>
+      <div class="card-image" :style="imageStyle">
+        <img v-if="post.img" :src="require(`~/public/resources/${post.img}`)" :alt="post.title" class="card-image-img"/>
+        <div v-else class="card-image-placeholder" :style="{ background: placeholderColor }">
+          <span class="placeholder-text">{{ post.title.charAt(0) }}</span>
+        </div>
+      </div>
       <div class="card-content">
         <h3 class="card-title">{{ post.title }}</h3>
         <p class="card-excerpt">{{ post.description }}</p>
@@ -17,12 +22,43 @@
 </template>
 
 <script>
+const CYBER_COLORS = [
+  '#21DEEA',
+  '#FC5D7F',
+  '#9B59B6',
+  '#E74C3C',
+  '#2ECC71',
+  '#F39C12',
+  '#1ABC9C',
+  '#E91E63',
+  '#00BCD4',
+  '#FF5722',
+];
+
+function hashCode(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return Math.abs(hash);
+}
+
 export default {
   name: 'BlogCard',
   props: {
     post: {
       type: Object,
       required: true
+    }
+  },
+  computed: {
+    placeholderColor() {
+      const index = hashCode(this.post.slug) % CYBER_COLORS.length;
+      return CYBER_COLORS[index];
+    },
+    imageStyle() {
+      if (this.post.img) return {};
+      return { height: '200px' };
     }
   },
   methods: {
@@ -53,6 +89,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .blog-card:hover {
@@ -64,8 +101,47 @@ export default {
 .card-image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  overflow: hidden;
   border-bottom: 1px solid rgba(33, 222, 234, 0.2);
+  flex-shrink: 0;
+}
+
+.card-image-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.card-image-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 0, 0, 0.1) 10px,
+    rgba(0, 0, 0, 0.1) 20px
+  );
+}
+
+.placeholder-text {
+  font-size: 3.5em;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.3);
+  text-transform: uppercase;
+  font-family: 'Protest Guerrilla', sans-serif;
+  z-index: 1;
 }
 
 .card-content {
@@ -119,5 +195,19 @@ export default {
   border-radius: 20px;
   font-size: 0.75em;
   border: 1px solid rgba(252, 93, 127, 0.2);
+}
+
+@media (max-width: 480px) {
+  .card-image {
+    height: 160px;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-title {
+    font-size: 1.1em;
+  }
 }
 </style>

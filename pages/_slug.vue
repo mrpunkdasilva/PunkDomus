@@ -76,30 +76,86 @@ export default {
   },
   computed: {
     baseUrl() {
-      return 'https://punkdomus.netlify.app/';
+      return 'https://punk-domus.vercel.app';
     },
     postUrl() {
-      return `${this.baseUrl}${this.article.slug}`;
+      return `${this.baseUrl}/${this.article.slug}`;
+    },
+    ogImageUrl() {
+      if (this.article.img) {
+        return `${this.baseUrl}/resources/${this.article.img}`;
+      }
+      return `${this.baseUrl}/punk_domus_og.png`;
+    },
+    jsonLd() {
+      return {
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: this.article.title,
+        description: this.article.description,
+        image: this.ogImageUrl,
+        url: this.postUrl,
+        datePublished: this.article.createdAt,
+        dateModified: this.article.updatedAt || this.article.createdAt,
+        author: {
+          '@type': 'Person',
+          name: 'Mr Punk da Silva',
+          url: this.baseUrl
+        },
+        publisher: {
+          '@type': 'Organization',
+          name: 'PunkDomus',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${this.baseUrl}/punk_domus.svg`
+          }
+        },
+        mainEntityOfPage: {
+          '@type': 'WebPage',
+          '@id': this.postUrl
+        },
+        keywords: this.article.tags ? this.article.tags.join(', ') : '',
+        inLanguage: 'pt-BR'
+      };
     }
   },
   head() {
-    const imageUrl = `${this.baseUrl}resources/${this.article.img}`;
+    const title = `${this.article.title} | PunkDomus`;
+    const description = this.article.description;
+    const image = this.ogImageUrl;
 
     return {
-      title: this.article.title,
+      title,
       meta: [
-        {hid: 'description', name: 'description', content: this.article.description},
+        {hid: 'description', name: 'description', content: description},
+        {hid: 'keywords', name: 'keywords', content: this.article.tags ? this.article.tags.join(', ') : ''},
+        {hid: 'author', name: 'author', content: 'Mr Punk da Silva'},
+        {hid: 'robots', name: 'robots', content: 'index, follow'},
         // Open Graph
-        {hid: 'og:title', property: 'og:title', content: this.article.title},
-        {hid: 'og:description', property: 'og:description', content: this.article.description},
-        {hid: 'og:image', property: 'og:image', content: imageUrl},
-        {hid: 'og:url', property: 'og:url', content: this.postUrl},
         {hid: 'og:type', property: 'og:type', content: 'article'},
+        {hid: 'og:title', property: 'og:title', content: title},
+        {hid: 'og:description', property: 'og:description', content: description},
+        {hid: 'og:image', property: 'og:image', content: image},
+        {hid: 'og:image:width', property: 'og:image:width', content: '1200'},
+        {hid: 'og:image:height', property: 'og:image:height', content: '630'},
+        {hid: 'og:url', property: 'og:url', content: this.postUrl},
+        {hid: 'og:site_name', property: 'og:site_name', content: 'PunkDomus'},
+        {hid: 'og:locale', property: 'og:locale', content: 'pt_BR'},
         // Twitter Card
         {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
-        {hid: 'twitter:title', name: 'twitter:title', content: this.article.title},
-        {hid: 'twitter:description', name: 'twitter:description', content: this.article.description},
-        {hid: 'twitter:image', name: 'twitter:image', content: imageUrl}
+        {hid: 'twitter:site', name: 'twitter:site', content: '@mrpunksama'},
+        {hid: 'twitter:creator', name: 'twitter:creator', content: '@mrpunksama'},
+        {hid: 'twitter:title', name: 'twitter:title', content: title},
+        {hid: 'twitter:description', name: 'twitter:description', content: description},
+        {hid: 'twitter:image', name: 'twitter:image', content: image},
+        // Canonical
+        {hid: 'canonical', rel: 'canonical', href: this.postUrl}
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          json: this.jsonLd
+        }
       ]
     };
   },
@@ -124,10 +180,11 @@ export default {
 }
 
 .post-content {
+  max-width: 2024px;
   width: auto;
   margin: 0 auto;
   background: rgba(8, 14, 26, 0.8);
-  padding: 40px;
+  padding: 40px 60px;
   border-radius: 15px;
   border: 1px solid rgba(252, 93, 127, 0.2);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
