@@ -44,7 +44,10 @@
         </div>
       </article>
 
-      <TableOfContents v-if="article.toc && article.toc.length" :toc="article.toc" />
+      <aside class="post-sidebar">
+        <TableOfContents v-if="article.toc && article.toc.length" :toc="article.toc" />
+        <CatGallery />
+      </aside>
     </div>
   </main>
 </template>
@@ -52,11 +55,13 @@
 <script>
 import ShareButtons from '~/components/ShareButtons.vue';
 import TableOfContents from '~/components/TableOfContents.vue';
+import CatGallery from '~/components/CatGallery.vue';
 
 export default {
   components: {
     ShareButtons,
-    TableOfContents
+    TableOfContents,
+    CatGallery
   },
   async asyncData({$content, params}) {
     const article = await $content('blog', params.slug).fetch();
@@ -200,6 +205,18 @@ export default {
   border-radius: 15px;
   border: 1px solid rgba(252, 93, 127, 0.2);
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.post-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: sticky;
+  top: 100px;
+  width: 320px;
+  flex-shrink: 0;
+  margin-left: 40px;
+  align-self: flex-start;
 }
 
 .post-header {
@@ -677,6 +694,12 @@ export default {
 @media (max-width: 1200px) {
   .post-layout {
     flex-direction: column;
+  }
+
+  .post-sidebar {
+    width: 100%;
+    margin-left: 0;
+    position: static;
   }
 }
 

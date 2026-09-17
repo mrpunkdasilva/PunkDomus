@@ -1,26 +1,24 @@
 <template>
-  <aside class="toc-aside" v-if="toc && toc.length">
-    <div class="toc-container">
-      <h3 class="toc-title">Neste Artigo</h3>
-      <nav class="toc-nav">
-        <ul>
-          <li
-            v-for="item in toc"
-            :key="item.id"
-            :class="[
-              'toc-item',
-              `toc-depth-${item.depth}`,
-              { 'toc-active': activeId === item.id }
-            ]"
-          >
-            <a :href="`#${item.id}`" @click.prevent="scrollTo(item.id)">
-              {{ item.text }}
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  </aside>
+  <div class="toc-container" v-if="toc && toc.length">
+    <h3 class="toc-title">Neste Artigo</h3>
+    <nav class="toc-nav">
+      <ul>
+        <li
+          v-for="item in toc"
+          :key="item.id"
+          :class="[
+            'toc-item',
+            `toc-depth-${item.depth}`,
+            { 'toc-active': activeId === item.id }
+          ]"
+        >
+          <a :href="`#${item.id}`" @click.prevent="scrollTo(item.id)">
+            {{ item.text }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -81,15 +79,6 @@ export default {
 </script>
 
 <style scoped>
-.toc-aside {
-  position: sticky;
-  top: 100px;
-  align-self: flex-start;
-  width: 280px;
-  flex-shrink: 0;
-  margin-left: 40px;
-}
-
 .toc-container {
   background: rgba(8, 14, 26, 0.8);
   border: 1px solid rgba(33, 222, 234, 0.15);
