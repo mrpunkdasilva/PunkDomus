@@ -1,19 +1,19 @@
 <template>
-  <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }" class="blog-card-link">
+  <nuxt-link :to="{ name: 'blog-slug', params: { slug: post.slug } }" class="blog-card-link" :aria-label="`Ler artigo: ${post.title}`">
     <article class="blog-card">
       <div class="card-image" :style="imageStyle">
-        <img v-if="post.img" :src="require(`~/public/resources/${post.img}`)" :alt="post.title" class="card-image-img"/>
+        <img v-if="post.img" :src="require(`~/public/resources/${post.img}`)" :alt="post.title" class="card-image-img" loading="lazy"/>
         <div v-else class="card-image-placeholder" :style="{ background: placeholderColor }">
-          <span class="placeholder-text">{{ post.title.charAt(0) }}</span>
+          <span class="placeholder-text" aria-hidden="true">{{ post.title.charAt(0) }}</span>
         </div>
       </div>
       <div class="card-content">
         <h3 class="card-title">{{ post.title }}</h3>
         <p class="card-excerpt">{{ post.description }}</p>
         <div class="card-meta">
-          <span class="date">{{ formatDate(post.createdAt) }}</span>
-          <div class="tags">
-            <span v-for="tag in post.tags" :key="tag" class="tag">{{ tag }}</span>
+          <time class="date" :datetime="post.createdAt">{{ formatDate(post.createdAt) }}</time>
+          <div class="tags" v-if="post.tags">
+            <UiTag v-for="tag in post.tags" :key="tag">{{ tag }}</UiTag>
           </div>
         </div>
       </div>
@@ -22,53 +22,41 @@
 </template>
 
 <script>
+import { formatDate } from '~/utils/format-date'
+
 const CYBER_COLORS = [
-  '#21DEEA',
-  '#FC5D7F',
-  '#9B59B6',
-  '#E74C3C',
-  '#2ECC71',
-  '#F39C12',
-  '#1ABC9C',
-  '#E91E63',
-  '#00BCD4',
-  '#FF5722',
-];
+  '#21DEEA', '#FC5D7F', '#9B59B6', '#E74C3C', '#2ECC71',
+  '#F39C12', '#1ABC9C', '#E91E63', '#00BCD4', '#FF5722',
+]
 
 function hashCode(str) {
-  let hash = 0;
+  let hash = 0
   for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    hash = str.charCodeAt(i) + ((hash << 5) - hash)
   }
-  return Math.abs(hash);
+  return Math.abs(hash)
 }
 
 export default {
   name: 'BlogCard',
+  components: {
+    UiTag: () => import('../ui/tag/tag.vue')
+  },
   props: {
-    post: {
-      type: Object,
-      required: true
-    }
+    post: { type: Object, required: true }
   },
   computed: {
     placeholderColor() {
-      const index = hashCode(this.post.slug) % CYBER_COLORS.length;
-      return CYBER_COLORS[index];
+      const index = hashCode(this.post.slug) % CYBER_COLORS.length
+      return CYBER_COLORS[index]
     },
     imageStyle() {
-      if (this.post.img) return {};
-      return { height: '200px' };
+      if (this.post.img) return {}
+      return { height: '200px' }
     }
   },
   methods: {
-    formatDate(date) {
-      return new Date(date).toLocaleDateString('pt-BR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      })
-    }
+    formatDate
   }
 }
 </script>
@@ -81,11 +69,11 @@ export default {
 }
 
 .blog-card {
-  background: rgba(8, 14, 26, 0.8);
-  border: 1px solid rgba(33, 222, 234, 0.2);
-  border-radius: 15px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all var(--transition-bounce);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -94,15 +82,15 @@ export default {
 
 .blog-card:hover {
   transform: translateY(-10px) scale(1.03);
-  border-color: rgba(33, 222, 234, 0.5);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: var(--border-primary-hover);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-image {
   width: 100%;
   height: 200px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(33, 222, 234, 0.2);
+  border-bottom: 1px solid var(--border-primary);
   flex-shrink: 0;
 }
 
@@ -127,11 +115,8 @@ export default {
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0, 0, 0, 0.1) 10px,
-    rgba(0, 0, 0, 0.1) 20px
+    45deg, transparent, transparent 10px,
+    rgba(0, 0, 0, 0.1) 10px, rgba(0, 0, 0, 0.1) 20px
   );
 }
 
@@ -140,27 +125,27 @@ export default {
   font-weight: 700;
   color: rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
-  font-family: 'Protest Guerrilla', sans-serif;
+  font-family: var(--font-heading);
   z-index: 1;
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: var(--space-md);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .card-title {
-  color: #21DEEA;
-  font-size: 1.3em;
-  margin-bottom: 0.75rem;
+  color: var(--color-primary);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-xs);
   line-height: 1.3;
 }
 
 .card-excerpt {
-  color: #afafaf;
-  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
   line-height: 1.5;
   flex-grow: 1;
   display: -webkit-box;
@@ -171,30 +156,31 @@ export default {
 
 .card-meta {
   margin-top: auto;
-  padding-top: 1rem;
+  padding-top: var(--space-sm);
   border-top: 1px solid rgba(252, 93, 127, 0.1);
 }
 
 .date {
-  font-size: 0.85em;
-  color: #FC5D7F;
-  margin-bottom: 0.75rem;
+  font-size: var(--text-sm);
+  color: var(--color-secondary);
+  margin-bottom: var(--space-xs);
   display: block;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: var(--space-xs);
 }
 
-.tag {
-  background: rgba(252, 93, 127, 0.1);
-  color: #FC5D7F;
-  padding: 0.3rem 0.6rem;
-  border-radius: 20px;
-  font-size: 0.75em;
-  border: 1px solid rgba(252, 93, 127, 0.2);
+@media (prefers-reduced-motion: reduce) {
+  .blog-card {
+    transition: none;
+  }
+
+  .blog-card:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -203,11 +189,11 @@ export default {
   }
 
   .card-content {
-    padding: 1rem;
+    padding: var(--space-sm);
   }
 
   .card-title {
-    font-size: 1.1em;
+    font-size: var(--text-md);
   }
 }
 </style>

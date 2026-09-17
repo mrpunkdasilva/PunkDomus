@@ -1,17 +1,22 @@
 <template>
   <main class="post-container">
+    <template v-if="loading">
+      <PostSkeleton />
+    </template>
+
+    <template v-else-if="article">
     <div class="post-layout">
       <article class="post-content">
         <ShareButtons :title="article.title" :url="postUrl" />
         <div class="post-header">
           <h1 class="post-title">{{ article.title }}</h1>
           <div class="post-meta">
-            <span class="post-date">{{ formatDate(article.createdAt) }}</span>
+            <time class="post-date" :datetime="article.createdAt">{{ formatDate(article.createdAt) }}</time>
             <div class="post-tags" v-if="article.tags">
-              <span v-for="tag in article.tags" :key="tag" class="tag">{{ tag }}</span>
+              <UiTag v-for="tag in article.tags" :key="tag">{{ tag }}</UiTag>
             </div>
           </div>
-          <div class="header-line"></div>
+          <div class="header-line" aria-hidden="true"></div>
         </div>
 
         <img
@@ -19,13 +24,14 @@
           :src="require(`~/public/resources/${article.img}`)"
           :alt="article.title"
           class="post-image"
+          loading="lazy"
         />
 
         <nuxt-content :document="article" class="nuxt-content"/>
 
         <div class="post-footer">
-          <div class="footer-line"></div>
-          <div class="post-nav">
+          <div class="footer-line" aria-hidden="true"></div>
+          <div class="post-nav" aria-label="Navegação entre artigos">
             <nuxt-link
               v-if="prev"
               :to="{ name: 'blog-slug', params: { slug: prev.slug } }"
@@ -44,27 +50,39 @@
         </div>
       </article>
 
-      <aside class="post-sidebar">
+      <aside class="post-sidebar" aria-label="Índice e conteúdo extra">
         <TableOfContents v-if="article.toc && article.toc.length" :toc="article.toc" />
         <CatGallery />
       </aside>
     </div>
+    </template>
   </main>
 </template>
 
 <script>
-import ShareButtons from '~/components/ShareButtons.vue';
-import TableOfContents from '~/components/TableOfContents.vue';
-import CatGallery from '~/components/CatGallery.vue';
+import ShareButtons from '~/components/share-buttons/share-buttons.vue'
+import TableOfContents from '~/components/table-of-contents/table-of-contents.vue'
+import CatGallery from '~/components/cat-gallery/cat-gallery.vue'
+import { formatDate } from '~/utils/format-date'
 
 export default {
   components: {
     ShareButtons,
     TableOfContents,
-    CatGallery
+    CatGallery,
+    UiTag: () => import('~/components/ui/tag/tag.vue'),
+    PostSkeleton: () => import('~/components/post-skeleton/post-skeleton.vue')
   },
-  async asyncData({$content, params}) {
-    const article = await $content('blog', params.slug).fetch();
+  data() {
+    return {
+      article: null,
+      prev: null,
+      next: null,
+      loading: true
+    }
+  },
+  async asyncData({ $content, params }) {
+    const article = await $content('blog', params.slug).fetch()
 
     const [prev, next] = await Promise.all([
       $content('blog')
@@ -82,8 +100,9 @@ export default {
     return {
       article,
       prev: prev[0],
-      next: next[0]
-    };
+      next: next[0],
+      loading: false
+    }
   },
   computed: {
     baseUrl() {
@@ -131,9 +150,11 @@ export default {
     }
   },
   head() {
-    const title = `${this.article.title} | PunkDomus`;
-    const description = this.article.description;
-    const image = this.ogImageUrl;
+    if (!this.article) return { title: 'Carregando... | PunkDomus' }
+
+    const title = `${this.article.title} | PunkDomus`
+    const description = this.article.description || ''
+    const image = this.ogImageUrl
 
     return {
       title,
@@ -142,7 +163,6 @@ export default {
         {hid: 'keywords', name: 'keywords', content: this.article.tags ? this.article.tags.join(', ') : ''},
         {hid: 'author', name: 'author', content: 'Mr Punk da Silva'},
         {hid: 'robots', name: 'robots', content: 'index, follow'},
-        // Open Graph
         {hid: 'og:type', property: 'og:type', content: 'article'},
         {hid: 'og:title', property: 'og:title', content: title},
         {hid: 'og:description', property: 'og:description', content: description},
@@ -152,7 +172,6 @@ export default {
         {hid: 'og:url', property: 'og:url', content: this.postUrl},
         {hid: 'og:site_name', property: 'og:site_name', content: 'PunkDomus'},
         {hid: 'og:locale', property: 'og:locale', content: 'pt_BR'},
-        // Twitter Card
         {hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image'},
         {hid: 'twitter:site', name: 'twitter:site', content: '@mrpunksama'},
         {hid: 'twitter:creator', name: 'twitter:creator', content: '@mrpunksama'},
@@ -169,16 +188,10 @@ export default {
           json: this.jsonLd
         }
       ]
-    };
+    }
   },
   methods: {
-    formatDate(date) {
-      return new Date(date).toLocaleDateString('pt-BR', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
-    }
+    formatDate
   }
 }
 </script>
@@ -187,7 +200,7 @@ export default {
 .post-container {
   min-height: 100vh;
   padding: 80px 20px;
-  background: #1E1E1E;
+  background: var(--color-bg-dark);
   position: relative;
 }
 
@@ -201,11 +214,11 @@ export default {
 .post-content {
   flex: 1;
   min-width: 0;
-  background: rgba(8, 14, 26, 0.8);
+  background: var(--color-bg-card);
   padding: 40px 60px;
-  border-radius: 15px;
+  border-radius: var(--radius-md);
   border: 1px solid rgba(252, 93, 127, 0.2);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--shadow-lg);
 }
 
 .post-sidebar {
@@ -226,11 +239,10 @@ export default {
 
 .post-title {
   font-size: 2.5em;
-  color: #21DEEA;
+  color: var(--color-primary);
   margin-bottom: 20px;
   line-height: 1.2;
-  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5),
-  0 0 20px rgba(33, 222, 234, 0.3);
+  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5), 0 0 20px rgba(33, 222, 234, 0.3);
 }
 
 .post-meta {
@@ -241,35 +253,24 @@ export default {
 }
 
 .post-date {
-  color: #FC5D7F;
+  color: var(--color-secondary);
   font-size: 0.9em;
 }
 
 .post-tags {
   display: flex;
   gap: 10px;
-
-  .tag {
-    color: #FC5D7F;
-    background-color: rgba(252, 93, 127, 0.1);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8em;
-    border: 1px solid rgba(252, 93, 127, 0.3);
-  }
 }
-
 
 .header-line {
   height: 3px;
-  background: linear-gradient(90deg, #FC5D7F, #21DEEA);
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
   width: 100%;
   border: none;
   margin-top: 20px;
   margin-bottom: 0px;
   box-shadow: 0 0 15px rgba(252, 93, 127, 0.5), 0 0 15px rgba(33, 222, 234, 0.5);
 }
-
 
 .post-image {
   min-width: 100%;

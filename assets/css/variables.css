@@ -1,0 +1,71 @@
+:root {
+  /* Colors */
+  --color-primary: #21DEEA;
+  --color-secondary: #FC5D7F;
+  --color-text: #efefef;
+  --color-text-muted: #afafaf;
+  --color-bg: #1E1E1E;
+  --color-bg-dark: #080E1A;
+  --color-bg-card: rgba(8, 14, 26, 0.8);
+  --color-bg-card-hover: rgba(8, 14, 26, 0.95);
+  --color-success: #2ECC71;
+  --color-warning: #F39C12;
+  --color-error: #E74C3C;
+
+  /* Borders */
+  --border-primary: rgba(33, 222, 234, 0.2);
+  --border-primary-hover: rgba(33, 222, 234, 0.5);
+  --border-secondary: rgba(252, 93, 127, 0.2);
+  --border-secondary-hover: rgba(252, 93, 127, 0.5);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.5);
+  --shadow-glow-primary: 0 0 15px rgba(33, 222, 234, 0.3);
+  --shadow-glow-secondary: 0 0 15px rgba(252, 93, 127, 0.3);
+
+  /* Spacing */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 15px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Fonts */
+  --font-heading: 'Protest Guerrilla', sans-serif;
+  --font-body: 'Inria Sans', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Font sizes */
+  --text-xs: 0.75em;
+  --text-sm: 0.85em;
+  --text-base: 1em;
+  --text-md: 1.1em;
+  --text-lg: 1.3em;
+  --text-xl: 1.5em;
+  --text-2xl: 2em;
+  --text-3xl: 2.5em;
+  --text-4xl: 3.5em;
+
+  /* Z-index */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-skip-link: 500;
+}

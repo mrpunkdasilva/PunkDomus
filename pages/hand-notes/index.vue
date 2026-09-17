@@ -175,7 +175,7 @@
 </template>
 
 <script>
-import NoteCard from '~/components/NoteCard.vue'
+import NoteCard from '~/components/note-card/note-card.vue'
 
 export default {
   name: 'HandNotes',

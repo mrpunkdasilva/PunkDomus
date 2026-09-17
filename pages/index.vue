@@ -8,14 +8,14 @@
           Explore the digital frontier through the lens of cyberpunk aesthetics.
           Dive into software development, documentation, and innovative projects.
         </p>
-        <div class="featured-topics">
-          <div class="topic-tag"># Development</div>
-          <div class="topic-tag"># Documentation</div>
-          <div class="topic-tag"># Cyberpunk</div>
-          <div class="topic-tag"># Innovation</div>
+        <div class="featured-topics" role="list" aria-label="Temas do blog">
+          <div class="topic-tag" role="listitem"># Development</div>
+          <div class="topic-tag" role="listitem"># Documentation</div>
+          <div class="topic-tag" role="listitem"># Cyberpunk</div>
+          <div class="topic-tag" role="listitem"># Innovation</div>
         </div>
       </div>
-      <div class="featured-decoration">
+      <div class="featured-decoration" aria-hidden="true">
         <CyberSkull/>
         <div class="cyber-lines"></div>
       </div>
@@ -43,28 +43,23 @@ export default {
   async asyncData({ $content }) {
     const recentPosts = await $content('blog')
       .sortBy('createdAt', 'desc')
-      .limit(3) // Limita aos 3 posts mais recentes
-      .fetch();
+      .limit(3)
+      .fetch()
 
-    return { recentPosts };
+    return { recentPosts }
   },
   components: {
-    CyberSkull: () => import('~/components/CyberSkull.vue'),
-    ParticleBackground: () => import('~/components/ParticleBackground.vue'),
-    TechGrid: () => import('~/components/TechGrid.vue'),
-    FeaturedCategories: () => import('~/components/FeaturedCategories.vue'),
-    Separator3D: () => import('~/components/Separator3D.vue'),
-    RecentPosts: () => import('~/components/RecentPosts.vue') // Importa o novo componente
+    CyberSkull: () => import('~/components/cyber-skull/cyber-skull.vue'),
+    TechGrid: () => import('~/components/tech-grid/tech-grid.vue'),
+    FeaturedCategories: () => import('~/components/featured-categories/featured-categories.vue'),
+    Separator3D: () => import('~/components/separator-3d/separator-3d.vue'),
+    RecentPosts: () => import('~/components/recent-posts/recent-posts.vue')
   },
   head() {
     return {
       title: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk',
       meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: 'Explore artigos sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.'
-        },
+        { hid: 'description', name: 'description', content: 'Explore artigos sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.' },
         { hid: 'og:type', property: 'og:type', content: 'website' },
         { hid: 'og:title', property: 'og:title', content: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk' },
         { hid: 'og:description', property: 'og:description', content: 'Explore artigos sobre desenvolvimento de software, documentações e projetos com uma perspectiva cyberpunk.' },
@@ -103,196 +98,107 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .home-page {
-  padding: 80px 30px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
   min-height: 100vh;
-  z-index: 1;
-  background: linear-gradient(180deg,
-    rgba(8, 14, 26, 0.9) 0%,
-    rgba(8, 14, 26, 0.95) 50%,
-    rgba(8, 14, 26, 0.9) 100%
-  );
-  overflow-x: hidden; /* Previne scroll horizontal */
-}
-
-/* Melhora a visibilidade do conteúdo sobre as partículas */
-.featured-section {
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
-.featured-section {
-  margin-bottom: 120px;
+  padding: 80px 20px 0;
   position: relative;
+  background: var(--color-bg-dark);
+}
+
+.featured-section {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 40px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 20px;
-  border: 1px solid rgba(252, 93, 127, 0.3);
-  overflow: hidden;
-  width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
+  align-items: center;
+  gap: 60px;
+  padding: 60px 20px;
 }
 
 .featured-content {
-  position: relative;
-  z-index: 2;
-  max-width: 600px;
+  flex: 1;
+  max-width: 650px;
 }
 
 .featured-title {
-  font-size: clamp(2em, 5vw, 4em); /* Título responsivo */
-  color: #21DEEA;
-  margin-bottom: 20px;
-  font-family: 'Protest Guerrilla', sans-serif;
-  text-transform: uppercase;
+  font-size: clamp(2.5em, 5vw, 4em);
+  margin-bottom: 25px;
+  color: var(--color-primary);
   line-height: 1.1;
-  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5),
-               0 0 20px rgba(33, 222, 234, 0.3);
+  text-shadow: 0 0 10px rgba(33, 222, 234, 0.5), 0 0 20px rgba(33, 222, 234, 0.3);
 }
 
 .featured-description {
-  font-size: clamp(1em, 2vw, 1.2em); /* Texto responsivo */
-  color: #afafaf;
+  font-size: clamp(1.1em, 2vw, 1.3em);
+  color: var(--color-text-muted);
   margin-bottom: 30px;
-  line-height: 1.6;
-  font-family: "Inria Sans", sans-serif;
+  line-height: 1.7;
 }
 
 .featured-topics {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 12px;
 }
 
 .topic-tag {
-  padding: 8px 16px;
   background: rgba(252, 93, 127, 0.1);
-  border: 1px solid #FC5D7F;
-  border-radius: 20px;
-  color: #FC5D7F;
+  color: var(--color-secondary);
+  padding: 10px 18px;
+  border-radius: var(--radius-full);
   font-size: 0.9em;
-  transition: all 0.3s ease;
+  border: 1px solid rgba(252, 93, 127, 0.3);
+  transition: all var(--transition-normal);
 }
 
 .topic-tag:hover {
   background: rgba(252, 93, 127, 0.2);
+  border-color: var(--color-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(252, 93, 127, 0.2);
 }
 
 .featured-decoration {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 40%;
+  flex: 0 0 350px;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  position: relative;
 }
 
-.cyber-lines {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(90deg,
-  transparent 0%,
-  rgba(33, 222, 234, 0.1) 50%,
-  transparent 100%);
-  transform: skewX(-20deg);
-}
-
-@keyframes rotate {
-  from {
-    transform: translateY(-50%) rotate(0deg);
+@media (prefers-reduced-motion: reduce) {
+  .topic-tag {
+    transition: none;
   }
-  to {
-    transform: translateY(-50%) rotate(360deg);
+  .topic-tag:hover {
+    transform: none;
   }
 }
 
-/* Breakpoints mais detalhados */
-@media (max-width: 1200px) {
-  .featured-section {
-    padding: 30px;
-    margin-left: 20px;
-    margin-right: 20px;
-    width: calc(100% - 40px);
-  }
-}
-
-@media (max-width: 968px) {
-  .featured-decoration {
-    width: 30%;
-  }
-}
-
-@media (max-width: 768px) {
-  .home-page {
-    padding: 40px 20px;
-  }
-
+@media (max-width: 900px) {
   .featured-section {
     flex-direction: column;
-    padding: 30px 20px;
-    margin-bottom: 80px;
-  }
-
-  .featured-decoration {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    margin-top: 30px;
+    padding: 40px 15px;
+    gap: 40px;
+    text-align: center;
+    align-items: center;
   }
 
   .featured-content {
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .topic-tag {
-    font-size: 0.8em;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .home-page {
-    padding: 30px 15px;
-  }
-
-  .featured-section {
-    margin-left: 15px;
-    margin-right: 15px;
-    width: calc(100% - 30px);
+  .featured-topics {
+    justify-content: center;
   }
 
   .featured-decoration {
-    height: 150px;
-  }
-
-  .topic-tag {
-    font-size: 0.75em;
-    padding: 5px 10px;
-  }
-}
-
-/* Suporte para preferências de redução de movimento */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+    flex: 0 0 auto;
+    height: auto;
   }
 }
 </style>

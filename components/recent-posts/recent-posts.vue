@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import BlogCard from '~/components/BlogCard.vue';
+import BlogCard from '~/components/blog-card/blog-card.vue';
 
 export default {
   name: 'RecentPosts',

@@ -48,6 +48,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/variables.css',
     'prism-themes/themes/prism-dracula.css'
   ],
 
