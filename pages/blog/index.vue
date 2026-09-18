@@ -121,7 +121,7 @@ export default {
 
 <style scoped>
 .blog-page {
-  padding: 80px 30px;
+  padding: 80px clamp(20px, 5vw, 60px);
   width: 100%;
   margin: 0 auto;
   position: relative;
