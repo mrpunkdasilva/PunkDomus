@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <UiSkipLink />
+  <Container tag="div">
+    <SkipLink />
     <HeaderMain/>
-    <main id="main-content" tabindex="-1">
+    <Container tag="main" id="main-content" tabindex="-1">
       <Nuxt/>
-    </main>
+    </Container>
     <FooterMain/>
-  </div>
+  </Container>
 </template>
 
 <script>

@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'UiSkeleton',
+  name: 'Skeleton',
   props: {
     variant: {
       type: String,

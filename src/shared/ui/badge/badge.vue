@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'UiBadge',
+  name: 'Badge',
   props: {
     count: {
       type: Number,

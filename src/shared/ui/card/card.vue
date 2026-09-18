@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'UiCard',
+  name: 'Card',
   props: {
     variant: {
       type: String,

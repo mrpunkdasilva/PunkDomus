@@ -6,7 +6,7 @@
     v-on="$listeners"
   >
     <span v-if="loading" class="ui-button__spinner">
-      <UiSpinner :size="size === 'sm' ? 14 : 18" />
+      <Spinner :size="size === 'sm' ? 14 : 18" />
     </span>
     <span class="ui-button__content" :class="{ 'ui-button__content--hidden': loading }">
       <slot />
@@ -16,9 +16,9 @@
 
 <script>
 export default {
-  name: 'UiButton',
+  name: 'Button',
   components: {
-    UiSpinner: () => import('../spinner/spinner.vue')
+    Spinner: () => import('../spinner/spinner.vue')
   },
   props: {
     variant: {

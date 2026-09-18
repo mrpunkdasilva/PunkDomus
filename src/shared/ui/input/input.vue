@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'UiInput',
+  name: 'Input',
   props: {
     value: { type: [String, Number], default: '' },
     placeholder: { type: String, default: '' },

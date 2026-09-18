@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'UiSection',
+  name: 'Section',
   props: {
     title: { type: String, default: '' },
     id: { type: String, default: '' }

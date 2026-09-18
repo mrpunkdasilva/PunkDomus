@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'UiSearch',
+  name: 'Search',
   props: {
     value: { type: String, default: '' },
     placeholder: { type: String, default: 'Buscar...' }

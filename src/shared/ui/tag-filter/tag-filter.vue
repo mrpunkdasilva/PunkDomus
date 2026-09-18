@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: 'UiTagFilter',
+  name: 'TagFilter',
   props: {
     tags: { type: Array, required: true },
     modelValue: { type: String, default: null },

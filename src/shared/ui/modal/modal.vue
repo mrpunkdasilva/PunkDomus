@@ -41,7 +41,7 @@
 let modalId = 0
 
 export default {
-  name: 'UiModal',
+  name: 'Modal',
   props: {
     open: Boolean,
     title: { type: String, default: '' }

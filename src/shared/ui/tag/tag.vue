@@ -14,7 +14,7 @@
 
 <script>
 export default {
-  name: 'UiTag',
+  name: 'Tag',
   props: {
     variant: {
       type: String,

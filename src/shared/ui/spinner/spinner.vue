@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'UiSpinner',
+  name: 'Spinner',
   props: {
     size: {
       type: Number,

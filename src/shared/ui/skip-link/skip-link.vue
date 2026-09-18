@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'UiSkipLink',
+  name: 'SkipLink',
   props: {
     href: {
       type: String,
