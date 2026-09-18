@@ -13,9 +13,7 @@
 <script>
 export default {
   name: 'CatGallerySkeleton',
-  components: {
-    UiSkeleton: () => import('../ui/skeleton/skeleton.vue')
-  }
+
 }
 </script>
 

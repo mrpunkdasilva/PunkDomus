@@ -44,17 +44,7 @@
 </template>
 
 <script>
-import BlogCard from '~/components/blog-card/blog-card.vue'
-
 export default {
-  components: {
-    BlogCard,
-    UiPageHeader: () => import('~/components/ui/page-header/page-header.vue'),
-    UiSearch: () => import('~/components/ui/search/search.vue'),
-    UiTagFilter: () => import('~/components/ui/tag-filter/tag-filter.vue'),
-    UiSection: () => import('~/components/ui/section/section.vue'),
-    BlogCardSkeleton: () => import('~/components/blog-card-skeleton/blog-card-skeleton.vue')
-  },
   data() {
     return {
       loading: true,

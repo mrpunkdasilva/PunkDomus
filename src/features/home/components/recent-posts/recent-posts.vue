@@ -8,13 +8,8 @@
 </template>
 
 <script>
-import BlogCard from '~/components/blog-card/blog-card.vue';
-
 export default {
   name: 'RecentPosts',
-  components: {
-    BlogCard
-  },
   props: {
     posts: {
       type: Array,

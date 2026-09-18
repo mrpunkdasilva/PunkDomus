@@ -16,9 +16,7 @@
 <script>
 export default {
   name: 'TocSkeleton',
-  components: {
-    UiSkeleton: () => import('../ui/skeleton/skeleton.vue')
-  }
+
 }
 </script>
 

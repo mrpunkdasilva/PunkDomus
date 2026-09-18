@@ -175,13 +175,8 @@
 </template>
 
 <script>
-import NoteCard from '~/components/note-card/note-card.vue'
-
 export default {
   name: 'HandNotes',
-  components: {
-    NoteCard
-  },
   data() {
     return {
       searchQuery: '',

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { formatDate } from '~/utils/format-date'
+import { formatDate } from '~/shared/utils/format-date'
 
 const CYBER_COLORS = [
   '#21DEEA', '#FC5D7F', '#9B59B6', '#E74C3C', '#2ECC71',
@@ -39,9 +39,7 @@ function hashCode(str) {
 
 export default {
   name: 'BlogCard',
-  components: {
-    UiTag: () => import('../ui/tag/tag.vue')
-  },
+
   props: {
     post: { type: Object, required: true }
   },

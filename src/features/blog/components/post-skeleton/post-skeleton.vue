@@ -27,9 +27,7 @@
 <script>
 export default {
   name: 'PostSkeleton',
-  components: {
-    UiSkeleton: () => import('../ui/skeleton/skeleton.vue')
-  }
+
 }
 </script>
 

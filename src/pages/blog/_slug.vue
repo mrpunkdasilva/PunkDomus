@@ -60,19 +60,9 @@
 </template>
 
 <script>
-import ShareButtons from '~/components/share-buttons/share-buttons.vue'
-import TableOfContents from '~/components/table-of-contents/table-of-contents.vue'
-import CatGallery from '~/components/cat-gallery/cat-gallery.vue'
-import { formatDate } from '~/utils/format-date'
+import { formatDate } from '~/shared/utils/format-date'
 
 export default {
-  components: {
-    ShareButtons,
-    TableOfContents,
-    CatGallery,
-    UiTag: () => import('~/components/ui/tag/tag.vue'),
-    PostSkeleton: () => import('~/components/post-skeleton/post-skeleton.vue')
-  },
   data() {
     return {
       loading: true

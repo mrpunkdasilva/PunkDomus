@@ -20,9 +20,7 @@
 <script>
 export default {
   name: 'BlogCardSkeleton',
-  components: {
-    UiSkeleton: () => import('../ui/skeleton/skeleton.vue')
-  }
+
 }
 </script>
 

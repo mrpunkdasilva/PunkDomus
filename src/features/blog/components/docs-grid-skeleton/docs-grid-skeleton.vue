@@ -18,9 +18,7 @@
 <script>
 export default {
   name: 'DocsGridSkeleton',
-  components: {
-    UiSkeleton: () => import('../ui/skeleton/skeleton.vue')
-  },
+
   props: {
     count: { type: Number, default: 6 }
   }

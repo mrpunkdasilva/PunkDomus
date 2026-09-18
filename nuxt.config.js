@@ -2,6 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  // Source directory
+  srcDir: 'src/',
+
   // Adicione a configuração de generate se necessário
   generate: {
     fallback: true,
@@ -48,7 +51,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/assets/css/variables.css',
+    '~/app/assets/css/variables.css',
+    '~/shared/styles/global.css',
     'prism-themes/themes/prism-dracula.css'
   ],
 
@@ -57,16 +61,18 @@ export default {
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    { path: '~/shared/ui', prefix: 'Ui' },
+    { path: '~/features', pathPrefix: false },
+    { path: '~/shared', pathPrefix: false }
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/google-fonts'
   ],
@@ -84,7 +90,7 @@ export default {
     }
   },
 
-  // Configuração do google-fonts (alternativa mais robusta)
+  // Configuração do google-fonts
   googleFonts: {
     families: {
       'Inria+Sans': [300, 400, 700],
@@ -113,33 +119,34 @@ export default {
       }
     }
   },
+
   router: {
     extendRoutes(routes, resolve) {
       routes.push(
         {
           name: 'tech-docs',
           path: '/tech-docs',
-          component: resolve(__dirname, 'pages/tech-docs/index.vue')
+          component: resolve(__dirname, 'src/pages/tech-docs/index.vue')
         },
         {
           name: 'code-labs',
           path: '/code-labs',
-          component: resolve(__dirname, 'pages/code-labs/index.vue')
+          component: resolve(__dirname, 'src/pages/code-labs/index.vue')
         },
         {
           name: 'cheat-sheets',
           path: '/cheat-sheets',
-          component: resolve(__dirname, 'pages/cheat-sheets/index.vue')
+          component: resolve(__dirname, 'src/pages/cheat-sheets/index.vue')
         },
         {
           name: 'hand-notes',
           path: '/hand-notes',
-          component: resolve(__dirname, 'pages/hand-notes/index.vue')
+          component: resolve(__dirname, 'src/pages/hand-notes/index.vue')
         },
         {
           name: 'videos',
           path: '/videos',
-          component: resolve(__dirname, 'pages/videos/index.vue')
+          component: resolve(__dirname, 'src/pages/videos/index.vue')
         }
       )
     }

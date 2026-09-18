@@ -47,13 +47,7 @@ export default {
 
     return { recentPosts }
   },
-  components: {
-    CyberSkull: () => import('~/components/cyber-skull/cyber-skull.vue'),
-    TechGrid: () => import('~/components/tech-grid/tech-grid.vue'),
-    FeaturedCategories: () => import('~/components/featured-categories/featured-categories.vue'),
-    Separator3D: () => import('~/components/separator-3d/separator-3d.vue'),
-    RecentPosts: () => import('~/components/recent-posts/recent-posts.vue')
-  },
+
   head() {
     return {
       title: 'PunkDomus | Blog Técnico de Desenvolvimento & Cyberpunk',
