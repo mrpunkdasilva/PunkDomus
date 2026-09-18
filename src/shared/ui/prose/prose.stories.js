@@ -1,8 +1,8 @@
-import Text from './text.vue'
+import Prose from './prose.vue'
 
 export default {
-  title: 'UI/Text',
-  component: Text,
+  title: 'UI/Prose',
+  component: Prose,
   argTypes: {
     tag: {
       control: { type: 'select' },
@@ -20,9 +20,9 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  components: { Text },
+  components: { Prose },
   props: Object.keys(argTypes),
-  template: '<Text v-bind="$props">{{ content }}</Text>'
+  template: '<Prose v-bind="$props">{{ content }}</Prose>'
 })
 
 export const Body = Template.bind({})

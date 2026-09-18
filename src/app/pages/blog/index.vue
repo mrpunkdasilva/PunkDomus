@@ -13,7 +13,7 @@
       <!-- Featured Post -->
       <Section v-if="featuredArticle" title="Featured Post" id="featured" class="featured-post-section">
         <Link :to="{ name: 'blog-slug', params: { slug: featuredArticle.slug } }" class="featured-article-card">
-          <Image
+          <Picture
             :src="require(`~/public/resources/${featuredArticle.img}`)"
             :alt="featuredArticle.title"
             class="featured-article-image"
@@ -21,8 +21,8 @@
           />
           <Stack direction="vertical" gap="sm" class="featured-article-content">
             <Heading :level="3" class="featured-article-title">{{ featuredArticle.title }}</Heading>
-            <Text variant="muted" class="featured-article-description">{{ featuredArticle.description }}</Text>
-            <Text variant="muted" class="read-more">Read More <span class="arrow" aria-hidden="true">→</span></Text>
+            <Prose variant="muted" class="featured-article-description">{{ featuredArticle.description }}</Prose>
+            <Prose variant="muted" class="read-more">Read More <span class="arrow" aria-hidden="true">→</span></Prose>
           </Stack>
         </Link>
       </Section>

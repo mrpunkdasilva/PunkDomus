@@ -9,16 +9,6 @@ module.exports = {
     builder: '@storybook/builder-webpack5'
   },
   webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.vue$/,
-      loader: 'vue-loader'
-    })
-
-    config.module.rules.push({
-      test: /\.css$/,
-      use: ['style-loader', 'css-loader']
-    })
-
     config.resolve.alias = {
       ...config.resolve.alias,
       '~': require('path').resolve(__dirname, '../src'),

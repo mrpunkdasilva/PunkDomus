@@ -1,8 +1,8 @@
-import Image from './image.vue'
+import Picture from './picture.vue'
 
 export default {
-  title: 'UI/Image',
-  component: Image,
+  title: 'UI/Picture',
+  component: Picture,
   argTypes: {
     src: {
       control: { type: 'text' }
@@ -22,9 +22,9 @@ export default {
 }
 
 const Template = (args, { argTypes }) => ({
-  components: { Image },
+  components: { Picture },
   props: Object.keys(argTypes),
-  template: '<Image v-bind="$props" style="width: 300px; height: 200px;" />'
+  template: '<Picture v-bind="$props" style="width: 300px; height: 200px;" />'
 })
 
 export const Default = Template.bind({})

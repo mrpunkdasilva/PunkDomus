@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'Text',
+  name: 'Prose',
   props: {
     tag: {
       type: String,

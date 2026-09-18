@@ -7,11 +7,11 @@
     <Stack direction="vertical" gap="xl" class="about-content">
       <Card class="about-section">
         <Section title="O que é o PunkDomus?" id="what-is">
-          <Text variant="lead">
+          <Prose variant="lead">
             PunkDomus é meu espaço pessoal na web onde compartilho conhecimento,
             experiências e reflexões sobre desenvolvimento de software, com um toque
             de estética cyberpunk.
-          </Text>
+          </Prose>
         </Section>
       </Card>
 
@@ -29,23 +29,23 @@
 
       <Card class="about-section">
         <Section title="Objetivo" id="objective">
-          <Text variant="lead">
+          <Prose variant="lead">
             Este blog serve como um diário digital do meu percurso no desenvolvimento
             de software, documentando minha jornada e compartilhando conhecimento com
             a comunidade. Aqui, você encontrará desde documentações técnicas até
             reflexões sobre projetos futuros.
-          </Text>
+          </Prose>
         </Section>
       </Card>
 
       <Card class="about-section">
         <Section title='Por que "PunkDomus"?' id="why-name">
-          <Text variant="lead">
+          <Prose variant="lead">
             O nome combina "Punk", representando a atitude rebelde e inovadora do
             movimento cyberpunk, com "Domus" (casa em latim), simbolizando um espaço
             pessoal de criação e compartilhamento. É um lugar onde tecnologia e
             criatividade se encontram.
-          </Text>
+          </Prose>
         </Section>
       </Card>
     </Stack>

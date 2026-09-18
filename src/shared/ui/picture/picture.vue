@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'Image',
+  name: 'Picture',
   props: {
     src: {
       type: String,

@@ -4,10 +4,10 @@
     <Stack direction="horizontal" align="center" justify="between" class="featured-section">
       <Stack direction="vertical" gap="lg" class="featured-content">
         <Heading :level="1" class="featured-title">Welcome to PunkDomus</Heading>
-        <Text variant="lead" class="featured-description">
+        <Prose variant="lead" class="featured-description">
           Explore the digital frontier through the lens of cyberpunk aesthetics.
           Dive into software development, documentation, and innovative projects.
-        </Text>
+        </Prose>
         <Stack direction="horizontal" gap="sm" class="featured-topics">
           <Chip variant="primary" v-for="topic in topics" :key="topic">
             # {{ topic }}
