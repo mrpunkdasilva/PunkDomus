@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'UiPageHeader',
+  name: 'PageHeader',
   props: {
     title: { type: String, required: true },
     subtitle: { type: String, default: '' }
@@ -23,7 +23,7 @@ export default {
 }
 
 .ui-page-header__title {
-  font-family: var(--font-heading);
+  font-family: var(--font-hero);
   font-size: clamp(2.5em, 5vw, 4em);
   color: var(--color-primary);
   text-transform: uppercase;

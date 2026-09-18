@@ -47,9 +47,10 @@
   --transition-bounce: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   /* Fonts */
-  --font-heading: 'Protest Guerrilla', sans-serif;
-  --font-body: 'Inria Sans', sans-serif;
+  --font-heading: 'JetBrains Mono', monospace;
+  --font-body: 'JetBrains Mono', monospace;
   --font-mono: 'Fira Code', monospace;
+  --font-hero: 'Protest Guerrilla', sans-serif;
 
   /* Font sizes */
   --text-xs: 0.75em;
