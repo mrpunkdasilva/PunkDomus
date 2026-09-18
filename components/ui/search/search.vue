@@ -25,22 +25,22 @@ export default {
 <style scoped>
 .ui-search {
   position: relative;
-  display: flex;
-  justify-content: center;
+  width: 100%;
+  max-width: 600px;
 }
 
 .ui-search__icon {
   position: absolute;
-  left: 20px;
+  left: 18px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-text-muted);
   pointer-events: none;
+  font-size: 16px;
 }
 
 .ui-search__input {
   width: 100%;
-  max-width: 600px;
   padding: 15px 25px 15px 45px;
   background: var(--color-bg-card);
   border: 1px solid var(--border-primary);

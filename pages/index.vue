@@ -17,7 +17,6 @@
       </div>
       <div class="featured-decoration" aria-hidden="true">
         <CyberSkull/>
-        <div class="cyber-lines"></div>
       </div>
     </section>
 
