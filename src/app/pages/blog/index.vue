@@ -1,50 +1,46 @@
 <template>
-  <Container tag="main" size="xl" class="blog-page">
+  <main class="blog-page">
     <PageHeader title="Blog Posts" subtitle="All articles from the digital frontier." />
 
     <!-- Loading State -->
     <template v-if="loading">
-      <Grid columns="auto" gap="lg" class="articles-grid">
+      <div class="articles-grid">
         <BlogCardSkeleton v-for="n in 6" :key="n" />
-      </Grid>
+      </div>
     </template>
 
     <template v-else>
       <!-- Featured Post -->
-      <Section v-if="featuredArticle" title="Featured Post" id="featured" class="featured-post-section">
-        <Link :to="{ name: 'blog-slug', params: { slug: featuredArticle.slug } }" class="featured-article-card">
-          <Picture
-            :src="require(`~/public/resources/${featuredArticle.img}`)"
-            :alt="featuredArticle.title"
-            class="featured-article-image"
-            radius="sm"
-          />
-          <Stack direction="vertical" gap="sm" class="featured-article-content">
-            <Heading :level="3" class="featured-article-title">{{ featuredArticle.title }}</Heading>
-            <Prose variant="muted" class="featured-article-description">{{ featuredArticle.description }}</Prose>
-            <Prose variant="muted" class="read-more">Read More <span class="arrow" aria-hidden="true">→</span></Prose>
-          </Stack>
-        </Link>
-      </Section>
+      <section class="featured-post-section" v-if="featuredArticle" aria-label="Post destaque">
+        <Section title="Featured Post" id="featured" />
+        <nuxt-link :to="{ name: 'blog-slug', params: { slug: featuredArticle.slug } }" class="featured-article-card" :aria-label="`Ler artigo destaque: ${featuredArticle.title}`">
+          <img :src="require(`~/public/resources/${featuredArticle.img}`)" :alt="featuredArticle.title" class="featured-article-image" loading="lazy"/>
+          <div class="featured-article-content">
+            <h3 class="featured-article-title">{{ featuredArticle.title }}</h3>
+            <p class="featured-article-description">{{ featuredArticle.description }}</p>
+            <span class="read-more">Read More <span class="arrow" aria-hidden="true">→</span></span>
+          </div>
+        </nuxt-link>
+      </section>
 
       <!-- Search and Filter -->
-      <Stack direction="vertical" gap="lg" class="filter-section">
-        <Stack direction="horizontal" justify="center">
+      <section class="filter-section" aria-label="Filtrar artigos">
+        <div class="search-container">
           <Search v-model="searchQuery" placeholder="Search articles..." />
-        </Stack>
+        </div>
         <TagFilter v-model="selectedTag" :tags="allTags" />
-      </Stack>
+      </section>
 
       <!-- Articles Grid -->
-      <Grid columns="auto" gap="lg" class="articles-grid">
+      <div class="articles-grid">
         <BlogCard
           v-for="article of filteredArticles"
           :key="article.slug"
           :post="article"
         />
-      </Grid>
+      </div>
     </template>
-  </Container>
+  </main>
 </template>
 
 <script>
@@ -155,6 +151,7 @@ export default {
   width: 300px;
   height: 200px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .featured-article-content {
@@ -181,10 +178,21 @@ export default {
 
 .filter-section {
   margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
 }
 
 .articles-grid {
   margin-bottom: 120px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+  gap: clamp(20px, 3vw, 40px);
   position: relative;
   z-index: 2;
   width: 100%;
@@ -206,6 +214,10 @@ export default {
 @media (max-width: 768px) {
   .blog-page {
     padding: 60px 15px;
+  }
+
+  .articles-grid {
+    grid-template-columns: 1fr;
   }
 
   .featured-article-card {

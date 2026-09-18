@@ -1,55 +1,53 @@
 <template>
-  <Container tag="main" size="lg" class="about-page">
-    <Header tag="header" class="about-header">
-      <Heading :level="1" class="about-title">Sobre o PunkDomus</Heading>
-    </Header>
+  <main class="about-page">
+    <header class="about-header">
+      <h1 class="about-title">Sobre o PunkDomus</h1>
+    </header>
 
-    <Stack direction="vertical" gap="xl" class="about-content">
-      <Card class="about-section">
-        <Section title="O que é o PunkDomus?" id="what-is">
-          <Prose variant="lead">
-            PunkDomus é meu espaço pessoal na web onde compartilho conhecimento,
-            experiências e reflexões sobre desenvolvimento de software, com um toque
-            de estética cyberpunk.
-          </Prose>
-        </Section>
-      </Card>
+    <article class="about-content">
+      <section class="about-section" aria-labelledby="what-is">
+        <h2 id="what-is" class="section-title">O que é o PunkDomus?</h2>
+        <p class="section-text">
+          PunkDomus é meu espaço pessoal na web onde compartilho conhecimento,
+          experiências e reflexões sobre desenvolvimento de software, com um toque
+          de estética cyberpunk.
+        </p>
+      </section>
 
-      <Card class="about-section">
-        <Section title="O que você encontrará aqui" id="content">
-          <List variant="none" class="feature-list">
-            <li class="feature-item">📚 Documentações detalhadas de projetos</li>
-            <li class="feature-item">💡 Ideias e conceitos em desenvolvimento</li>
-            <li class="feature-item">🛠️ Projetos em andamento e finalizados</li>
-            <li class="feature-item">🤔 Reflexões sobre tecnologia e desenvolvimento</li>
-            <li class="feature-item">📝 Tutoriais e guias práticos</li>
-          </List>
-        </Section>
-      </Card>
+      <section class="about-section" aria-labelledby="content">
+        <h2 id="content" class="section-title">O que você encontrará aqui</h2>
+        <nav class="content-nav">
+          <ul class="feature-list" role="list">
+            <li class="feature-item" role="listitem">📚 Documentações detalhadas de projetos</li>
+            <li class="feature-item" role="listitem">💡 Ideias e conceitos em desenvolvimento</li>
+            <li class="feature-item" role="listitem">🛠️ Projetos em andamento e finalizados</li>
+            <li class="feature-item" role="listitem">🤔 Reflexões sobre tecnologia e desenvolvimento</li>
+            <li class="feature-item" role="listitem">📝 Tutoriais e guias práticos</li>
+          </ul>
+        </nav>
+      </section>
 
-      <Card class="about-section">
-        <Section title="Objetivo" id="objective">
-          <Prose variant="lead">
-            Este blog serve como um diário digital do meu percurso no desenvolvimento
-            de software, documentando minha jornada e compartilhando conhecimento com
-            a comunidade. Aqui, você encontrará desde documentações técnicas até
-            reflexões sobre projetos futuros.
-          </Prose>
-        </Section>
-      </Card>
+      <section class="about-section" aria-labelledby="objective">
+        <h2 id="objective" class="section-title">Objetivo</h2>
+        <p class="section-text">
+          Este blog serve como um diário digital do meu percurso no desenvolvimento
+          de software, documentando minha jornada e compartilhando conhecimento com
+          a comunidade. Aqui, você encontrará desde documentações técnicas até
+          reflexões sobre projetos futuros.
+        </p>
+      </section>
 
-      <Card class="about-section">
-        <Section title='Por que "PunkDomus"?' id="why-name">
-          <Prose variant="lead">
-            O nome combina "Punk", representando a atitude rebelde e inovadora do
-            movimento cyberpunk, com "Domus" (casa em latim), simbolizando um espaço
-            pessoal de criação e compartilhamento. É um lugar onde tecnologia e
-            criatividade se encontram.
-          </Prose>
-        </Section>
-      </Card>
-    </Stack>
-  </Container>
+      <section class="about-section" aria-labelledby="why-name">
+        <h2 id="why-name" class="section-title">Por que "PunkDomus"?</h2>
+        <p class="section-text">
+          O nome combina "Punk", representando a atitude rebelde e inovadora do
+          movimento cyberpunk, com "Domus" (casa em latim), simbolizando um espaço
+          pessoal de criação e compartilhamento. É um lugar onde tecnologia e
+          criatividade se encontram.
+        </p>
+      </section>
+    </article>
+  </main>
 </template>
 
 <script>
@@ -71,6 +69,24 @@ export default {
 </script>
 
 <style scoped>
+/* Mantendo apenas as animações necessárias */
+@keyframes neonPulse {
+  0% { text-shadow: 0 0 7px #21DEEA, 0 0 10px #21DEEA, 0 0 21px #21DEEA; }
+  50% { text-shadow: 0 0 15px #FC5D7F, 0 0 25px #FC5D7F, 0 0 40px #FC5D7F; }
+  100% { text-shadow: 0 0 7px #21DEEA, 0 0 10px #21DEEA, 0 0 21px #21DEEA; }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(50% 0 30% 0); transform: skew(0.15deg); }
+  5% { clip-path: inset(20% 0 60% 0); transform: skew(0.3deg); }
+  10% { clip-path: inset(40% 0 40% 0); transform: skew(-0.15deg); }
+  15% { clip-path: inset(10% 0 70% 0); transform: skew(0.4deg); }
+  20% { clip-path: inset(80% 0 10% 0); transform: skew(-0.2deg); }
+  25% { clip-path: inset(30% 0 50% 0); transform: skew(0.1deg); }
+  100% { clip-path: inset(50% 0 30% 0); transform: skew(0deg); }
+}
+
+/* Estilos base atualizados */
 .about-page {
   padding: 80px 30px;
   margin: 0 auto;
@@ -124,14 +140,46 @@ export default {
   margin-bottom: 40px;
 }
 
+.about-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -2px 0 #FC5D7F;
+  top: 0;
+  color: #21DEEA;
+  background: #080E1A;
+  overflow: hidden;
+  animation: glitch 3s infinite linear alternate-reverse;
+  z-index: -1;
+}
+
 .about-content {
   margin-top: 80px;
+  display: grid;
+  gap: 60px;
   position: relative;
   z-index: 3;
 }
 
 .about-section {
   padding: 40px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 15px;
+  border: 1px solid rgba(252, 93, 127, 0.2);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section:hover {
+  border-color: rgba(252, 93, 127, 0.4);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.4),
+    inset 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
 .section-title {
@@ -155,6 +203,15 @@ export default {
   background: #FC5D7F;
   border-radius: 4px;
   box-shadow: 0 0 15px rgba(252, 93, 127, 0.7);
+}
+
+.section-text {
+  line-height: 1.9;
+  font-size: 1.15em;
+  color: #efefef;
+  text-shadow: 0 0 2px rgba(239, 239, 239, 0.3);
+  position: relative;
+  z-index: 2;
 }
 
 .feature-list {
@@ -185,6 +242,7 @@ export default {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Responsividade atualizada */
 @media (max-width: 768px) {
   .about-page {
     padding: 40px 20px;
@@ -203,12 +261,17 @@ export default {
     font-size: 1.8em;
   }
 
+  .about-content {
+    gap: 40px;
+  }
+
   .feature-item {
     font-size: 1.1em;
     padding: 15px;
   }
 }
 
+/* Suporte para preferências de redução de movimento */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
