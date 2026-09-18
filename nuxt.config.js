@@ -63,8 +63,9 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     { path: '~/shared/ui', prefix: 'Ui' },
-    { path: '~/features', pathPrefix: false },
-    { path: '~/shared', pathPrefix: false }
+    { path: '~/features/home/components' },
+    { path: '~/features/blog/components' },
+    { path: '~/features/hand-notes/components' }
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
