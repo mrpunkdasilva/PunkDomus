@@ -193,6 +193,11 @@ export default {
   gap: 30px;
 }
 
+.search-container {
+  display: flex;
+  justify-content: center;
+}
+
 .articles-grid {
   margin-bottom: 120px;
   display: grid;
