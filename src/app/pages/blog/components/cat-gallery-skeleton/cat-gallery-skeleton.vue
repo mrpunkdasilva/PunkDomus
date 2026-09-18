@@ -1,12 +1,12 @@
 <template>
   <div class="cat-gallery-skeleton" aria-hidden="true">
     <div class="cat-gallery-skeleton__header">
-      <UiSkeleton variant="text" width="100px" height="1em" />
+      <Skeleton variant="text" width="100px" height="1em" />
     </div>
-    <UiSkeleton variant="rect" height="140px" />
-    <UiSkeleton variant="rect" height="180px" />
-    <UiSkeleton variant="rect" height="120px" />
-    <UiSkeleton variant="rect" height="36px" width="100%" />
+    <Skeleton variant="rect" height="140px" />
+    <Skeleton variant="rect" height="180px" />
+    <Skeleton variant="rect" height="120px" />
+    <Skeleton variant="rect" height="36px" width="100%" />
   </div>
 </template>
 

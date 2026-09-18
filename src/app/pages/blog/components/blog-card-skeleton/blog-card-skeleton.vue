@@ -1,16 +1,16 @@
 <template>
   <div class="blog-card-skeleton" aria-hidden="true">
-    <UiSkeleton variant="rect" height="200px" />
+    <Skeleton variant="rect" height="200px" />
     <div class="blog-card-skeleton__content">
-      <UiSkeleton variant="text" width="80%" height="1.3em" />
-      <UiSkeleton variant="text" />
-      <UiSkeleton variant="text" />
-      <UiSkeleton variant="text" width="60%" />
+      <Skeleton variant="text" width="80%" height="1.3em" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" width="60%" />
       <div class="blog-card-skeleton__meta">
-        <UiSkeleton variant="text" width="100px" />
+        <Skeleton variant="text" width="100px" />
         <div class="blog-card-skeleton__tags">
-          <UiSkeleton variant="text" width="50px" height="24px" />
-          <UiSkeleton variant="text" width="60px" height="24px" />
+          <Skeleton variant="text" width="50px" height="24px" />
+          <Skeleton variant="text" width="60px" height="24px" />
         </div>
       </div>
     </div>

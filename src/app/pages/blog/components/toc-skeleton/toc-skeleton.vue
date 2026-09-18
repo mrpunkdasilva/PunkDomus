@@ -1,14 +1,14 @@
 <template>
   <div class="toc-skeleton" aria-hidden="true">
     <div class="toc-skeleton__header">
-      <UiSkeleton variant="text" width="90px" height="1em" />
+      <Skeleton variant="text" width="90px" height="1em" />
     </div>
     <div class="toc-skeleton__items">
-      <UiSkeleton variant="text" width="85%" />
-      <UiSkeleton variant="text" width="70%" />
-      <UiSkeleton variant="text" width="90%" />
-      <UiSkeleton variant="text" width="55%" />
-      <UiSkeleton variant="text" width="75%" />
+      <Skeleton variant="text" width="85%" />
+      <Skeleton variant="text" width="70%" />
+      <Skeleton variant="text" width="90%" />
+      <Skeleton variant="text" width="55%" />
+      <Skeleton variant="text" width="75%" />
     </div>
   </div>
 </template>

@@ -1,25 +1,25 @@
 <template>
   <div class="post-skeleton" aria-hidden="true">
     <div class="post-skeleton__header">
-      <UiSkeleton variant="text" width="70%" height="2.5em" />
+      <Skeleton variant="text" width="70%" height="2.5em" />
       <div class="post-skeleton__meta">
-        <UiSkeleton variant="text" width="120px" />
+        <Skeleton variant="text" width="120px" />
         <div class="post-skeleton__tags">
-          <UiSkeleton variant="text" width="60px" height="24px" />
-          <UiSkeleton variant="text" width="70px" height="24px" />
+          <Skeleton variant="text" width="60px" height="24px" />
+          <Skeleton variant="text" width="70px" height="24px" />
         </div>
       </div>
-      <UiSkeleton variant="rect" height="3px" width="100%" />
+      <Skeleton variant="rect" height="3px" width="100%" />
     </div>
-    <UiSkeleton variant="rect" height="400px" />
+    <Skeleton variant="rect" height="400px" />
     <div class="post-skeleton__content">
-      <UiSkeleton variant="text" />
-      <UiSkeleton variant="text" />
-      <UiSkeleton variant="text" width="90%" />
-      <UiSkeleton variant="text" />
-      <UiSkeleton variant="text" width="75%" />
-      <UiSkeleton variant="text" />
-      <UiSkeleton variant="text" width="85%" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" width="90%" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" width="75%" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" width="85%" />
     </div>
   </div>
 </template>

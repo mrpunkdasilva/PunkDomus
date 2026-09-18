@@ -1,24 +1,23 @@
 <template>
-  <main class="home-page">
+  <Container tag="main" size="lg" class="home-page">
     <!-- Seção de destaque -->
-    <section class="featured-section">
-      <div class="featured-content">
-        <h1 class="featured-title">Welcome to PunkDomus</h1>
-        <p class="featured-description">
+    <Stack direction="horizontal" align="center" justify="between" class="featured-section">
+      <Stack direction="vertical" gap="lg" class="featured-content">
+        <Heading :level="1" class="featured-title">Welcome to PunkDomus</Heading>
+        <Text variant="lead" class="featured-description">
           Explore the digital frontier through the lens of cyberpunk aesthetics.
           Dive into software development, documentation, and innovative projects.
-        </p>
-        <div class="featured-topics" role="list" aria-label="Temas do blog">
-          <div class="topic-tag" role="listitem"># Development</div>
-          <div class="topic-tag" role="listitem"># Documentation</div>
-          <div class="topic-tag" role="listitem"># Cyberpunk</div>
-          <div class="topic-tag" role="listitem"># Innovation</div>
-        </div>
-      </div>
+        </Text>
+        <Stack direction="horizontal" gap="sm" class="featured-topics">
+          <Chip variant="primary" v-for="topic in topics" :key="topic">
+            # {{ topic }}
+          </Chip>
+        </Stack>
+      </Stack>
       <div class="featured-decoration" aria-hidden="true">
         <CyberSkull/>
       </div>
-    </section>
+    </Stack>
 
     <Separator3D />
 
@@ -34,11 +33,16 @@
 
     <!-- Tech Grid no final -->
     <TechGrid/>
-  </main>
+  </Container>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      topics: ['Development', 'Documentation', 'Cyberpunk', 'Innovation']
+    }
+  },
   async asyncData({ $content }) {
     const recentPosts = await $content('blog')
       .sortBy('createdAt', 'desc')
@@ -101,18 +105,9 @@ export default {
   z-index: 1;
 }
 
-.featured-section,
-.article-card {
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-}
-
 .featured-section {
   margin-bottom: 100px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 40px;
   background: rgba(0, 0, 0, 0.7);
   border-radius: 20px;
@@ -130,7 +125,7 @@ export default {
   font-size: 4em;
   color: #21DEEA;
   margin-bottom: 20px;
-  font-family: 'Protest Guerrilla', sans-serif;
+  font-family: var(--font-hero);
   text-transform: uppercase;
   line-height: 1.1;
   text-shadow:
@@ -143,7 +138,7 @@ export default {
   color: #afafaf;
   margin-bottom: 30px;
   line-height: 1.6;
-  font-family: "Inria Sans", sans-serif;
+  font-family: var(--font-body);
 }
 
 .featured-topics {
@@ -152,36 +147,11 @@ export default {
   gap: 15px;
 }
 
-.topic-tag {
-  padding: 8px 16px;
-  background: rgba(252, 93, 127, 0.1);
-  border: 1px solid #FC5D7F;
-  border-radius: 20px;
-  color: #FC5D7F;
-  font-size: 0.9em;
-  transition: all 0.3s ease;
-}
-
-.topic-tag:hover {
-  background: rgba(252, 93, 127, 0.2);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(252, 93, 127, 0.2);
-}
-
 .featured-decoration {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.cyber-lines {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: reduce) {

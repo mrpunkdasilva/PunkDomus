@@ -13,7 +13,7 @@
         <div class="card-meta">
           <time class="date" :datetime="post.createdAt">{{ formatDate(post.createdAt) }}</time>
           <div class="tags" v-if="post.tags">
-            <UiTag v-for="tag in post.tags" :key="tag">{{ tag }}</UiTag>
+            <Tag v-for="tag in post.tags" :key="tag">{{ tag }}</Tag>
           </div>
         </div>
       </div>

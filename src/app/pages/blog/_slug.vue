@@ -13,7 +13,7 @@
           <div class="post-meta">
             <time class="post-date" :datetime="article.createdAt">{{ formatDate(article.createdAt) }}</time>
             <div class="post-tags" v-if="article.tags">
-              <UiTag v-for="tag in article.tags" :key="tag">{{ tag }}</UiTag>
+              <Tag v-for="tag in article.tags" :key="tag">{{ tag }}</Tag>
             </div>
           </div>
           <div class="header-line" aria-hidden="true"></div>

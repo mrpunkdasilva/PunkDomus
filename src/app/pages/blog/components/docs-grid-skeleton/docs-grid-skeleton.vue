@@ -5,11 +5,11 @@
       :key="n"
       class="docs-grid-skeleton__card"
     >
-      <UiSkeleton variant="rect" height="140px" />
+      <Skeleton variant="rect" height="140px" />
       <div class="docs-grid-skeleton__content">
-        <UiSkeleton variant="text" width="80%" />
-        <UiSkeleton variant="text" />
-        <UiSkeleton variant="text" width="60%" />
+        <Skeleton variant="text" width="80%" />
+        <Skeleton variant="text" />
+        <Skeleton variant="text" width="60%" />
       </div>
     </div>
   </div>

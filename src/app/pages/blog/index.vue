@@ -1,46 +1,50 @@
 <template>
-  <main class="blog-page">
-    <UiPageHeader title="Blog Posts" subtitle="All articles from the digital frontier." />
+  <Container tag="main" size="xl" class="blog-page">
+    <PageHeader title="Blog Posts" subtitle="All articles from the digital frontier." />
 
     <!-- Loading State -->
     <template v-if="loading">
-      <div class="articles-grid">
+      <Grid columns="auto" gap="lg" class="articles-grid">
         <BlogCardSkeleton v-for="n in 6" :key="n" />
-      </div>
+      </Grid>
     </template>
 
     <template v-else>
       <!-- Featured Post -->
-      <section class="featured-post-section" v-if="featuredArticle" aria-label="Post destaque">
-        <UiSection title="Featured Post" id="featured" />
-        <nuxt-link :to="{ name: 'blog-slug', params: { slug: featuredArticle.slug } }" class="featured-article-card" :aria-label="`Ler artigo destaque: ${featuredArticle.title}`">
-          <img :src="require(`~/public/resources/${featuredArticle.img}`)" :alt="featuredArticle.title" class="featured-article-image" loading="lazy"/>
-          <div class="featured-article-content">
-            <h3 class="featured-article-title">{{ featuredArticle.title }}</h3>
-            <p class="featured-article-description">{{ featuredArticle.description }}</p>
-            <span class="read-more">Read More <span class="arrow" aria-hidden="true">→</span></span>
-          </div>
-        </nuxt-link>
-      </section>
+      <Section v-if="featuredArticle" title="Featured Post" id="featured" class="featured-post-section">
+        <Link :to="{ name: 'blog-slug', params: { slug: featuredArticle.slug } }" class="featured-article-card">
+          <Image
+            :src="require(`~/public/resources/${featuredArticle.img}`)"
+            :alt="featuredArticle.title"
+            class="featured-article-image"
+            radius="sm"
+          />
+          <Stack direction="vertical" gap="sm" class="featured-article-content">
+            <Heading :level="3" class="featured-article-title">{{ featuredArticle.title }}</Heading>
+            <Text variant="muted" class="featured-article-description">{{ featuredArticle.description }}</Text>
+            <Text variant="muted" class="read-more">Read More <span class="arrow" aria-hidden="true">→</span></Text>
+          </Stack>
+        </Link>
+      </Section>
 
       <!-- Search and Filter -->
-      <section class="filter-section" aria-label="Filtrar artigos">
-        <div class="search-container">
-          <UiSearch v-model="searchQuery" placeholder="Search articles..." />
-        </div>
-        <UiTagFilter v-model="selectedTag" :tags="allTags" />
-      </section>
+      <Stack direction="vertical" gap="lg" class="filter-section">
+        <Stack direction="horizontal" justify="center">
+          <Search v-model="searchQuery" placeholder="Search articles..." />
+        </Stack>
+        <TagFilter v-model="selectedTag" :tags="allTags" />
+      </Stack>
 
       <!-- Articles Grid -->
-      <div class="articles-grid">
+      <Grid columns="auto" gap="lg" class="articles-grid">
         <BlogCard
           v-for="article of filteredArticles"
           :key="article.slug"
           :post="article"
         />
-      </div>
+      </Grid>
     </template>
-  </main>
+  </Container>
 </template>
 
 <script>
@@ -151,7 +155,6 @@ export default {
   width: 300px;
   height: 200px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 .featured-article-content {
@@ -178,21 +181,10 @@ export default {
 
 .filter-section {
   margin-bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.search-container {
-  display: flex;
-  justify-content: center;
 }
 
 .articles-grid {
   margin-bottom: 120px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
-  gap: clamp(20px, 3vw, 40px);
   position: relative;
   z-index: 2;
   width: 100%;
@@ -214,10 +206,6 @@ export default {
 @media (max-width: 768px) {
   .blog-page {
     padding: 60px 15px;
-  }
-
-  .articles-grid {
-    grid-template-columns: 1fr;
   }
 
   .featured-article-card {
