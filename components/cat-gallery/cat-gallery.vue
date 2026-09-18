@@ -49,6 +49,7 @@ export default {
   },
   async mounted() {
     await this.fetchCats()
+    setTimeout(() => { this.loading = false }, 1500)
   },
   methods: {
     async fetchCats() {
@@ -59,8 +60,6 @@ export default {
         this.cats = data.map(cat => cat.url)
       } catch (error) {
         console.error('Error fetching cats:', error)
-      } finally {
-        this.loading = false
       }
     }
   }

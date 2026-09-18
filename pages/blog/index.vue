@@ -57,7 +57,7 @@ export default {
   },
   data() {
     return {
-      loading: false,
+      loading: true,
       searchQuery: '',
       selectedTag: null
     }
@@ -73,6 +73,9 @@ export default {
     const allTags = [...new Set(articles.flatMap(a => a.tags || []))]
 
     return { articles: regularArticles, featuredArticle, allTags }
+  },
+  mounted() {
+    setTimeout(() => { this.loading = false }, 1500)
   },
   computed: {
     filteredArticles() {

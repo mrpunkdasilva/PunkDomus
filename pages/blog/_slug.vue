@@ -75,7 +75,7 @@ export default {
   },
   data() {
     return {
-      loading: false
+      loading: true
     }
   },
   async asyncData({ $content, params }) {
@@ -97,9 +97,11 @@ export default {
     return {
       article,
       prev: prev[0],
-      next: next[0],
-      loading: false
+      next: next[0]
     }
+  },
+  mounted() {
+    setTimeout(() => { this.loading = false }, 2000)
   },
   computed: {
     baseUrl() {
