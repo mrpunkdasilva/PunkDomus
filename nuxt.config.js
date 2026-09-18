@@ -4,6 +4,7 @@ export default {
 
   // Source directory
   srcDir: 'src/',
+  pagesDir: 'app/pages',
 
   // Adicione a configuração de generate se necessário
   generate: {
@@ -36,7 +37,7 @@ export default {
       { rel: 'canonical', href: 'https://punk-domus.vercel.app' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&family=Protest+Guerrilla&family=Fira+Code:wght@400;500;600&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Protest+Guerrilla&family=Fira+Code:wght@400;500;600&display=swap',
         crossorigin: 'anonymous'
       },
       {
@@ -62,10 +63,10 @@ export default {
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
-    { path: '~/shared/ui', prefix: 'Ui' },
-    { path: '~/features/home/components' },
-    { path: '~/features/blog/components' },
-    { path: '~/features/hand-notes/components' }
+    { path: '~/shared/ui', pathPrefix: false },
+    { path: '~/app/pages/home/components', pathPrefix: false },
+    { path: '~/app/pages/blog/components', pathPrefix: false },
+    { path: '~/app/pages/hand-notes/components', pathPrefix: false }
   ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
@@ -94,7 +95,7 @@ export default {
   // Configuração do google-fonts
   googleFonts: {
     families: {
-      'Inria+Sans': [300, 400, 700],
+      'JetBrains+Mono': [400, 500, 600, 700],
       'Protest+Guerrilla': true,
       'Fira+Code': [400, 500, 600]
     },
@@ -127,27 +128,27 @@ export default {
         {
           name: 'tech-docs',
           path: '/tech-docs',
-          component: resolve(__dirname, 'src/pages/tech-docs/index.vue')
+          component: resolve(__dirname, 'src/app/pages/tech-docs/index.vue')
         },
         {
           name: 'code-labs',
           path: '/code-labs',
-          component: resolve(__dirname, 'src/pages/code-labs/index.vue')
+          component: resolve(__dirname, 'src/app/pages/code-labs/index.vue')
         },
         {
           name: 'cheat-sheets',
           path: '/cheat-sheets',
-          component: resolve(__dirname, 'src/pages/cheat-sheets/index.vue')
+          component: resolve(__dirname, 'src/app/pages/cheat-sheets/index.vue')
         },
         {
           name: 'hand-notes',
           path: '/hand-notes',
-          component: resolve(__dirname, 'src/pages/hand-notes/index.vue')
+          component: resolve(__dirname, 'src/app/pages/hand-notes/index.vue')
         },
         {
           name: 'videos',
           path: '/videos',
-          component: resolve(__dirname, 'src/pages/videos/index.vue')
+          component: resolve(__dirname, 'src/app/pages/videos/index.vue')
         }
       )
     }
