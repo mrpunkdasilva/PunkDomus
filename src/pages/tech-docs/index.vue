@@ -407,16 +407,16 @@ export default {
 
 .tech-docs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
   gap: 30px;
   margin: 40px 0;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .tech-docs-grid > * {
-  max-width: 500px;
+  max-width: 100%;
 }
 
 .docs-section {
@@ -538,25 +538,28 @@ export default {
 
 .docs-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .docs-cards > * {
-  max-width: 500px;
+  max-width: 100%;
 }
 
 .doc-card {
   background: rgba(8, 14, 26, 0.9);
   border: 1px solid rgba(33, 222, 234, 0.3);
   border-radius: 15px;
-  padding: 25px;
+  padding: 20px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(33, 222, 234, 0.1);
+  height: 300px;
+  display: flex;
+  flex-direction: column;
 }
 
 .doc-card::before {
@@ -584,48 +587,53 @@ export default {
 .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .card-header i {
   color: #21DEEA;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .category {
   color: #FC5D7F;
-  font-size: 0.9em;
+  font-size: 0.75em;
 }
 
 .doc-card h3 {
   color: #21DEEA;
-  font-size: 1.4em;
-  margin-bottom: 10px;
+  font-size: 1em;
+  margin-bottom: 8px;
   text-shadow: 0 0 8px rgba(33, 222, 234, 0.6);
 }
 
 .doc-card p {
   color: #fff;
-  font-size: 0.95em;
-  margin-bottom: 15px;
-  line-height: 1.5;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+  line-height: 1.4;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  gap: 6px;
+  margin-top: 8px;
+  margin-bottom: 12px;
 }
 
 .tech-tag {
   background: rgba(33, 222, 234, 0.1);
   color: #21DEEA;
-  padding: 5px 10px;
+  padding: 3px 8px;
   border-radius: 5px;
-  font-size: 0.8em;
+  font-size: 0.7em;
   border: 1px solid rgba(33, 222, 234, 0.3);
 }
 
@@ -634,13 +642,13 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 15px;
+  padding-top: 10px;
   border-top: 1px solid rgba(33, 222, 234, 0.1);
 }
 
 .date {
   color: #FC5D7F;
-  font-size: 0.85em;
+  font-size: 0.75em;
 }
 
 .read-more {
