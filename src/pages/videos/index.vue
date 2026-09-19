@@ -428,7 +428,7 @@ export default {
 }
 
 .video-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .video-card {

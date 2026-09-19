@@ -209,7 +209,7 @@ export default {
 }
 
 .articles-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 @media (prefers-reduced-motion: reduce) {

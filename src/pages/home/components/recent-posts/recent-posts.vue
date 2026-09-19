@@ -45,7 +45,7 @@ export default {
 }
 
 .posts-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 @media (max-width: 768px) {

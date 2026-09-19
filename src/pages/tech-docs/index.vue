@@ -416,7 +416,7 @@ export default {
 }
 
 .tech-docs-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .docs-section {
@@ -545,7 +545,7 @@ export default {
 }
 
 .docs-cards > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .doc-card {
@@ -746,7 +746,7 @@ export default {
 }
 
 .categories-grid > * {
-  max-width: 350px;
+  max-width: 500px;
 }
 
 .category-card {
@@ -822,7 +822,7 @@ export default {
 }
 
 .quick-links > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .quick-link {

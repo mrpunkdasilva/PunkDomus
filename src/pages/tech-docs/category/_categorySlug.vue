@@ -117,7 +117,7 @@ export default {
 }
 
 .category-docs-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .doc-card {

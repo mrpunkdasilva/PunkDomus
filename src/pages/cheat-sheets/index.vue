@@ -325,7 +325,7 @@ export default {
 }
 
 .sheets-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .sheet-card {

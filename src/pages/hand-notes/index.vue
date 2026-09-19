@@ -601,7 +601,7 @@ export default {
 .note-card {
   flex: 1;
   min-width: min(300px, 100%);
-  max-width: 400px;
+  max-width: 500px;
 }
 
 /* Media Queries para Responsividade */

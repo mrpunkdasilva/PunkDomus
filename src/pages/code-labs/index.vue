@@ -240,7 +240,7 @@ export default {
 }
 
 .labs-grid > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .lab-card {

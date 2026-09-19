@@ -86,7 +86,7 @@ export default {
 }
 
 .categories-grid > * {
-  max-width: 350px;
+  max-width: 500px;
 }
 
 .category-card {

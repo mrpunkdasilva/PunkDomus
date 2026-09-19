@@ -52,7 +52,7 @@ export default {
 }
 
 .grid--auto > * {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .grid--equal > * {

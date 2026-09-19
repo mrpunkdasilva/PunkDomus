@@ -83,7 +83,7 @@ export default {
 }
 
 .tech-grid > * {
-  max-width: 350px;
+  max-width: 500px;
 }
 
 .tech-card {
