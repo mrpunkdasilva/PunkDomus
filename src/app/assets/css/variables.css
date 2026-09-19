@@ -63,6 +63,16 @@
   --text-3xl: 2.5em;
   --text-4xl: 3.5em;
 
+  /* Breakpoints */
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1200px;
+
+  /* Responsive spacing */
+  --page-padding: clamp(1rem, 4vw, 2rem);
+  --section-padding: clamp(2rem, 8vw, 5rem);
+
   /* Z-index */
   --z-dropdown: 100;
   --z-sticky: 200;

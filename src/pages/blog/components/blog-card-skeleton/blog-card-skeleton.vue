@@ -1,0 +1,55 @@
+<template>
+  <div class="blog-card-skeleton" aria-hidden="true">
+    <Skeleton variant="rect" height="200px" />
+    <div class="blog-card-skeleton__content">
+      <Skeleton variant="text" width="80%" height="1.3em" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" />
+      <Skeleton variant="text" width="60%" />
+      <div class="blog-card-skeleton__meta">
+        <Skeleton variant="text" width="100px" />
+        <div class="blog-card-skeleton__tags">
+          <Skeleton variant="text" width="50px" height="24px" />
+          <Skeleton variant="text" width="60px" height="24px" />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'BlogCardSkeleton',
+
+}
+</script>
+
+<style scoped>
+.blog-card-skeleton {
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.blog-card-skeleton__content {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.blog-card-skeleton__meta {
+  margin-top: var(--space-xs);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(252, 93, 127, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.blog-card-skeleton__tags {
+  display: flex;
+  gap: var(--space-xs);
+}
+</style>
