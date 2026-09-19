@@ -749,13 +749,13 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 20px;
   margin-top: 30px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .categories-grid > * {
-  max-width: 500px;
+  max-width: 100%;
 }
 
 .category-card {
@@ -825,13 +825,13 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 20px;
   margin-top: 30px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .quick-links > * {
-  max-width: 500px;
+  max-width: 100%;
 }
 
 .quick-link {
@@ -915,6 +915,16 @@ export default {
 
   .tech-docs-grid {
     grid-template-columns: repeat(4, 1fr);
+    max-width: 1600px;
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1600px;
+  }
+
+  .quick-links {
+    grid-template-columns: repeat(3, 1fr);
     max-width: 1600px;
   }
 }
