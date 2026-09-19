@@ -552,7 +552,7 @@ export default {
   background: rgba(8, 14, 26, 0.9);
   border: 1px solid rgba(33, 222, 234, 0.3);
   border-radius: 15px;
-  padding: 20px;
+  padding: 25px;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
@@ -587,8 +587,8 @@ export default {
 .card-header {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 10px;
+  margin-bottom: 12px;
 }
 
 .card-header i {
@@ -598,21 +598,22 @@ export default {
 
 .category {
   color: #FC5D7F;
-  font-size: 0.75em;
+  font-size: 0.8em;
 }
 
 .doc-card h3 {
   color: #21DEEA;
-  font-size: 1em;
-  margin-bottom: 8px;
+  font-size: 1.1em;
+  margin-bottom: 10px;
   text-shadow: 0 0 8px rgba(33, 222, 234, 0.6);
+  line-height: 1.3;
 }
 
 .doc-card p {
   color: #fff;
-  font-size: 0.8em;
-  margin-bottom: 10px;
-  line-height: 1.4;
+  font-size: 0.85em;
+  margin-bottom: 12px;
+  line-height: 1.5;
   flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -623,17 +624,17 @@ export default {
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
-  margin-bottom: 12px;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .tech-tag {
   background: rgba(33, 222, 234, 0.1);
   color: #21DEEA;
-  padding: 3px 8px;
+  padding: 4px 10px;
   border-radius: 5px;
-  font-size: 0.7em;
+  font-size: 0.75em;
   border: 1px solid rgba(33, 222, 234, 0.3);
 }
 
@@ -642,13 +643,13 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 12px;
   border-top: 1px solid rgba(33, 222, 234, 0.1);
 }
 
 .date {
   color: #FC5D7F;
-  font-size: 0.75em;
+  font-size: 0.8em;
 }
 
 .read-more {
@@ -899,6 +900,22 @@ export default {
 
   .quick-links {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1600px) {
+  .tech-docs-page {
+    max-width: 1600px;
+  }
+
+  .docs-cards {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1600px;
+  }
+
+  .tech-docs-grid {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1600px;
   }
 }
 </style>
