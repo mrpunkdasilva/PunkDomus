@@ -38,14 +38,14 @@ export default {
 
 .posts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .posts-grid > * {
-  max-width: 500px;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {

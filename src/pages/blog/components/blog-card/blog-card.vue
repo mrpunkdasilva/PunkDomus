@@ -72,7 +72,7 @@ export default {
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: all var(--transition-bounce);
-  height: 100%;
+  height: 300px;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -86,7 +86,7 @@ export default {
 
 .card-image {
   width: 100%;
-  height: 200px;
+  height: 140px;
   overflow: hidden;
   border-bottom: 1px solid var(--border-primary);
   flex-shrink: 0;
@@ -119,7 +119,7 @@ export default {
 }
 
 .placeholder-text {
-  font-size: 3.5em;
+  font-size: 2em;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.3);
   text-transform: uppercase;
@@ -128,48 +128,48 @@ export default {
 }
 
 .card-content {
-  padding: var(--space-lg);
+  padding: var(--space-sm);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
 }
 
 .card-title {
   color: var(--color-primary);
-  font-size: var(--text-xl);
+  font-size: var(--text-sm);
   font-weight: 700;
   line-height: 1.3;
 }
 
 .card-excerpt {
   color: var(--color-text-muted);
-  font-size: var(--text-base);
-  line-height: 1.7;
+  font-size: var(--text-xs);
+  line-height: 1.5;
   flex-grow: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .card-meta {
   margin-top: auto;
-  padding-top: var(--space-md);
+  padding-top: var(--space-xs);
   border-top: 1px solid rgba(252, 93, 127, 0.1);
 }
 
 .date {
-  font-size: var(--text-sm);
+  font-size: 0.7em;
   color: var(--color-secondary);
   display: block;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-2xs);
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-xs);
+  gap: var(--space-2xs);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -183,16 +183,20 @@ export default {
 }
 
 @media (max-width: 480px) {
+  .blog-card {
+    height: 250px;
+  }
+
   .card-image {
-    height: 160px;
+    height: 120px;
   }
 
   .card-content {
-    padding: var(--space-sm);
+    padding: var(--space-xs);
   }
 
   .card-title {
-    font-size: var(--text-md);
+    font-size: 0.8em;
   }
 }
 </style>

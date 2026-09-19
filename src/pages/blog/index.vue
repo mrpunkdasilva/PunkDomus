@@ -198,7 +198,7 @@ export default {
 .articles-grid {
   margin-bottom: 120px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: clamp(20px, 3vw, 40px);
   position: relative;
   z-index: 2;
@@ -209,7 +209,7 @@ export default {
 }
 
 .articles-grid > * {
-  max-width: 500px;
+  max-width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
