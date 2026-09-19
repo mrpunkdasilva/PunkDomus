@@ -198,6 +198,8 @@ export default {
 .video-page {
   min-height: 100vh;
   padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+  max-width: 1400px;
+  margin: 0 auto;
   background: linear-gradient(180deg,
     rgba(8, 14, 26, 0.9) 0%,
     rgba(8, 14, 26, 0.95) 50%,

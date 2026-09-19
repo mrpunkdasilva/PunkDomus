@@ -89,6 +89,7 @@ export default {
 /* Estilos base atualizados */
 .about-page {
   padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   background: linear-gradient(180deg,

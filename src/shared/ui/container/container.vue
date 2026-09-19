@@ -43,7 +43,7 @@ export default {
 }
 
 .container--sm { max-width: 640px; }
-.container--md { max-width: 1024px; }
+.container--md { max-width: 1200px; }
 .container--lg { max-width: 1280px; }
 .container--xl { max-width: 1440px; }
 .container--full { max-width: 100%; }

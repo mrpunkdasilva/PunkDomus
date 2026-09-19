@@ -113,6 +113,7 @@ export default {
 .blog-page {
   padding: 80px clamp(20px, 5vw, 60px);
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   min-height: 100vh;

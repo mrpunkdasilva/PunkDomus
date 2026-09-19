@@ -288,6 +288,8 @@ export default {
   );
   padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
   padding-bottom: 9rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .tech-docs-header {
@@ -405,9 +407,16 @@ export default {
 
 .tech-docs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 30px;
   margin: 40px 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tech-docs-grid > * {
+  max-width: 400px;
 }
 
 .docs-section {
@@ -660,6 +669,9 @@ export default {
   padding: 30px;
   background: rgba(8, 14, 26, 0.8);
   border-radius: 15px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .updates-timeline {
@@ -725,9 +737,16 @@ export default {
 
 .categories-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 20px;
   margin-top: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.categories-grid > * {
+  max-width: 350px;
 }
 
 .category-card {

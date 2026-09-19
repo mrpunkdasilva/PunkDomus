@@ -221,6 +221,8 @@ export default {
     rgba(8, 14, 26, 0.95) 50%,
     rgba(8, 14, 26, 0.9) 100%
   );
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .page-header {

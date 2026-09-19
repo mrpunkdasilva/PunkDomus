@@ -66,6 +66,7 @@ export default {
 <style scoped>
 .page-container {
   padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   background: linear-gradient(180deg, rgba(8, 14, 26, 0.9) 0%, rgba(8, 14, 26, 0.95) 50%, rgba(8, 14, 26, 0.9) 100%);

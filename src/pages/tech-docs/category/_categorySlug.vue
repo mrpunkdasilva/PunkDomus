@@ -79,6 +79,8 @@ export default {
   );
   padding: clamp(2rem, 8vw, 5rem) clamp(1rem, 4vw, 2rem);
   padding-bottom: 9rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .category-header {
