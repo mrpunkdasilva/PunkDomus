@@ -202,9 +202,13 @@ export default {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.articles-grid > * {
+  max-width: 400px;
 }
 
 @media (prefers-reduced-motion: reduce) {

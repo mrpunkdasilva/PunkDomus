@@ -22,10 +22,6 @@
     </header>
     <!-- Nova Seção: Featured Notes -->
     <section class="featured-notes">
-      <h2 class="featured-title">
-        <i class="fas fa-star"></i>
-        Notas em Destaque
-      </h2>
 
       <div class="featured-carousel-wrapper">
         <button

@@ -76,8 +76,14 @@ export default {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tech-grid > * {
+  max-width: 350px;
 }
 
 .tech-card {

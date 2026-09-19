@@ -233,8 +233,14 @@ export default {
 
 .labs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.labs-grid > * {
+  max-width: 400px;
 }
 
 .lab-card {

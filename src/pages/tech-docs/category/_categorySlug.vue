@@ -108,8 +108,14 @@ export default {
 
 .category-docs-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.category-docs-grid > * {
+  max-width: 400px;
 }
 
 .doc-card {

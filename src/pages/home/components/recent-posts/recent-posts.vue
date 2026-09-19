@@ -40,6 +40,12 @@ export default {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
   gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.posts-grid > * {
+  max-width: 400px;
 }
 
 @media (max-width: 768px) {

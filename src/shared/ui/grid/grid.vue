@@ -45,7 +45,15 @@ export default {
 .grid--2 { grid-template-columns: repeat(2, 1fr); }
 .grid--3 { grid-template-columns: repeat(3, 1fr); }
 .grid--4 { grid-template-columns: repeat(4, 1fr); }
-.grid--auto { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.grid--auto {
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid--auto > * {
+  max-width: 400px;
+}
 
 .grid--equal > * {
   display: flex;

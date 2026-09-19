@@ -529,8 +529,14 @@ export default {
 
 .docs-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.docs-cards > * {
+  max-width: 400px;
 }
 
 .doc-card {
@@ -788,9 +794,16 @@ export default {
 
 .quick-links {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 20px;
   margin-top: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quick-links > * {
+  max-width: 400px;
 }
 
 .quick-link {
