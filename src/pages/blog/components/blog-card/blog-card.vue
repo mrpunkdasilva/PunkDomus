@@ -9,7 +9,6 @@
       </div>
       <div class="card-content">
         <h3 class="card-title">{{ post.title }}</h3>
-        <p class="card-excerpt">{{ post.description }}</p>
         <div class="card-meta">
           <time class="date" :datetime="post.createdAt">{{ formatDate(post.createdAt) }}</time>
           <div class="tags" v-if="post.tags">
@@ -72,7 +71,7 @@ export default {
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: all var(--transition-bounce);
-  height: 300px;
+  height: 389px;
   display: flex;
   flex-direction: column;
   min-width: 0;
@@ -132,7 +131,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  gap: var(--space-xs);
+  gap: var(--space-md);
 }
 
 .card-title {
@@ -142,21 +141,13 @@ export default {
   line-height: 1.3;
 }
 
-.card-excerpt {
-  color: var(--color-text-muted);
-  font-size: var(--text-xs);
-  line-height: 1.5;
-  flex-grow: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .card-meta {
   margin-top: auto;
-  padding-top: var(--space-xs);
+  padding: var(--space-sm);
   border-top: 1px solid rgba(252, 93, 127, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .date {
@@ -184,19 +175,21 @@ export default {
 
 @media (max-width: 480px) {
   .blog-card {
-    height: 250px;
+    height: 300px;
   }
 
   .card-image {
-    height: 120px;
+    height: 140px;
   }
 
   .card-content {
     padding: var(--space-xs);
+    gap: var(--space-sm);
   }
 
-  .card-title {
-    font-size: 0.8em;
+  .card-meta {
+    padding: var(--space-xs);
+    gap: var(--space-2xs);
   }
 }
 </style>
