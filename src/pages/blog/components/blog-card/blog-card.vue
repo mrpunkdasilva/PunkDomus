@@ -12,7 +12,7 @@
         <div class="card-meta">
           <time class="date" :datetime="post.createdAt">{{ formatDate(post.createdAt) }}</time>
           <div class="tags" v-if="post.tags">
-            <Tag v-for="tag in post.tags" :key="tag">{{ tag }}</Tag>
+            <Tag v-for="tag in post.tags.slice(0, 3)" :key="tag">{{ tag }}</Tag>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default {
 
 .card-image {
   width: 100%;
-  height: 140px;
+  height: 50%;
   overflow: hidden;
   border-bottom: 1px solid var(--border-primary);
   flex-shrink: 0;
@@ -176,10 +176,6 @@ export default {
 @media (max-width: 480px) {
   .blog-card {
     height: 300px;
-  }
-
-  .card-image {
-    height: 140px;
   }
 
   .card-content {
