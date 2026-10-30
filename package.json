@@ -7,6 +7,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "redirects": "node scripts/sync-blog-redirects.mjs",
+    "deploy": "npm run redirects && vercel --prod",
+    "deploy:preview": "npm run redirects && vercel",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

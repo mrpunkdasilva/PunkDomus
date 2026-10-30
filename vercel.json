@@ -2,6 +2,70 @@
   "buildCommand": "nuxt generate",
   "outputDirectory": "dist",
   "redirects": [
-    { "source": "/:slug", "destination": "/blog/:slug", "permanent": true }
+    {
+      "source": "/a-jornada-do-desenvolvedor-no-terminal",
+      "destination": "/blog/a-jornada-do-desenvolvedor-no-terminal",
+      "permanent": true
+    },
+    {
+      "source": "/aprendendo-jquery",
+      "destination": "/blog/aprendendo-jquery",
+      "permanent": true
+    },
+    {
+      "source": "/aprendendo-sistemas-operacionais",
+      "destination": "/blog/aprendendo-sistemas-operacionais",
+      "permanent": true
+    },
+    {
+      "source": "/bulma-css-facil-rapido-e-menos-pior-que-bootstrap-e-tailwind",
+      "destination": "/blog/bulma-css-facil-rapido-e-menos-pior-que-bootstrap-e-tailwind",
+      "permanent": true
+    },
+    {
+      "source": "/desvendando-o-http",
+      "destination": "/blog/desvendando-o-http",
+      "permanent": true
+    },
+    {
+      "source": "/ferramentas-de-build-javascript-modernas-um-guia-abrangente-para-webpack-vite-e-alternativas-essenciais",
+      "destination": "/blog/ferramentas-de-build-javascript-modernas-um-guia-abrangente-para-webpack-vite-e-alternativas-essenciais",
+      "permanent": true
+    },
+    {
+      "source": "/flexbox-simples-e-pratico",
+      "destination": "/blog/flexbox-simples-e-pratico",
+      "permanent": true
+    },
+    {
+      "source": "/git-pie-aprenda-sobre-version-control-system",
+      "destination": "/blog/git-pie-aprenda-sobre-version-control-system",
+      "permanent": true
+    },
+    {
+      "source": "/mongodb-banco-nosql-aplicado-em-minecraft",
+      "destination": "/blog/mongodb-banco-nosql-aplicado-em-minecraft",
+      "permanent": true
+    },
+    {
+      "source": "/o-que-e-threads-nao-e-o-twitter-da-meta",
+      "destination": "/blog/o-que-e-threads-nao-e-o-twitter-da-meta",
+      "permanent": true
+    },
+    {
+      "source": "/principios-da-programacao-orientada-a-objetos-em-csharp-e-comparacao-de-estruturas-de-dados",
+      "destination": "/blog/principios-da-programacao-orientada-a-objetos-em-csharp-e-comparacao-de-estruturas-de-dados",
+      "permanent": true
+    },
+    {
+      "source": "/um-pouco-sobre-processos-em-sistemas-operacionais",
+      "destination": "/blog/um-pouco-sobre-processos-em-sistemas-operacionais",
+      "permanent": true
+    },
+    {
+      "source": "/wai-aria-a-revolucao-invisivel-da-web-acessivel",
+      "destination": "/blog/wai-aria-a-revolucao-invisivel-da-web-acessivel",
+      "permanent": true
+    }
   ]
 }
